@@ -19,7 +19,7 @@ export type Game = {
   mode?: "endless";
   categories: GameCategory[];
   thumbnail?: string;
-  artwork?: "block-drop";
+  artwork?: "block-drop" | "block-break";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -44,12 +44,15 @@ export const games: Game[] = [
   {
     id: "002",
     gameNumber: 2,
-    title: "COMING SOON",
-    shortDescription: "ふたりで遊ぶ、新しい時間。",
-    minPlayers: 2,
-    maxPlayers: 2,
-    categories: ["brain"],
-    status: "coming-soon",
+    title: "BLOCK BREAK",
+    shortDescription: "壊すたび、気持ちいい。10ステージのブロック崩し。",
+    minPlayers: 1,
+    maxPlayers: 1,
+    categories: ["reflex"],
+    artwork: "block-break",
+    isNew: true,
+    status: "available",
+    route: "/play/002",
   },
   {
     id: "003",

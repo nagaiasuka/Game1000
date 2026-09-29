@@ -1,6 +1,6 @@
 # GAME100 — ゲームヒャク
 
-スマホの中に、ネオンのゲームセンターを。React Native / Expoで作るiOS・Android向けミニゲームアプリの基盤です。GAME #001「テトリス BLOCK DROP」をプレイできます。
+スマホの中に、ネオンのゲームセンターを。React Native / Expoで作るiOS・Android向けミニゲームアプリです。GAME #001「テトリス BLOCK DROP」とGAME #002「BLOCK BREAK」をプレイできます。
 
 現在のユーザー向けブランドは **GAME100**。「2030年12月31日までにゲーム100本を作る会社員」という企画です。内部プロジェクト名は **GAME1000** のままです。
 
@@ -29,7 +29,8 @@ npm run android  # Android Studioのエミュレーター、または接続し�
 - HOMEは人数・おまかせから遊びを決める入口、GAMESはコンパクトな人数フィルターとゲーム一覧
 - 1人 / 2人 / 3〜4人 / 5人以上の人数フィルター
 - 人気・新着の一覧導線、準備中の空表示
-- GAME #001「テトリス BLOCK DROP」と準備中ゲーム2件、再利用可能なGameCard
+- GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」（10ステージ）、準備中ゲーム1件
+- HOMEの新作は公開済み新着の最大ゲーム番号を表示。ROAD TO 100は002 / 100・残り98本へ自動更新
 - Safe Area、縦画面、スクロール、押下フィードバック、Haptics
 
 ランダム選択・お気に入り保存は準備中画面です。プレイ履歴、音、サーバー、課金、広告は未導入です。
@@ -46,17 +47,18 @@ src/
     arcade.tsx           # ロゴ、カウンター、人数選択、GameCardなど
   data/catalog.ts        # Game型、ゲーム情報、人数フィルター
   games/001/             # BLOCK DROP（UI・ロジック・保存を分離）
+  games/002/             # BLOCK BREAK（10ステージ・アイテム・コンボ・FEVER）
   theme/index.ts         # 共通色、余白、フォント
 tests/                  # カタログ・BLOCK DROPのロジックと保存の検証
 ```
 
-## GAME #001と次のゲームの追加
+## ゲームの仕様と追加
 
-GAME #001の操作・ルール・保存・検証結果は [BLOCK DROP README](src/games/001/README.md) に記載しています。次のゲームは以下の手順で追加できます。
+操作・ルール・保存・検証結果は [BLOCK DROP README](src/games/001/README.md)、[BLOCK BREAK README](src/games/002/README.md) に記載しています。次のゲームは以下の手順で追加できます。
 
-1. `src/games/002/GameScreen.tsx` にゲーム本体を実装。
-2. `src/app/play/002.tsx` でその画面をexport。
-3. `src/data/catalog.ts` の002の内容を実データに更新し、`status: 'available'` と `route: '/play/002'` を設定。
+1. `src/games/003/GameScreen.tsx` にゲーム本体を実装。
+2. `src/app/play/003.tsx` でその画面をexport。
+3. `src/data/catalog.ts` の003の内容を実データに更新し、`status: 'available'` と `route: '/play/003'` を設定。
 4. ゲームから戻る導線をルートStackに追加。
 
 収録数は `available` の件数から自動計算されます。詳細は [src/games/README.md](src/games/README.md) を参照。

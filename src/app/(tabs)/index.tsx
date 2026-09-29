@@ -7,17 +7,18 @@ import {
   CategoryLinks,
 } from "@/components/arcade";
 import { Screen, Tap, Icon, s } from "@/components/ui";
-import { BlockDropArtwork } from "@/components/game-artwork";
+import { BlockDropArtwork, BlockBreakArtwork } from "@/components/game-artwork";
 import { ProjectProgress } from "@/components/project-progress";
 import { games } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
 import { colors } from "@/theme";
+import { DeveloperAccess } from "@/developer/DeveloperAccess";
 export default function Home() {
   return (
     <Screen>
       <View style={s.row}>
         <Text style={s.eyebrow}>LET’S BUILD THE ARCADE</Text>
-        <Icon name="sparkles-outline" size={15} color={colors.cyan} />
+        <DeveloperAccess />
       </View>
       <GameLogo />
       <View style={{ gap: 7 }}>
@@ -38,6 +39,7 @@ export default function Home() {
       </View>
       {games
         .filter((game) => game.status === "available" && game.isNew)
+        .sort((a, b) => b.gameNumber - a.gameNumber)
         .slice(0, 1)
         .map((game) => (
           <Tap
@@ -56,6 +58,7 @@ export default function Home() {
             }}
           >
             {game.artwork === "block-drop" && <BlockDropArtwork />}
+            {game.artwork === "block-break" && <BlockBreakArtwork />}
             <View
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >

@@ -74,6 +74,108 @@ export function BlockDropArtwork() {
     </LinearGradient>
   );
 }
+export function BlockBreakArtwork() {
+  return (
+    <LinearGradient
+      colors={["#291039", c.background, "#0D343C"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.art}
+    >
+      <View style={styles.halo} />
+      <View style={styles.copy}>
+        <Text style={styles.kicker}>BREAK. COMBO. FEVER.</Text>
+        <Text style={styles.title}>
+          BLOCK{"\n"}BREAK<Text style={{ color: c.pink }}>.</Text>
+        </Text>
+        <View style={styles.underline} />
+        <Text style={styles.caption}>壊すたび、気持ちいい。</Text>
+      </View>
+      <View
+        style={{
+          width: 120,
+          height: 150,
+          transform: [{ rotate: "-8deg" }],
+          marginLeft: 4,
+        }}
+      >
+        {[c.pink, c.purple, c.cyan, c.yellow].map((color, y) => (
+          <View
+            key={color}
+            style={{ flexDirection: "row", gap: 4, marginBottom: 5 }}
+          >
+            {Array.from({ length: 4 }, (_, x) => (
+              <View
+                key={x}
+                style={{
+                  width: 27,
+                  height: 12,
+                  borderWidth: 1,
+                  borderColor: color,
+                  backgroundColor: color + "99",
+                  borderRadius: 3,
+                  opacity: y === 3 && x === 2 ? 0 : 1,
+                }}
+              />
+            ))}
+          </View>
+        ))}
+        {[0, 1, 2, 3, 4].map((i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: 52 + i * 6,
+              top: 104 - i * 8,
+              width: 5 + i,
+              height: 5 + i,
+              borderRadius: 10,
+              backgroundColor: c.cyan,
+              opacity: (i + 1) / 5,
+            }}
+          />
+        ))}
+        <View
+          style={{
+            position: "absolute",
+            top: 62,
+            left: 82,
+            width: 12,
+            height: 12,
+            borderRadius: 6,
+            backgroundColor: c.text,
+          }}
+        />
+        <View
+          style={{
+            position: "absolute",
+            bottom: 3,
+            left: 24,
+            width: 70,
+            height: 9,
+            borderRadius: 5,
+            backgroundColor: c.cyan,
+            borderTopWidth: 2,
+            borderTopColor: c.text,
+          }}
+        />
+        <Text
+          style={{
+            position: "absolute",
+            top: 88,
+            right: -2,
+            color: c.pink,
+            fontSize: 12,
+            fontFamily: mono,
+            fontWeight: "900",
+          }}
+        >
+          ×10!
+        </Text>
+      </View>
+    </LinearGradient>
+  );
+}
 const styles = StyleSheet.create({
   art: {
     width: "100%",

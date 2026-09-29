@@ -9,7 +9,7 @@ import {
 } from "@/data/catalog";
 import { colors as c, mono } from "@/theme";
 import { BRAND } from "@/data/brand";
-import { BlockDropArtwork } from "./game-artwork";
+import { BlockDropArtwork, BlockBreakArtwork } from "./game-artwork";
 import { Icon, Tap, s, type IconName } from "./ui";
 export function GameLogo() {
   return (
@@ -177,6 +177,8 @@ export function GameCard({ game }: { game: Game }) {
     <>
       {game.artwork === "block-drop" ? (
         <BlockDropArtwork />
+      ) : game.artwork === "block-break" ? (
+        <BlockBreakArtwork />
       ) : (
         <View style={[a.art, { borderBottomColor: accent + "44" }]}>
           <View style={[a.orbit, { borderColor: accent + "22" }]} />
