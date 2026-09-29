@@ -2,13 +2,13 @@ import { Text, View } from "react-native";
 import { router } from "expo-router";
 import {
   GameLogo,
-  GameCounter,
   RandomGameButton,
   PlayerSelector,
   CategoryLinks,
 } from "@/components/arcade";
 import { Screen, Tap, Icon, s } from "@/components/ui";
 import { BlockDropArtwork } from "@/components/game-artwork";
+import { ProjectProgress } from "@/components/project-progress";
 import { games } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
 import { colors } from "@/theme";
@@ -16,17 +16,26 @@ export default function Home() {
   return (
     <Screen>
       <View style={s.row}>
-        <Text style={s.eyebrow}>WELCOME TO THE ARCADE</Text>
+        <Text style={s.eyebrow}>LET’S BUILD THE ARCADE</Text>
         <Icon name="sparkles-outline" size={15} color={colors.cyan} />
       </View>
       <GameLogo />
       <View style={{ gap: 7 }}>
-        <Text accessibilityRole="header" style={[s.title, { fontSize: 25 }]}>
-          今日は、何して遊ぶ？
+        <Text
+          accessibilityRole="header"
+          style={[s.title, { fontSize: 27, lineHeight: 38 }]}
+        >
+          みんなの声で、{"\n"}育つゲームセンター。
         </Text>
-        <Text style={s.body}>ひとりでも、みんなでも。遊びはここに。</Text>
+        <Text style={s.body}>ひとりでも、みんなでも。遊んで、次の遊びへ。</Text>
       </View>
-      <GameCounter />
+      <ProjectProgress link />
+      <View style={{ gap: 6 }}>
+        <Text style={[s.eyebrow, { color: colors.cyan }]}>PLAY THE LATEST</Text>
+        <Text accessibilityRole="header" style={s.subtitle}>
+          まずは、できたての1本から。
+        </Text>
+      </View>
       {games
         .filter((game) => game.status === "available" && game.isNew)
         .slice(0, 1)

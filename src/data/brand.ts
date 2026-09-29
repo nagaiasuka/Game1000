@@ -6,4 +6,6 @@ export const BRAND = {
   displayName: appConfig.expo.name,
   reading: "ゲームヒャク",
   targetGames: GAME_TARGET,
+  deadline: "2030-12-31",
+  timeZone: "Asia/Tokyo",
 } as const;
