@@ -10,6 +10,7 @@ import {
 import { Screen, Tap, Icon, s } from "@/components/ui";
 import { BlockDropArtwork } from "@/components/game-artwork";
 import { games } from "@/data/catalog";
+import { BRAND } from "@/data/brand";
 import { colors } from "@/theme";
 export default function Home() {
   return (
@@ -98,7 +99,7 @@ export default function Home() {
         <Icon name="arrow-forward" color={colors.cyan} />
       </Tap>
       <Text style={[s.eyebrow, { textAlign: "center", fontSize: 9 }]}>
-        1000 GAMES. ENDLESS GOOD TIMES.
+        {BRAND.targetGames} GAMES. ENDLESS GOOD TIMES.
       </Text>
     </Screen>
   );

@@ -8,16 +8,21 @@ import {
   type Game,
 } from "@/data/catalog";
 import { colors as c, mono } from "@/theme";
+import { BRAND } from "@/data/brand";
 import { BlockDropArtwork } from "./game-artwork";
 import { Icon, Tap, s, type IconName } from "./ui";
 export function GameLogo() {
   return (
-    <View accessible accessibilityLabel="GAME1000、ゲームセン" style={a.logo}>
+    <View
+      accessible
+      accessibilityLabel={`${BRAND.displayName}、${BRAND.reading}`}
+      style={a.logo}
+    >
       <Text style={a.game}>
-        GAME<Text style={a.thousand}>1000</Text>
+        GAME<Text style={a.thousand}>{BRAND.targetGames}</Text>
         <Text style={{ fontSize: 12, color: c.pink }}> ✦</Text>
       </Text>
-      <Text style={a.logoSub}>ゲームセン / YOUR POCKET ARCADE</Text>
+      <Text style={a.logoSub}>{BRAND.reading} / YOUR POCKET ARCADE</Text>
     </View>
   );
 }
@@ -28,12 +33,14 @@ export function GameCounter() {
         <Text style={s.eyebrow}>GAMES</Text>
         <Text style={a.count}>
           {String(availableCount(games)).padStart(3, "0")}
-          <Text style={a.total}> / 1000</Text>
+          <Text style={a.total}> / {BRAND.targetGames}</Text>
         </Text>
       </View>
       <View style={a.counterRight}>
         <View style={a.dot} />
-        <Text style={a.counterNote}>ここから、1000の遊びへ。</Text>
+        <Text style={a.counterNote}>
+          ここから、{BRAND.targetGames}の遊びへ。
+        </Text>
       </View>
     </View>
   );
