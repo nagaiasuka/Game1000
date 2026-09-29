@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "GAME1000",
+    "slug": "game1000",
+    "version": "1.0.0",
+    "scheme": "game1000",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "platforms": ["ios", "android"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.nagaiasuka.game1000"
+    },
+    "android": {
+      "package": "com.nagaiasuka.game1000",
+      "predictiveBackGestureEnabled": true
+    },
+    "plugins": [
+      "expo-router",
+      ["expo-splash-screen", { "backgroundColor": "#070711" }]
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}
