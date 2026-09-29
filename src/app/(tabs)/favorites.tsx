@@ -3,7 +3,7 @@ export default function Favorites() {
   return (
     <Screen>
       <Heading
-        eyebrow="YOUR COLLECTION"
+        eyebrow="好きなゲームを集めよう"
         title="お気に入り"
         detail="また遊びたい、を集めよう。"
       />

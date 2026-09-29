@@ -1,3 +1,4 @@
+import { breakNotice } from "../presentation";
 import { memo, useEffect, useMemo } from "react";
 import { PanResponder, StyleSheet, Text, View } from "react-native";
 import type { BreakState } from "../logic/engine";
@@ -253,12 +254,17 @@ export function Field({
         {s.phase === "ready" && (
           <View style={[styles.ready, compact && { top: "55%", gap: 4 }]}>
             {!compact && (
-              <Text style={styles.stage}>
+              <Text maxFontSizeMultiplier={1.2} style={styles.stage}>
                 STAGE {String(s.stage + 1).padStart(2, "0")}
               </Text>
             )}
-            <Text maxFontSizeMultiplier={1.2} style={styles.launch}>
-              {s.readyLeft > 0 ? "READY" : "TAP TO LAUNCH"}
+            <Text
+              maxFontSizeMultiplier={1.2}
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              style={styles.launch}
+            >
+              {s.readyLeft > 0 ? "準備中…" : "タップしてボールを発射"}
             </Text>
             <Text
               numberOfLines={1}
@@ -270,7 +276,7 @@ export function Field({
             </Text>
             {!compact && (
               <Text maxFontSizeMultiplier={1.2} style={styles.hint}>
-                下の余白でも左右ドラッグできます
+                指を左右に動かしてバーを移動
               </Text>
             )}
           </View>
@@ -285,7 +291,7 @@ export function Field({
               },
             ]}
           >
-            {s.notice}
+            {breakNotice(s.notice)}
           </Text>
         )}
         <View
@@ -297,7 +303,9 @@ export function Field({
             alignItems: "center",
           }}
         >
-          <Text style={styles.hint}>← SLIDE TO MOVE →</Text>
+          <Text maxFontSizeMultiplier={1.2} style={styles.hint}>
+            ← 指を左右に動かす →
+          </Text>
         </View>
       </View>
       <View
@@ -327,7 +335,7 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
   launch: { color: c.text, fontSize: 19, fontWeight: "900" },
-  hint: { color: c.muted, fontSize: 9, fontFamily: mono },
+  hint: { color: c.text, fontSize: 12 },
   notice: {
     position: "absolute",
     top: "47%",

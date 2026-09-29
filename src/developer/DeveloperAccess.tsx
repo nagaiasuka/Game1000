@@ -91,7 +91,7 @@ export function DeveloperAccess() {
           style={styles.backdrop}
         >
           <View style={styles.dialog}>
-            <Text style={s.eyebrow}>DEVELOPER MODE</Text>
+            <Text style={s.eyebrow}>開発者モード</Text>
             <Text accessibilityRole="header" style={s.subtitle}>
               {mode.enabled ? "開発者モード ON" : "パスワードを入力"}
             </Text>

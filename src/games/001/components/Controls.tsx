@@ -18,7 +18,7 @@ const buttons: {
     {
       action: "soft",
       text: "↓",
-      hint: "ソフトドロップ、長押しで速く落下",
+      hint: "早く落とす、長押しで続けて落とす",
       repeat: "soft",
     },
   ],
@@ -29,7 +29,7 @@ const buttons: {
       hint: "左移動、長押しで連続移動",
       repeat: "left",
     },
-    { action: "drop", text: "DROP", hint: "ハードドロップ、着地点に固定" },
+    { action: "drop", text: "一気に落とす", hint: "一気に落とす" },
     {
       action: "right",
       text: "→",
@@ -74,7 +74,11 @@ export function Controls({ enabled, input, press, release }: Props) {
                   style={[
                     styles.label,
                     button.text.length > 1 && { fontSize: 14 },
-                    button.action === "drop" && { color: c.cyan },
+                    button.action === "drop" && {
+                      color: c.cyan,
+                      fontSize: 14,
+                      textAlign: "center",
+                    },
                   ]}
                 >
                   {button.text}
@@ -92,7 +96,8 @@ const styles = StyleSheet.create({
   row: { flexDirection: "row", gap: 10 },
   button: {
     flex: 1,
-    height: 48,
+    minHeight: 48,
+    paddingVertical: 8,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 12,

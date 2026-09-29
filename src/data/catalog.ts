@@ -31,7 +31,7 @@ export const games: Game[] = [
     id: "001",
     gameNumber: 1,
     title: "テトリス BLOCK DROP",
-    shortDescription: "ブロックを積んで、ラインを消せ。",
+    shortDescription: "ブロックを積んで、横一列そろえて消そう。",
     minPlayers: 1,
     maxPlayers: 1,
     categories: ["puzzle"],
@@ -57,7 +57,7 @@ export const games: Game[] = [
   {
     id: "003",
     gameNumber: 3,
-    title: "COMING SOON",
+    title: "次のゲームを制作中！",
     shortDescription: "みんなが集まれば、ゲームの時間。",
     minPlayers: 3,
     maxPlayers: 10,
@@ -66,10 +66,10 @@ export const games: Game[] = [
   },
 ];
 export const playerOptions = [
-  { id: "1", label: "1人", caption: "SOLO", min: 1, max: 1 },
-  { id: "2", label: "2人", caption: "DUO", min: 2, max: 2 },
-  { id: "3-4", label: "3〜4人", caption: "GROUP", min: 3, max: 4 },
-  { id: "5+", label: "5人以上", caption: "PARTY", min: 5, max: Infinity },
+  { id: "1", label: "1人で遊ぶ", caption: "ひとりで", min: 1, max: 1 },
+  { id: "2", label: "2人で遊ぶ", caption: "ふたりで", min: 2, max: 2 },
+  { id: "3-4", label: "3〜4人で遊ぶ", caption: "みんなで", min: 3, max: 4 },
+  { id: "5+", label: "5人以上", caption: "大人数で", min: 5, max: Infinity },
 ] as const;
 export function availableCount(catalog: readonly Game[]) {
   return catalog.filter((g) => g.status === "available").length;
@@ -87,3 +87,15 @@ export function filterGames(
       (collection !== "new" || g.isNew),
   );
 }
+
+export const CATEGORY_LABELS: Record<GameCategory, string> = {
+  brain: "頭の体操",
+  reflex: "アクション",
+  psychology: "かけひき",
+  party: "みんなで遊ぶ",
+  luck: "運だめし",
+  puzzle: "パズル",
+  board: "ボードゲーム",
+  quiz: "クイズ",
+  card: "カード",
+};

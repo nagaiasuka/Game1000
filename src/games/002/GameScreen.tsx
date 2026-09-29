@@ -1,6 +1,15 @@
+import {
+  GameButton as Button,
+  HelpButton,
+  GameInstructions,
+  HowToPlayModal,
+  confirmGameAction,
+} from "@/components/game/common";
+import { UI_TEXT } from "@/data/ui-text";
 import { useCallback, useState } from "react";
 import {
   BackHandler,
+  useWindowDimensions,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -20,36 +29,9 @@ import { Field } from "./components/Field";
 // Keep 95% of the available width; leave 5% below for rounded display corners.
 const FIELD_MARGIN_PERCENT = 5;
 
-function Button({
-  title,
-  onPress,
-  secondary = false,
-  disabled = false,
-}: {
-  title: string;
-  onPress: () => void;
-  secondary?: boolean;
-  disabled?: boolean;
-}) {
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityState={{ disabled }}
-      disabled={disabled}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.button,
-        secondary && styles.secondary,
-        { opacity: disabled ? 0.35 : pressed ? 0.65 : 1 },
-      ]}
-    >
-      <Text style={[styles.buttonText, secondary && { color: c.text }]}>
-        {title}
-      </Text>
-    </Pressable>
-  );
-}
 export default function GameScreen() {
+  const { fontScale } = useWindowDimensions();
+  const [helpOpen, setHelpOpen] = useState(false);
   const game = useBlockBreak();
   const { state: s, pause } = game;
   const [selected, setSelected] = useState(0);
@@ -74,7 +56,12 @@ export default function GameScreen() {
   const stage = STAGES[s.stage];
   const time = `${Math.floor(s.stageTime / 60)}:${String(Math.floor(s.stageTime % 60)).padStart(2, "0")}`;
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView key={`layout-${fontScale}`} style={styles.safe}>
+      <HowToPlayModal
+        gameId="002"
+        visible={helpOpen}
+        onClose={() => setHelpOpen(false)}
+      />
       <View style={styles.container}>
         <View style={styles.header}>
           <Pressable
@@ -86,9 +73,19 @@ export default function GameScreen() {
             <Icon name="chevron-back" color={c.muted} />
           </Pressable>
           <View style={{ flex: 1 }}>
-            <Text style={styles.label}>GAME #002</Text>
-            <Text style={styles.title}>BLOCK BREAK</Text>
+            <Text maxFontSizeMultiplier={1.3} style={styles.label}>
+              GAME #002
+            </Text>
+            <Text maxFontSizeMultiplier={1.3} style={styles.title}>
+              BLOCK BREAK
+            </Text>
           </View>
+          <HelpButton
+            onPress={() => {
+              game.pause();
+              setHelpOpen(true);
+            }}
+          />
           <Pressable
             onPress={pause}
             disabled={!["playing", "ready"].includes(s.phase)}
@@ -101,7 +98,9 @@ export default function GameScreen() {
         </View>
         <View style={styles.hud}>
           <View style={{ flex: 1, marginRight: 12 }}>
-            <Text style={styles.label}>SCORE</Text>
+            <Text maxFontSizeMultiplier={1.3} style={styles.label}>
+              スコア
+            </Text>
             <Text
               numberOfLines={1}
               adjustsFontSizeToFit
@@ -112,11 +111,15 @@ export default function GameScreen() {
             </Text>
           </View>
           <View style={{ gap: 5, alignItems: "flex-end" }}>
-            <Text style={styles.stage}>
-              STAGE {String(s.stage + 1).padStart(2, "0")} / {STAGES.length}
+            <Text maxFontSizeMultiplier={1.3} style={styles.stage}>
+              ステージ {s.stage + 1} / {STAGES.length}
             </Text>
-            <Text accessibilityLabel={`残機${s.lives}`} style={styles.lives}>
-              {"♥".repeat(s.lives)}
+            <Text
+              accessibilityLabel={`残り${s.lives}回`}
+              maxFontSizeMultiplier={1.2}
+              style={styles.lives}
+            >
+              残り {"♥".repeat(s.lives)}
               <Text style={{ color: c.border }}>{"♥".repeat(3 - s.lives)}</Text>
             </Text>
           </View>
@@ -133,12 +136,12 @@ export default function GameScreen() {
               fontWeight: "900",
             }}
           >
-            COMBO ×{s.combo}
+            コンボ ×{s.combo}
           </Text>
-          <Text style={styles.label}>
+          <Text maxFontSizeMultiplier={1.2} style={styles.label}>
             {s.feverLeft > 0
-              ? `FEVER ×2 · ${Math.ceil(s.feverLeft)}s`
-              : "FEVER"}
+              ? `得点2倍 · あと${Math.ceil(s.feverLeft)}秒`
+              : "フィーバー"}
           </Text>
         </View>
         <View style={styles.track}>
@@ -157,25 +160,33 @@ export default function GameScreen() {
             maxFontSizeMultiplier={1.2}
             style={styles.best}
           >
-            BEST {game.best.toLocaleString()}
+            最高記録 {game.best.toLocaleString()}
           </Text>
           {stage.incomingRows > 0 && (
             <Text
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              maxFontSizeMultiplier={1.2}
               style={[
                 styles.label,
                 { color: s.incomingIn >= 0 ? c.pink : c.cyan },
               ]}
             >
               {s.incomingIn >= 0
-                ? "NEXT ROW ↓"
+                ? "新しい列が来ます ↓"
                 : `追加列 ${s.rowsLeft} / ${stage.incomingRows}`}
             </Text>
           )}
-          <Text style={styles.label}>
-            {s.wideLeft > 0 ? `W ${Math.ceil(s.wideLeft)}s  ` : ""}
-            {s.powerLeft > 0 ? `P ${Math.ceil(s.powerLeft)}s` : ""}
-          </Text>
         </View>
+        <Text
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          maxFontSizeMultiplier={1.2}
+          style={[styles.label, styles.effects]}
+        >
+          {s.wideLeft > 0 ? `幅UP ${Math.ceil(s.wideLeft)}秒  ` : ""}
+          {s.powerLeft > 0 ? `突き抜け ${Math.ceil(s.powerLeft)}秒` : ""}
+        </Text>
         <Text
           numberOfLines={1}
           adjustsFontSizeToFit
@@ -185,7 +196,7 @@ export default function GameScreen() {
           {game.storageError
             ? "記録を保存・読み込みできませんでした"
             : game.developerMode || s.practice
-              ? "DEV MODE · 全ステージ選択可 / 記録保存なし"
+              ? "開発者モード・記録は保存しません"
               : " "}
         </Text>
         <View
@@ -209,22 +220,29 @@ export default function GameScreen() {
           {overlay && (
             <View style={styles.overlay}>
               <ScrollView
+                key={`menu-002-${fontScale}`}
                 contentContainerStyle={styles.overlayContent}
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator
               >
                 <View style={styles.menu}>
                   {s.phase === "select" && (
                     <>
-                      <Text style={styles.label}>
-                        1 PLAYER · {STAGES.length} STAGES
+                      <Text maxFontSizeMultiplier={1.3} style={styles.label}>
+                        1人用 · 全{STAGES.length}ステージ
                       </Text>
-                      <Text accessibilityRole="header" style={styles.hero}>
+                      <Text
+                        accessibilityRole="header"
+                        maxFontSizeMultiplier={1.3}
+                        style={styles.hero}
+                      >
                         BLOCK{"\n"}BREAK<Text style={{ color: c.pink }}>.</Text>
                       </Text>
                       <Text style={styles.copy}>
                         壊すたび、気持ちいい。{"\n"}続くほど、止められない。
                       </Text>
-                      <Text style={styles.stage}>STAGE SELECT</Text>
+                      <Text maxFontSizeMultiplier={1.3} style={styles.stage}>
+                        ステージを選ぶ
+                      </Text>
                       <View style={styles.stageGrid}>
                         {STAGES.map((level, index) => {
                           const locked =
@@ -256,12 +274,14 @@ export default function GameScreen() {
                                 />
                               ) : (
                                 <Text
+                                  maxFontSizeMultiplier={1.3}
                                   style={{
                                     color: c.cyan,
                                     fontFamily: mono,
                                     fontWeight: "800",
                                   }}
                                 >
+                                  {selected === index ? "▶ " : ""}
                                   {String(index + 1).padStart(2, "0")}
                                   {s.cleared.includes(index + 1) ? "✓" : ""}
                                 </Text>
@@ -270,106 +290,138 @@ export default function GameScreen() {
                           );
                         })}
                       </View>
-                      <Text style={styles.stage}>{STAGES[selected].name}</Text>
+                      <Text maxFontSizeMultiplier={1.3} style={styles.stage}>
+                        {STAGES[selected].name}
+                      </Text>
+                      <GameInstructions gameId="002" compact />
                       <Button
                         title={
                           game.loaded
-                            ? "PLAY STAGE " +
-                              String(selected + 1).padStart(2, "0")
-                            : "LOADING…"
+                            ? `ステージ${selected + 1}を遊ぶ`
+                            : UI_TEXT.loading
                         }
                         disabled={!game.loaded}
                         onPress={() => game.start(selected)}
                       />
                       <Text style={styles.copy}>
-                        左右ドラッグでパドル移動 · タップで発射{"\n"}
-                        ×3：ボール追加 / W：幅UP / P：貫通
+                        指を左右に動かしてバーを移動 · タップで発射{"\n"}
+                        ×3：ボール追加 / W：バーが広がる / P：突き抜ける
                       </Text>
                     </>
                   )}
                   {s.phase === "paused" && (
                     <>
-                      <Text style={styles.label}>{stage.name}</Text>
-                      <Text accessibilityRole="header" style={styles.heading}>
-                        PAUSED
+                      <Text maxFontSizeMultiplier={1.3} style={styles.label}>
+                        {stage.name}
+                      </Text>
+                      <Text
+                        accessibilityRole="header"
+                        maxFontSizeMultiplier={1.3}
+                        style={styles.heading}
+                      >
+                        一時停止
                       </Text>
                       <Text style={styles.copy}>
-                        左右ドラッグでパドル移動。{"\n"}
+                        指を左右に動かしてバーを移動。{"\n"}
                         端で当てて、飛ばす向きを狙おう。
                       </Text>
-                      <Button title="RESUME" onPress={game.resume} />
+                      <Button title={UI_TEXT.resume} onPress={game.resume} />
                       <Button
-                        title="RESTART STAGE"
-                        onPress={game.restart}
+                        title="このステージを最初から"
+                        onPress={() =>
+                          confirmGameAction("restart", game.restart, true)
+                        }
                         secondary
                       />
                       <Text style={styles.copy}>
                         やり直すと、このステージ開始時の{"\n"}
                         スコア・残機に戻ります。
                       </Text>
-                      <Button title="EXIT" onPress={home} secondary />
+                      <Button
+                        title={UI_TEXT.quit}
+                        onPress={() => confirmGameAction("quit", home)}
+                        secondary
+                      />
                     </>
                   )}
                   {(s.phase === "clear" || s.phase === "complete") && (
                     <>
                       <Text style={[styles.label, { color: c.pink }]}>
                         {s.phase === "complete"
-                          ? "YOU BROKE EVERYTHING."
+                          ? "全部のステージをクリア！"
                           : stage.name}
                       </Text>
                       <Text
                         accessibilityRole="header"
+                        maxFontSizeMultiplier={1.3}
                         style={[styles.heading, { color: c.cyan }]}
                       >
                         {s.phase === "complete"
-                          ? "ALL STAGES\nCLEAR"
+                          ? "全ステージ\nクリア！"
                           : "STAGE CLEAR!"}
                       </Text>
-                      <Text style={styles.resultScore}>
+                      <Text style={styles.copy}>スコア</Text>
+                      <Text
+                        maxFontSizeMultiplier={1.3}
+                        style={styles.resultScore}
+                      >
                         {s.score.toLocaleString()}
                       </Text>
                       <Text style={styles.copy}>
-                        MAX COMBO ×{s.stageMaxCombo} · TIME {time}
-                        {"\n"}CLEAR BONUS +{s.clearBonus.toLocaleString()}
-                        {"\n"}LIFE BONUS +{s.lifeBonus.toLocaleString()}
+                        ステージ{s.stage + 1} クリア！
+                      </Text>
+                      <Text style={styles.copy}>
+                        最大コンボ ×{s.stageMaxCombo} · 時間 {time}
+                        {"\n"}クリアボーナス +{s.clearBonus.toLocaleString()}
+                        {"\n"}ハートのボーナス +{s.lifeBonus.toLocaleString()}
                       </Text>
                       <Button
                         title={
-                          s.phase === "complete" ? "STAGE SELECT" : "NEXT STAGE"
+                          s.phase === "complete"
+                            ? UI_TEXT.stageSelect
+                            : UI_TEXT.nextStage
                         }
                         onPress={
                           s.phase === "complete" ? game.select : game.next
                         }
                       />
-                      <Button title="HOME" onPress={home} secondary />
+                      <Button title={UI_TEXT.home} onPress={home} secondary />
                     </>
                   )}
                   {s.phase === "over" && (
                     <>
                       <Text style={[styles.label, { color: c.pink }]}>
-                        ONE MORE BREAK?
+                        もう一度、挑戦しよう
                       </Text>
-                      <Text accessibilityRole="header" style={styles.heading}>
+                      <Text
+                        accessibilityRole="header"
+                        maxFontSizeMultiplier={1.3}
+                        style={styles.heading}
+                      >
                         GAME OVER
                       </Text>
-                      <Text style={styles.resultScore}>
+                      <Text style={styles.copy}>スコア</Text>
+                      <Text
+                        maxFontSizeMultiplier={1.3}
+                        style={styles.resultScore}
+                      >
                         {s.score.toLocaleString()}
                       </Text>
                       <Text style={styles.copy}>
-                        STAGE {String(s.stage + 1).padStart(2, "0")} · MAX COMBO
-                        ×{s.maxCombo}
-                        {"\n"}BEST {game.best.toLocaleString()}
+                        STAGE {String(s.stage + 1).padStart(2, "0")} ·
+                        最大コンボ ×{s.maxCombo}
+                        {"\n"}最高記録 {game.best.toLocaleString()}
                       </Text>
                       <Button
-                        title="RETRY"
+                        title={UI_TEXT.retry}
                         onPress={() => game.start(s.stage)}
                       />
                       <Button
-                        title="STAGE SELECT"
+                        title={UI_TEXT.stageSelect}
                         onPress={game.select}
                         secondary
                       />
-                      <Button title="HOME" onPress={home} secondary />
+                      <Button title={UI_TEXT.home} onPress={home} secondary />
                     </>
                   )}
                 </View>
@@ -400,9 +452,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   label: {
-    fontSize: 9,
-    fontFamily: mono,
-    letterSpacing: 1.2,
+    fontSize: 11,
+    letterSpacing: 0,
     color: c.muted,
     fontWeight: "700",
   },
@@ -467,7 +518,7 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     textAlign: "center",
   },
-  copy: { color: c.muted, fontSize: 11, lineHeight: 19, textAlign: "center" },
+  copy: { color: c.text, fontSize: 15, lineHeight: 24, textAlign: "center" },
   resultScore: {
     color: c.yellow,
     fontSize: 34,
@@ -483,6 +534,7 @@ const styles = StyleSheet.create({
   },
   stageCell: {
     width: "18%",
+    minWidth: 44,
     minHeight: 44,
     alignItems: "center",
     justifyContent: "center",
@@ -491,29 +543,12 @@ const styles = StyleSheet.create({
     borderRadius: 9,
     backgroundColor: c.surface,
   },
-  button: {
-    width: "100%",
-    minHeight: 46,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: c.cyan,
-    borderWidth: 1,
-    borderColor: c.cyan,
-    borderRadius: 12,
-  },
-  secondary: { backgroundColor: c.surface, borderColor: c.border },
-  buttonText: {
-    color: c.background,
-    fontSize: 13,
-    fontWeight: "900",
-    letterSpacing: 1,
-  },
   comboRow: {
     marginHorizontal: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    height: 26,
+    height: 28,
     overflow: "hidden",
   },
   track: {
@@ -525,19 +560,20 @@ const styles = StyleSheet.create({
   },
   recordsRow: {
     marginHorizontal: 12,
-    height: 16,
-    overflow: "hidden",
+    height: 24,
+    gap: 6,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
-  best: { flexShrink: 1, color: c.yellow, fontSize: 10, fontFamily: mono },
+  effects: { height: 20, lineHeight: 18, marginHorizontal: 12 },
+  best: { flexShrink: 1, color: c.yellow, fontSize: 12, fontFamily: mono },
   tip: {
-    height: 18,
-    lineHeight: 14,
+    height: 22,
+    lineHeight: 18,
     marginHorizontal: 12,
     color: c.muted,
-    fontSize: 10,
+    fontSize: 12,
     textAlign: "center",
   },
 });

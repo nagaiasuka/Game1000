@@ -1,6 +1,15 @@
+import {
+  GameButton as MenuButton,
+  HelpButton,
+  GameInstructions,
+  HowToPlayModal,
+  confirmGameAction,
+} from "@/components/game/common";
+import { UI_TEXT } from "@/data/ui-text";
 import { useCallback, useState } from "react";
 import {
   BackHandler,
+  useWindowDimensions,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -18,40 +27,9 @@ import { Controls } from "./components/Controls";
 import { useBlockDrop } from "./hooks/useBlockDrop";
 import { boardColors } from "./theme";
 
-function MenuButton({
-  title,
-  onPress,
-  disabled = false,
-  secondary = false,
-}: {
-  title: string;
-  onPress: () => void;
-  disabled?: boolean;
-  secondary?: boolean;
-}) {
-  return (
-    <Pressable
-      testID={`menu-${title.toLowerCase().replaceAll(" ", "-")}`}
-      accessibilityRole="button"
-      disabled={disabled}
-      accessibilityState={{ disabled }}
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.menuButton,
-        secondary && styles.secondary,
-        { opacity: disabled ? 0.4 : pressed ? 0.65 : 1 },
-      ]}
-    >
-      <Text
-        maxFontSizeMultiplier={1.3}
-        style={[styles.menuText, secondary && { color: c.text }]}
-      >
-        {title}
-      </Text>
-    </Pressable>
-  );
-}
 export default function GameScreen() {
+  const { fontScale } = useWindowDimensions();
+  const [helpOpen, setHelpOpen] = useState(false);
   const game = useBlockDrop();
   const { state } = game;
   const [buttons, setButtons] = useState(false);
@@ -101,7 +79,12 @@ export default function GameScreen() {
     showSettings ||
     ["ready", "countdown", "paused", "gameover"].includes(state.phase);
   return (
-    <SafeAreaView style={styles.safe}>
+    <SafeAreaView key={`layout-${fontScale}`} style={styles.safe}>
+      <HowToPlayModal
+        gameId="001"
+        visible={helpOpen}
+        onClose={() => setHelpOpen(false)}
+      />
       <View style={styles.container}>
         <View style={styles.header}>
           <Pressable
@@ -120,9 +103,13 @@ export default function GameScreen() {
               BLOCK DROP
             </Text>
           </View>
-          <Text maxFontSizeMultiplier={1.2} style={styles.mode}>
-            ENDLESS
-          </Text>
+
+          <HelpButton
+            onPress={() => {
+              game.pause();
+              setHelpOpen(true);
+            }}
+          />
           <Pressable
             testID="pause"
             accessibilityRole="button"
@@ -144,7 +131,7 @@ export default function GameScreen() {
         <View style={styles.hud}>
           <View style={styles.score}>
             <Text maxFontSizeMultiplier={1.2} style={styles.eyebrow}>
-              SCORE
+              スコア
             </Text>
             <Text
               testID="score"
@@ -156,18 +143,18 @@ export default function GameScreen() {
           </View>
           <View style={styles.stats}>
             <Text maxFontSizeMultiplier={1.1} style={styles.stat}>
-              LV{" "}
+              レベル{" "}
               <Text style={styles.statValue}>
                 {String(state.level).padStart(2, "0")}
               </Text>
             </Text>
             <Text maxFontSizeMultiplier={1.1} style={styles.stat}>
-              LINES <Text style={styles.statValue}>{state.lines}</Text>
+              消した列 <Text style={styles.statValue}>{state.lines}</Text>
             </Text>
           </View>
           <View style={styles.preview}>
             <Text maxFontSizeMultiplier={1.2} style={styles.eyebrow}>
-              NEXT
+              次のブロック
             </Text>
             <PiecePreview kind={state.queue[0] ?? null} />
           </View>
@@ -199,71 +186,86 @@ export default function GameScreen() {
           {overlay && (
             <View style={styles.overlay}>
               <ScrollView
+                key={`menu-001-${fontScale}`}
                 contentContainerStyle={styles.overlayContent}
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator
               >
                 {state.phase === "countdown" && !showSettings ? (
                   <View
                     accessibilityLiveRegion="polite"
                     style={styles.countdown}
                   >
-                    <Text style={styles.countdownText}>
+                    <Text
+                      maxFontSizeMultiplier={1.3}
+                      style={styles.countdownText}
+                    >
                       {state.countdown || "GO!"}
                     </Text>
-                    <Text style={styles.eyebrow}>READY TO DROP</Text>
+                    <Text style={styles.eyebrow}>まもなくスタート</Text>
                   </View>
                 ) : (
                   <View style={styles.menu}>
                     {state.phase === "ready" && !showSettings && (
                       <>
-                        <Text style={styles.eyebrow}>GAME #001 · 1 PLAYER</Text>
+                        <Text style={styles.eyebrow}>GAME #001 · 1人用</Text>
                         <Text
                           accessibilityRole="header"
+                          maxFontSizeMultiplier={1.3}
                           style={styles.menuTitle}
                         >
                           BLOCK{"\n"}DROP
                           <Text style={{ color: c.pink }}>.</Text>
                         </Text>
                         <Text style={styles.description}>
-                          ブロックを積んで、ラインを消せ。
+                          ブロックを積んで、横一列そろえて消そう。
                         </Text>
+                        <GameInstructions gameId="001" compact />
                         <MenuButton
-                          title={game.loaded ? "TAP TO START" : "LOADING…"}
+                          title={game.loaded ? UI_TEXT.start : UI_TEXT.loading}
                           onPress={startGame}
                           disabled={!game.loaded}
                         />
                         <Text style={styles.tip}>
                           {buttons
                             ? "← → ↓ は長押し対応 / ↻ で回転"
-                            : "タップで回転 / 左右ドラッグで移動\n下ドラッグで落下 / 0.5秒長押しでDROP"}
+                            : "タップで回転 / 左右ドラッグで移動\n下ドラッグで落下 / 0.5秒長押しで一気に落とす"}
                         </Text>
                       </>
                     )}
                     {showSettings && (
                       <>
-                        <Text style={styles.eyebrow}>PAUSE & SETTINGS</Text>
+                        <Text style={styles.eyebrow}>操作と設定</Text>
                         <Text
                           accessibilityRole="header"
+                          maxFontSizeMultiplier={1.3}
                           style={styles.menuHeading}
                         >
-                          {state.phase === "paused" ? "PAUSED" : "SETTINGS"}
+                          {state.phase === "paused" ? UI_TEXT.paused : "設定"}
                         </Text>
                         <InputSettings
                           buttons={buttons}
                           onChange={changeInput}
                         />
                         <MenuButton
-                          title={state.phase === "paused" ? "RESUME" : "戻る"}
+                          title={
+                            state.phase === "paused" ? UI_TEXT.resume : "戻る"
+                          }
                           onPress={closeSettings}
                         />
                         {state.phase === "paused" && (
                           <MenuButton
-                            title="RESTART"
-                            onPress={startGame}
+                            title={UI_TEXT.restart}
+                            onPress={() =>
+                              confirmGameAction("restart", startGame)
+                            }
                             secondary
                           />
                         )}
-                        <MenuButton title="EXIT" onPress={home} secondary />
+                        <MenuButton
+                          title={UI_TEXT.quit}
+                          onPress={() => confirmGameAction("quit", home)}
+                          secondary
+                        />
                       </>
                     )}
                     {state.phase === "gameover" && !showSettings && (
@@ -274,33 +276,40 @@ export default function GameScreen() {
                             { color: game.newBest ? c.yellow : c.pink },
                           ]}
                         >
-                          {game.newBest ? "NEW BEST!" : "ONE MORE GAME?"}
+                          {game.newBest
+                            ? "最高記録を更新！"
+                            : "もう一度、遊びませんか？"}
                         </Text>
                         <Text
                           accessibilityRole="header"
+                          maxFontSizeMultiplier={1.3}
                           style={styles.menuHeading}
                         >
                           GAME OVER
                         </Text>
                         <View style={styles.result}>
                           <Text style={styles.resultLabel}>
-                            SCORE{" "}
+                            スコア{" "}
                             <Text style={styles.resultValue}>
                               {state.score.toLocaleString()}
                             </Text>
                           </Text>
                           <Text style={styles.resultLabel}>
-                            BEST{" "}
+                            最高記録{" "}
                             <Text style={styles.resultValue}>
                               {game.best.toLocaleString()}
                             </Text>
                           </Text>
                           <Text style={styles.resultLabel}>
-                            LEVEL {state.level} / LINES {state.lines}
+                            レベル {state.level} / 消した列 {state.lines}
                           </Text>
                         </View>
-                        <MenuButton title="RETRY" onPress={startGame} />
-                        <MenuButton title="HOME" onPress={home} secondary />
+                        <MenuButton title={UI_TEXT.retry} onPress={startGame} />
+                        <MenuButton
+                          title={UI_TEXT.home}
+                          onPress={home}
+                          secondary
+                        />
                       </>
                     )}
                   </View>
@@ -311,16 +320,16 @@ export default function GameScreen() {
         </View>
         <View style={styles.bottomInfo}>
           <Text maxFontSizeMultiplier={1.1} style={styles.best}>
-            BEST {game.best.toLocaleString()}
+            最高記録 {game.best.toLocaleString()}
           </Text>
           <Text maxFontSizeMultiplier={1.1} style={styles.tip}>
             {game.storageError
               ? "記録を保存できませんでした"
               : state.phase === "clearing"
-                ? `${state.clearingRows.length} LINE${state.clearingRows.length > 1 ? "S" : ""}!`
+                ? `${state.clearingRows.length}列消えた！`
                 : state.dropCharge > 0
-                  ? "長押しでDROP…"
-                  : "ENDLESS"}
+                  ? "長押しで一気に落とす…"
+                  : "とことん遊ぶ"}
           </Text>
         </View>
         {buttons && (
@@ -362,8 +371,7 @@ const styles = StyleSheet.create({
   },
   eyebrow: {
     color: c.muted,
-    fontFamily: mono,
-    fontSize: 9,
+    fontSize: 11,
     letterSpacing: 1.8,
     fontWeight: "700",
   },
@@ -373,7 +381,7 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     letterSpacing: 1,
   },
-  mode: { color: c.cyan, fontSize: 9, fontFamily: mono, letterSpacing: 1 },
+  mode: { color: c.cyan, fontSize: 11, fontFamily: mono, letterSpacing: 1 },
   hud: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -394,7 +402,7 @@ const styles = StyleSheet.create({
     fontFamily: mono,
   },
   stats: { gap: 5, marginHorizontal: 12 },
-  stat: { fontSize: 9, color: c.muted, fontFamily: mono },
+  stat: { fontSize: 11, color: c.muted, fontFamily: mono },
   statValue: { color: c.cyan, fontWeight: "700" },
   boardArea: {
     flex: 1,
@@ -441,31 +449,11 @@ const styles = StyleSheet.create({
   },
   description: {
     color: c.muted,
-    fontSize: 12,
+    fontSize: 15,
     textAlign: "center",
     lineHeight: 20,
   },
-  menuButton: {
-    width: "100%",
-    minHeight: 46,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 12,
-    padding: 10,
-    backgroundColor: c.cyan,
-  },
-  secondary: {
-    backgroundColor: c.surface,
-    borderWidth: 1,
-    borderColor: c.border,
-  },
-  menuText: {
-    color: c.background,
-    fontSize: 14,
-    fontWeight: "800",
-    letterSpacing: 1,
-  },
-  tip: { fontSize: 10, color: c.muted, lineHeight: 17, textAlign: "center" },
+  tip: { fontSize: 14, color: c.muted, lineHeight: 17, textAlign: "center" },
   countdown: { alignItems: "center", gap: 12 },
   countdownText: {
     fontSize: 72,
@@ -479,7 +467,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     minHeight: 18,
   },
-  best: { color: c.yellow, fontFamily: mono, fontSize: 10 },
+  best: { color: c.yellow, fontFamily: mono, fontSize: 12 },
   result: { alignItems: "center", gap: 6, paddingVertical: 4 },
   resultLabel: { color: c.muted, fontSize: 12, fontFamily: mono },
   resultValue: { color: c.text, fontSize: 18, fontWeight: "800" },

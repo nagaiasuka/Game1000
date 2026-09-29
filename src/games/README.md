@@ -7,3 +7,7 @@
 新しいゲームは `003/` 等に独立して配置し、`src/app/play/003.tsx` から画面をexportします。`src/data/catalog.ts` の該当ゲームに実データと `status: 'available'`, `route: '/play/003'` を登録すると、一覧と収録数に反映されます。
 
 Router用ファイルは `src/app/` のみに置き、ゲーム内部の部品やロジックをルートに混ぜないでください。
+
+## 共通UI
+
+新規・既存ゲームとも [日本語ファースト共通仕様](../../docs/japanese-first-ui.md) を適用します。共通ボタン・遊び方・終了確認は `src/components/game/common.tsx`、文言と説明は `src/data/ui-text.ts` を利用してください。

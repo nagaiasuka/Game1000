@@ -35,13 +35,13 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
       </View>
       <View style={styles.countRow}>
         <View>
-          <Text style={styles.label}>現在 / GAMES</Text>
+          <Text style={styles.label}>現在のゲーム数</Text>
           <Text maxFontSizeMultiplier={1.3} style={styles.count}>
             {String(progress.available).padStart(3, "0")}
             <Text style={styles.total}> / {BRAND.targetGames}</Text>
           </Text>
         </View>
-        <Text style={styles.remaining}>{progress.remaining} GAMES LEFT</Text>
+        <Text style={styles.remaining}>残り{progress.remaining}本</Text>
       </View>
       <View
         style={styles.track}
@@ -72,13 +72,13 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
       </View>
       <View style={styles.deadline}>
         <View style={{ gap: 5 }}>
-          <Text style={styles.label}>DEADLINE</Text>
-          <Text style={styles.date}>{BRAND.deadline.replaceAll("-", ".")}</Text>
+          <Text style={styles.label}>期限</Text>
+          <Text style={styles.date}>{japaneseDate(BRAND.deadline)}</Text>
         </View>
         <Text style={styles.days}>
           {progress.expired
-            ? "PROJECT CONTINUES"
-            : `あと ${progress.daysLeft.toLocaleString()} DAYS`}
+            ? "挑戦は続きます"
+            : `あと ${progress.daysLeft.toLocaleString()}日`}
         </Text>
       </View>
       {link && (
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     fontFamily: mono,
     fontWeight: "800",
     fontSize: 13,
+    flexShrink: 1,
     letterSpacing: 2,
   },
   tagline: { color: c.text, fontSize: 15, lineHeight: 25, fontWeight: "700" },
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     lineHeight: 21,
   },
-  voiceCopy: { color: c.muted, fontSize: 12, lineHeight: 19 },
+  voiceCopy: { color: c.muted, fontSize: 14, lineHeight: 22 },
   countRow: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -139,13 +140,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 8,
   },
-  label: { color: c.muted, fontSize: 9, fontFamily: mono, letterSpacing: 1 },
+  label: { color: c.muted, fontSize: 12, fontFamily: mono, letterSpacing: 1 },
   count: { color: c.cyan, fontFamily: mono, fontSize: 40, fontWeight: "800" },
   total: { color: c.muted, fontSize: 20 },
   remaining: {
     color: c.pink,
     fontFamily: mono,
-    fontSize: 11,
+    fontSize: 13,
     fontWeight: "700",
     paddingBottom: 6,
   },
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   fill: { height: "100%", borderRadius: 4, backgroundColor: c.cyan },
-  percent: { color: c.cyan, fontSize: 11, fontFamily: mono },
+  percent: { color: c.cyan, fontSize: 13, fontFamily: mono },
   deadline: {
     borderTopWidth: 1,
     borderTopColor: c.border,
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   date: { color: c.text, fontFamily: mono, fontSize: 14, fontWeight: "700" },
-  days: { color: c.yellow, fontSize: 11, fontFamily: mono },
+  days: { color: c.yellow, fontSize: 13, fontFamily: mono },
   link: {
     flexDirection: "row",
     alignItems: "center",
@@ -176,5 +177,5 @@ const styles = StyleSheet.create({
     gap: 8,
     minHeight: 24,
   },
-  linkText: { color: c.cyan, fontSize: 11 },
+  linkText: { color: c.cyan, fontSize: 13 },
 });

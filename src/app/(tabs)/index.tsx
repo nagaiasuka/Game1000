@@ -9,7 +9,7 @@ import {
 import { Screen, Tap, Icon, s } from "@/components/ui";
 import { BlockDropArtwork, BlockBreakArtwork } from "@/components/game-artwork";
 import { ProjectProgress } from "@/components/project-progress";
-import { games } from "@/data/catalog";
+import { games, CATEGORY_LABELS } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
 import { colors } from "@/theme";
 import { DeveloperAccess } from "@/developer/DeveloperAccess";
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <Screen>
       <View style={s.row}>
-        <Text style={s.eyebrow}>LET’S BUILD THE ARCADE</Text>
+        <Text style={s.eyebrow}>みんなで作るゲームセンター</Text>
         <DeveloperAccess />
       </View>
       <GameLogo />
@@ -32,7 +32,9 @@ export default function Home() {
       </View>
       <ProjectProgress link />
       <View style={{ gap: 6 }}>
-        <Text style={[s.eyebrow, { color: colors.cyan }]}>PLAY THE LATEST</Text>
+        <Text style={[s.eyebrow, { color: colors.cyan }]}>
+          新しくできたゲーム
+        </Text>
         <Text accessibilityRole="header" style={s.subtitle}>
           まずは、できたての1本から。
         </Text>
@@ -63,7 +65,7 @@ export default function Home() {
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >
               <Text style={[s.eyebrow, { color: colors.cyan }]}>
-                NEW · GAME #{String(game.gameNumber).padStart(3, "0")}
+                新着 · GAME #{String(game.gameNumber).padStart(3, "0")}
               </Text>
               <View style={s.row}>
                 <Text style={[s.subtitle, { flex: 1, fontSize: 16 }]}>
@@ -75,8 +77,15 @@ export default function Home() {
                   color={colors.cyan}
                 />
               </View>
-              <Text style={[s.body, { fontSize: 11, lineHeight: 16 }]}>
+              <Text style={[s.body, { fontSize: 14, lineHeight: 22 }]}>
                 {game.shortDescription}
+              </Text>
+              <Text style={s.body}>
+                {game.minPlayers}人用 ·{" "}
+                {game.categories
+                  .map((category) => CATEGORY_LABELS[category])
+                  .join("・")}{" "}
+                · タップして遊ぶ
               </Text>
             </View>
           </Tap>
@@ -111,7 +120,7 @@ export default function Home() {
         <Icon name="arrow-forward" color={colors.cyan} />
       </Tap>
       <Text style={[s.eyebrow, { textAlign: "center", fontSize: 9 }]}>
-        {BRAND.targetGames} GAMES. ENDLESS GOOD TIMES.
+        {BRAND.targetGames}本のゲームで、ずっと遊ぼう。
       </Text>
     </Screen>
   );

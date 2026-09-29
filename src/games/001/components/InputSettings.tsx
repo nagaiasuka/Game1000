@@ -32,6 +32,7 @@ export function InputSettings({
                 buttons === option.value && { color: c.cyan },
               ]}
             >
+              {buttons === option.value ? "✓ " : ""}
               {option.label}
             </Text>
           </Pressable>
@@ -39,8 +40,8 @@ export function InputSettings({
       </View>
       <Text style={styles.help}>
         {buttons
-          ? "← → ↓ は長押しで連続操作\n↻ で回転 · DROPで一気に落下"
-          : "タップで回転 · 左右ドラッグで移動\n下ドラッグで落下 · 0.5秒長押しでDROP"}
+          ? "← → ↓ は長押しで連続操作\n↻ で回転 · 「一気に落とす」で落下"
+          : "タップで回転 · 左右ドラッグで移動\n下ドラッグで落下 · 0.5秒長押しで一気に落とす"}
       </Text>
     </View>
   );
@@ -61,5 +62,5 @@ const styles = StyleSheet.create({
   },
   selected: { borderColor: c.cyan },
   optionText: { color: c.muted, fontSize: 14, fontWeight: "700" },
-  help: { color: c.muted, fontSize: 11, lineHeight: 18, textAlign: "center" },
+  help: { color: c.muted, fontSize: 14, lineHeight: 22, textAlign: "center" },
 });

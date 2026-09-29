@@ -1,3 +1,4 @@
+import { CATEGORY_LABELS } from "@/data/catalog";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -18,11 +19,11 @@ export function GameLogo() {
       accessibilityLabel={`${BRAND.displayName}、${BRAND.reading}`}
       style={a.logo}
     >
-      <Text style={a.game}>
+      <Text maxFontSizeMultiplier={1.3} style={a.game}>
         GAME<Text style={a.thousand}>{BRAND.targetGames}</Text>
         <Text style={{ fontSize: 12, color: c.pink }}> ✦</Text>
       </Text>
-      <Text style={a.logoSub}>{BRAND.reading} / YOUR POCKET ARCADE</Text>
+      <Text style={a.logoSub}>{BRAND.reading} / ポケットのゲームセンター</Text>
     </View>
   );
 }
@@ -30,7 +31,7 @@ export function GameCounter() {
   return (
     <View style={a.counter}>
       <View>
-        <Text style={s.eyebrow}>GAMES</Text>
+        <Text style={s.eyebrow}>遊べるゲーム</Text>
         <Text style={a.count}>
           {String(availableCount(games)).padStart(3, "0")}
           <Text style={a.total}> / {BRAND.targetGames}</Text>
@@ -59,9 +60,7 @@ export function RandomGameButton() {
         style={a.randomInner}
       >
         <View style={{ gap: 9, flex: 1 }}>
-          <Text style={[s.eyebrow, { color: c.pink }]}>
-            LET’S PLAY SOMETHING
-          </Text>
+          <Text style={[s.eyebrow, { color: c.pink }]}>迷ったら、ここから</Text>
           <Text style={a.randomTitle}>何やる？</Text>
           <Text style={{ color: c.text, fontSize: 12 }}>
             迷ったら、おまかせ。
@@ -92,14 +91,14 @@ export function PlayerSelector({
   return (
     <View style={{ gap: 14 }}>
       <View style={s.row}>
-        <Text style={s.eyebrow}>PLAYERS</Text>
+        <Text style={s.eyebrow}>人数から探す</Text>
         <Text style={s.body}>何人で遊ぶ？</Text>
       </View>
       <View style={a.players}>
         {playerOptions.map((p, i) => (
           <Tap
             key={p.id}
-            label={`${p.label}で探す`}
+            label={`${p.label}ゲームを探す`}
             selected={selected === p.id}
             onPress={() =>
               onSelect
@@ -119,7 +118,7 @@ export function PlayerSelector({
             <Icon name={peopleIcons[i]} color={accents[i]} size={25} />
             <Text style={a.playerLabel}>{p.label}</Text>
             <Text style={[a.playerCaption, { color: accents[i] }]}>
-              {p.caption}
+              {selected === p.id ? "✓ 選択中" : p.caption}
             </Text>
           </Tap>
         ))}
@@ -195,9 +194,7 @@ export function GameCard({ game }: { game: Game }) {
             color={accent}
           />
           <Text style={[a.artLabel, { color: accent }]}>
-            {game.status === "available"
-              ? "READY TO PLAY"
-              : "UNDER CONSTRUCTION"}
+            {game.status === "available" ? "遊べます" : "次のゲームを制作中！"}
           </Text>
         </View>
       )}
@@ -226,6 +223,12 @@ export function GameCard({ game }: { game: Game }) {
           />
         </View>
         <Text style={a.cardDescription}>{game.shortDescription}</Text>
+        <Text style={a.cardMeta}>
+          {game.categories
+            .map((category) => CATEGORY_LABELS[category])
+            .join("・")}{" "}
+          · {game.status === "available" ? "タップして遊ぶ" : "準備中"}
+        </Text>
       </View>
     </>
   );
@@ -264,7 +267,12 @@ const a = StyleSheet.create({
     textShadowRadius: 16,
     textShadowOffset: { width: 0, height: 0 },
   },
-  logoSub: { color: c.muted, fontSize: 9, letterSpacing: 2, fontWeight: "600" },
+  logoSub: {
+    color: c.muted,
+    fontSize: 12,
+    letterSpacing: 2,
+    fontWeight: "600",
+  },
   counter: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -311,9 +319,9 @@ const a = StyleSheet.create({
     letterSpacing: 1,
   },
   dice: { transform: [{ rotate: "-15deg" }] },
-  players: { flexDirection: "row", gap: 8 },
+  players: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
   player: {
-    flex: 1,
+    width: "48%",
     minHeight: 105,
     paddingVertical: 14,
     paddingHorizontal: 2,
@@ -324,7 +332,7 @@ const a = StyleSheet.create({
     gap: 9,
   },
   playerLabel: { color: c.text, fontSize: 14, fontWeight: "800" },
-  playerCaption: { fontSize: 8, fontFamily: mono, letterSpacing: 1 },
+  playerCaption: { fontSize: 12, fontFamily: mono, letterSpacing: 1 },
   chip: {
     minHeight: 44,
     paddingHorizontal: 15,
@@ -370,8 +378,8 @@ const a = StyleSheet.create({
   },
   artLabel: { fontSize: 8, fontFamily: mono, letterSpacing: 3 },
   cardContent: { paddingHorizontal: 14, paddingVertical: 11, gap: 4 },
-  cardMeta: { color: c.muted, fontSize: 9, fontFamily: mono },
-  cardDescription: { color: c.muted, fontSize: 11, lineHeight: 16 },
+  cardMeta: { color: c.muted, fontSize: 12, fontFamily: mono },
+  cardDescription: { color: c.text, fontSize: 14, lineHeight: 22 },
   cardTitle: {
     color: c.text,
     fontSize: 16,

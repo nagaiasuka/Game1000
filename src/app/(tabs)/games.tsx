@@ -19,7 +19,7 @@ export default function Games() {
   return (
     <Screen>
       <Heading
-        eyebrow="GAME LIBRARY"
+        eyebrow="遊びたいゲームを探そう"
         title={title}
         detail="人数で絞って、ゲームを選ぼう。"
       />
@@ -33,7 +33,7 @@ export default function Games() {
           return (
             <Tap
               key={option.id}
-              label={`人数: ${option.label}`}
+              label={`人数: ${selected ? "✓ " : ""}{option.label}`}
               selected={selected}
               onPress={() => router.setParams({ players: option.id })}
               style={{
@@ -47,6 +47,7 @@ export default function Games() {
               }}
             >
               <Text style={{ color: selected ? colors.cyan : colors.muted }}>
+                {selected ? "✓ " : ""}
                 {option.label}
               </Text>
             </Tap>

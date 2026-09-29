@@ -6,7 +6,7 @@ export default function Random() {
   return (
     <Screen>
       <Heading
-        eyebrow="LET CHANCE CHOOSE"
+        eyebrow="迷ったら、おまかせ"
         title="何やる？"
         detail="次の遊びとの、偶然の出会い。"
       />

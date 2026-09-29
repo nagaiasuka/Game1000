@@ -10,7 +10,7 @@ const tabs: { name: string; title: string; label: string; icon: IconName }[] = [
     label: "ゲーム一覧",
     icon: "game-controller-outline",
   },
-  { name: "random", title: "RANDOM", label: "ランダム", icon: "dice-outline" },
+  { name: "random", title: "RANDOM", label: "何やる？", icon: "dice-outline" },
   {
     name: "favorites",
     title: "FAVORITES",
@@ -34,7 +34,7 @@ export default function TabLayout() {
           paddingTop: 8,
         },
         tabBarLabelStyle: {
-          fontSize: 9,
+          fontSize: 11,
           fontWeight: "700",
           letterSpacing: 0.6,
         },
@@ -46,7 +46,7 @@ export default function TabLayout() {
           key={tab.name}
           name={tab.name}
           options={{
-            title: tab.title,
+            title: tab.label,
             tabBarAccessibilityLabel: tab.label,
             tabBarIcon: ({ color }) => <Icon name={tab.icon} color={color} />,
           }}

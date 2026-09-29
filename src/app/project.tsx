@@ -19,7 +19,7 @@ export default function Project() {
         >
           <Icon name="arrow-back" color={colors.cyan} />
         </Tap>
-        <Text style={s.eyebrow}>PROJECT / ABOUT</Text>
+        <Text style={s.eyebrow}>この企画について</Text>
       </View>
       <Heading
         eyebrow={BRAND.displayName}
@@ -28,7 +28,7 @@ export default function Project() {
       <ProjectProgress />
       <View style={{ gap: 12 }}>
         <Text style={[s.eyebrow, { color: colors.pink }]}>
-          YOUR VOICE, THE NEXT GAME
+          あなたの声が、次のゲームに
         </Text>
         <Text style={s.subtitle}>遊ぶ人も、この企画の一員。</Text>
         <Text style={s.body}>
@@ -54,7 +54,7 @@ export default function Project() {
         <Text style={[s.subtitle, { color: colors.cyan }]}>
           {BRAND.targetGames}本。その先へ。
         </Text>
-        <Text style={[s.body, { fontSize: 10 }]}>
+        <Text style={[s.body, { fontSize: 12 }]}>
           残り日数は日本時間の日付を基準にしています。
         </Text>
       </View>

@@ -1,6 +1,7 @@
 import type { PropsWithChildren, ComponentProps } from "react";
 import {
   Pressable,
+  useWindowDimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -47,6 +48,7 @@ export function Tap({
         onPress();
       }}
       style={({ pressed }) => [
+        { minWidth: 44, minHeight: 44 },
         style,
         pressed && { opacity: 0.72, transform: [{ scale: 0.98 }] },
       ]}
@@ -56,9 +58,11 @@ export function Tap({
   );
 }
 export function Screen({ children }: PropsWithChildren) {
+  const { fontScale } = useWindowDimensions();
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
       <ScrollView
+        key={`content-${fontScale}`}
         contentContainerStyle={s.content}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
@@ -101,7 +105,7 @@ export function EmptyState({
       <View style={s.emptyIcon}>
         <Icon name={icon} color={c.cyan} size={42} />
       </View>
-      <Text style={s.eyebrow}>COMING SOON</Text>
+      <Text style={s.eyebrow}>準備中</Text>
       <Text style={s.subtitle}>{title}</Text>
       <Text style={[s.body, { textAlign: "center" }]}>{description}</Text>
     </View>
@@ -121,13 +125,13 @@ export const s = StyleSheet.create({
   eyebrow: {
     color: c.muted,
     fontFamily: mono,
-    fontSize: 10,
+    fontSize: 12,
     letterSpacing: 2.4,
     fontWeight: "700",
   },
   title: { color: c.text, fontSize: 29, fontWeight: "800" },
   subtitle: { color: c.text, fontSize: 18, fontWeight: "700" },
-  body: { color: c.muted, fontSize: 13, lineHeight: 22 },
+  body: { color: c.muted, fontSize: 15, lineHeight: 24 },
   row: {
     flexDirection: "row",
     alignItems: "center",
