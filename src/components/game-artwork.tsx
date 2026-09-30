@@ -1,4 +1,5 @@
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { PathPerson } from "./path-person";
 import { StackMonster } from "./stack-monster";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -320,6 +321,107 @@ export function NeonStackArtwork() {
           </View>
         ))}
       </View>
+    </LinearGradient>
+  );
+}
+
+export function NeonPathArtwork() {
+  const c = useColors();
+  return (
+    <LinearGradient
+      colors={["#081E2D", "#101226", "#29132B"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{
+        height: 180,
+        overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 14,
+      }}
+      accessibilityLabel="ネオンの盤面で、人型の駒がレーザーの壁を回り込むゲーム"
+    >
+      <View
+        style={{
+          width: 150,
+          height: 150,
+          transform: [{ rotate: "-12deg" }],
+          borderTopWidth: 2,
+          borderTopColor: "#00F5FF",
+          borderBottomWidth: 2,
+          borderBottomColor: "#FF2BD6",
+        }}
+      >
+        {Array.from({ length: 81 }, (_, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: (i % 9) * 16.6 + 1,
+              top: Math.floor(i / 9) * 16.6 + 1,
+              width: 14,
+              height: 14,
+              borderRadius: 2,
+              backgroundColor: "#FFFFFF08",
+              borderWidth: 1,
+              borderColor: "#53608044",
+            }}
+          />
+        ))}
+        {[
+          { x: 33, y: 49, w: 33, h: 4 },
+          { x: 83, y: 83, w: 4, h: 33 },
+          { x: 16, y: 116, w: 33, h: 4 },
+        ].map((b, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: b.x,
+              top: b.y,
+              width: b.w,
+              height: b.h,
+              backgroundColor: i % 2 ? "#FF2BD6" : "#00F5FF",
+              borderRadius: 3,
+              shadowOpacity: 0.8,
+              shadowRadius: 8,
+              shadowColor: i % 2 ? "#FF2BD6" : "#00F5FF",
+            }}
+          />
+        ))}
+        <View style={{ position: "absolute", left: 66, top: 96 }}>
+          <PathPerson player={1} size={22} />
+        </View>
+        <View style={{ position: "absolute", left: 98, top: 29 }}>
+          <PathPerson player={2} size={22} />
+        </View>
+      </View>
+      <Text
+        allowFontScaling={false}
+        style={{
+          position: "absolute",
+          left: 14,
+          bottom: 12,
+          color: c.text,
+          fontSize: 11,
+          fontWeight: "800",
+          letterSpacing: 2,
+        }}
+      >
+        NEON PATH
+      </Text>
+      <Text
+        allowFontScaling={false}
+        style={{
+          position: "absolute",
+          right: 14,
+          top: 12,
+          color: c.cyan,
+          fontSize: 11,
+        }}
+      >
+        2人の頭脳戦
+      </Text>
     </LinearGradient>
   );
 }

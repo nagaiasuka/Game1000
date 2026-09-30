@@ -15,6 +15,7 @@ import {
   BlockDropArtwork,
   BlockBreakArtwork,
   NeonStackArtwork,
+  NeonPathArtwork,
 } from "./game-artwork";
 import { Icon, Tap, s as baseSharedStyles, type IconName } from "./ui";
 export function GameLogo() {
@@ -206,6 +207,8 @@ export function GameCard({ game }: { game: Game }) {
         <BlockBreakArtwork />
       ) : game.artwork === "neon-stack" ? (
         <NeonStackArtwork />
+      ) : game.artwork === "neon-path" ? (
+        <NeonPathArtwork />
       ) : (
         <View style={[a.art, { borderBottomColor: accent + "44" }]}>
           <View style={[a.orbit, { borderColor: accent + "22" }]} />

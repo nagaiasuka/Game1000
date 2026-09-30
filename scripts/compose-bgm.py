@@ -171,5 +171,23 @@ def board_stack():
     return s.finish(.075)
 
 
+def strategy_path():
+    """QUIET CIRCUIT: E minor suspended harmony, dry two-note signals and a half-time pulse."""
+    s=Score(88,16,104)
+    chords=[[52,59,66],[52,57,64],[50,57,64],[52,59,65]]
+    for bar in range(16):
+        b=bar*4; chord=chords[(bar//2)%4]
+        # Long suspended intervals, deliberate silence and displaced answering notes.
+        if bar%2==0: s.chord(b,7.3,chord,'pad',.025)
+        s.note(b,1.4,40 if bar%4<2 else 38,'bass',.055)
+        for offset,note in [(0.75,71),(2.25,66 if bar%4<2 else 65)]:
+            s.note(b+offset,.17,note,'pluck',.04)
+        if bar%4==3: s.note(b+3.25,.55,64 if bar<8 else 69,'glass',.033)
+        if bar%2==0: s.drum(b,'kick',.055)
+        s.drum(b+2,'brush',.014)
+        if bar%2: s.drum(b+3.5,'hat',.009)
+    return s.finish(.068)
+
+
 def compose():
-    return {'home':arcade_home(), '001':puzzle_drop(), '002':action_break(), '003':board_stack()}
+    return {'home':arcade_home(), '001':puzzle_drop(), '002':action_break(), '003':board_stack(), '004':strategy_path()}

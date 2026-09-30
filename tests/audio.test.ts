@@ -266,7 +266,7 @@ test("drop emits successful input sounds and one start at end of countdown", () 
 });
 
 test("game intros keep home music; starting changes only music and keeps prepared effects", async () => {
-  for (const scene of ["001", "002", "003"] as const) {
+  for (const scene of ["001", "002", "003", "004"] as const) {
     const h = harness();
     h.manager.initialize();
     h.manager.setScene(scene, "home");

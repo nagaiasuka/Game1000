@@ -19,7 +19,7 @@ export type Game = {
   mode?: "endless";
   categories: GameCategory[];
   thumbnail?: string;
-  artwork?: "block-drop" | "block-break" | "neon-stack";
+  artwork?: "block-drop" | "block-break" | "neon-stack" | "neon-path";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -66,6 +66,20 @@ export const games: Game[] = [
     isNew: true,
     status: "available",
     route: "/play/003",
+  },
+  {
+    id: "004",
+    gameNumber: 4,
+    title: "NEON PATH",
+    shortDescription: "道を進め。道をふさげ。壁で駆け引きする2人の頭脳戦。",
+    minPlayers: 2,
+    maxPlayers: 2,
+    estimatedMinutes: 10,
+    categories: ["board", "brain"],
+    artwork: "neon-path",
+    isNew: true,
+    status: "available",
+    route: "/play/004",
   },
 ];
 export const playerOptions = [

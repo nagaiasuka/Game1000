@@ -131,6 +131,22 @@
     "path": "game003/draw.wav",
     "ms": 360
   },
+  "pathMove": {
+    "path": "game004/pathMove.wav",
+    "ms": 85
+  },
+  "pathJump": {
+    "path": "game004/pathJump.wav",
+    "ms": 180
+  },
+  "pathWall": {
+    "path": "game004/pathWall.wav",
+    "ms": 235
+  },
+  "pathGoal": {
+    "path": "game004/pathGoal.wav",
+    "ms": 790
+  },
   "bgmhome": {
     "path": "common/bgm.wav",
     "ms": 30968
@@ -146,5 +162,9 @@
   "bgm003": {
     "path": "game003/bgm.wav",
     "ms": 46829
+  },
+  "bgm004": {
+    "path": "game004/bgm.wav",
+    "ms": 43636
   }
 }

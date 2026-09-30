@@ -12,6 +12,7 @@ import {
   BlockDropArtwork,
   BlockBreakArtwork,
   NeonStackArtwork,
+  NeonPathArtwork,
 } from "@/components/game-artwork";
 import { ProjectProgress } from "@/components/project-progress";
 import { games, CATEGORY_LABELS } from "@/data/catalog";
@@ -69,6 +70,7 @@ export default function Home() {
             {game.artwork === "block-drop" && <BlockDropArtwork />}
             {game.artwork === "block-break" && <BlockBreakArtwork />}
             {game.artwork === "neon-stack" && <NeonStackArtwork />}
+            {game.artwork === "neon-path" && <NeonPathArtwork />}
             <View
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >

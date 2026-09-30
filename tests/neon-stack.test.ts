@@ -43,7 +43,7 @@ function freeze(value: unknown) {
   }
 }
 
-test("003 is available to exactly two players and progress derives 003/100", () => {
+test("003 is available to exactly two players and progress derives the catalog count", () => {
   const game = games.find((g) => g.id === "003");
   assert.equal(game?.status, "available");
   assert.equal(game?.minPlayers, 2);
@@ -51,9 +51,9 @@ test("003 is available to exactly two players and progress derives 003/100", () 
   assert.ok(filterGames(games, "2").includes(game!));
   assert.ok(!filterGames(games, "1").includes(game!));
   const progress = projectProgress(games, 100);
-  assert.equal(progress.countLabel, "003 / 100");
-  assert.equal(progress.remaining, 97);
-  assert.equal(progress.percent, 3);
+  assert.equal(progress.countLabel, "004 / 100");
+  assert.equal(progress.remaining, 96);
+  assert.equal(progress.percent, 4);
 });
 test("each player begins with two of each size, independent hands and nine independent stacks", () => {
   const match = createMatch(2);

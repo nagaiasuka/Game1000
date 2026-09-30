@@ -33,10 +33,15 @@ export const sources = {
   cover: require("../../assets/audio/game003/cover.wav"),
   win: require("../../assets/audio/game003/win.wav"),
   draw: require("../../assets/audio/game003/draw.wav"),
+  pathMove: require("../../assets/audio/game004/pathMove.wav"),
+  pathJump: require("../../assets/audio/game004/pathJump.wav"),
+  pathWall: require("../../assets/audio/game004/pathWall.wav"),
+  pathGoal: require("../../assets/audio/game004/pathGoal.wav"),
   bgmhome: require("../../assets/audio/common/bgm.wav"),
   bgm001: require("../../assets/audio/game001/bgm.wav"),
   bgm002: require("../../assets/audio/game002/bgm.wav"),
   bgm003: require("../../assets/audio/game003/bgm.wav"),
+  bgm004: require("../../assets/audio/game004/bgm.wav"),
 } as const;
 export type SoundId = keyof typeof sources;
 export const durations: Record<SoundId, number> = {
@@ -73,8 +78,13 @@ export const durations: Record<SoundId, number> = {
   cover: 205,
   win: 610,
   draw: 360,
+  pathMove: 85,
+  pathJump: 180,
+  pathWall: 235,
+  pathGoal: 790,
   bgmhome: 30968,
   bgm001: 40000,
   bgm002: 28235,
   bgm003: 46829,
+  bgm004: 43636,
 };
