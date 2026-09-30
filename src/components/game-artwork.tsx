@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { StackMonster } from "./stack-monster";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -33,6 +34,9 @@ const palette: Record<string, string> = {
   Z: c.pink,
 };
 export function BlockDropArtwork() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <LinearGradient
       colors={[c.purpleDark, c.background, "#082B35"]}
@@ -76,6 +80,9 @@ export function BlockDropArtwork() {
   );
 }
 export function BlockBreakArtwork() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <LinearGradient
       colors={["#291039", c.background, "#0D343C"]}
@@ -177,7 +184,7 @@ export function BlockBreakArtwork() {
     </LinearGradient>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   art: {
     width: "100%",
     height: 176,
@@ -258,6 +265,9 @@ const styles = StyleSheet.create({
 });
 
 export function NeonStackArtwork() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <LinearGradient
       colors={["#102A35", c.background, "#381237"]}

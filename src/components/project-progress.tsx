@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
@@ -5,9 +6,13 @@ import { BRAND } from "@/data/brand";
 import { useProjectProgress } from "@/hooks/useProjectProgress";
 import { japaneseDate } from "@/utils/project";
 import { colors as c, mono } from "@/theme";
-import { Icon, Tap, s } from "./ui";
+import { Icon, Tap, s as baseSharedStyles } from "./ui";
 
 export function ProjectProgress({ link = false }: { link?: boolean }) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+  const s = useThemedStyles(baseSharedStyles);
+
   const progress = useProjectProgress();
   const content = (
     <LinearGradient
@@ -102,7 +107,7 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
   );
 }
 
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   frame: {
     borderWidth: 1,
     borderColor: c.cyan + "80",

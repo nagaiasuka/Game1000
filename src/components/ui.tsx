@@ -1,3 +1,5 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { audio } from "@/audio/native";
 import type { PropsWithChildren, ComponentProps } from "react";
 import {
   Pressable,
@@ -44,6 +46,7 @@ export function Tap({
       accessibilityLabel={label}
       accessibilityState={{ selected }}
       onPress={() => {
+        audio.play("ui");
         void Haptics.selectionAsync().catch(() => {});
         onPress();
       }}
@@ -58,6 +61,8 @@ export function Tap({
   );
 }
 export function Screen({ children }: PropsWithChildren) {
+  const s = useThemedStyles(baseS);
+
   const { fontScale } = useWindowDimensions();
   return (
     <SafeAreaView style={s.safe} edges={["top", "left", "right"]}>
@@ -81,6 +86,8 @@ export function Heading({
   title: string;
   detail?: string;
 }) {
+  const s = useThemedStyles(baseS);
+
   return (
     <View style={{ gap: 8 }}>
       <Text style={s.eyebrow}>{eyebrow}</Text>
@@ -100,6 +107,9 @@ export function EmptyState({
   title: string;
   description: string;
 }) {
+  const c = useColors();
+  const s = useThemedStyles(baseS);
+
   return (
     <View style={s.empty}>
       <View style={s.emptyIcon}>
@@ -111,7 +121,7 @@ export function EmptyState({
     </View>
   );
 }
-export const s = StyleSheet.create({
+export const baseS = StyleSheet.create({
   safe: { flex: 1, backgroundColor: c.background },
   content: {
     paddingHorizontal: space.lg,
@@ -158,3 +168,5 @@ export const s = StyleSheet.create({
     marginBottom: 12,
   },
 });
+
+export { baseS as s };

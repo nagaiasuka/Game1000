@@ -1,3 +1,5 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { SoundButton } from "@/audio/SoundSettings";
 import {
   GameButton as Button,
   HelpButton,
@@ -30,6 +32,9 @@ import { Field } from "./components/Field";
 const FIELD_MARGIN_PERCENT = 5;
 
 export default function GameScreen() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   const { fontScale } = useWindowDimensions();
   const [helpOpen, setHelpOpen] = useState(false);
   const game = useBlockBreak();
@@ -325,6 +330,7 @@ export default function GameScreen() {
                         指を左右に動かしてバーを移動。{"\n"}
                         端で当てて、飛ばす向きを狙おう。
                       </Text>
+                      <SoundButton />
                       <Button title={UI_TEXT.resume} onPress={game.resume} />
                       <Button
                         title="このステージを最初から"
@@ -433,7 +439,7 @@ export default function GameScreen() {
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   safe: {
     flex: 1,
     backgroundColor: c.background,

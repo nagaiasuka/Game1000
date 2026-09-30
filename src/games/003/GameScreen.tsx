@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { useCallback, useEffect, useState } from "react";
 import {
   Alert,
@@ -34,6 +35,9 @@ import {
 import { SIZES } from "./logic/rules";
 
 export default function GameScreen() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   const { state, dispatch, start } = useNeonStack();
   const match = state.match;
   const [names, setNames] = useState({ 1: "", 2: "" });
@@ -374,7 +378,7 @@ export default function GameScreen() {
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   nameInput: {
     minHeight: 48,
     borderWidth: 1,

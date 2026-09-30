@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { CATEGORY_LABELS } from "@/data/catalog";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -15,8 +16,11 @@ import {
   BlockBreakArtwork,
   NeonStackArtwork,
 } from "./game-artwork";
-import { Icon, Tap, s, type IconName } from "./ui";
+import { Icon, Tap, s as baseSharedStyles, type IconName } from "./ui";
 export function GameLogo() {
+  const c = useColors();
+  const a = useThemedStyles(baseA);
+
   return (
     <View
       accessible
@@ -32,6 +36,9 @@ export function GameLogo() {
   );
 }
 export function GameCounter() {
+  const a = useThemedStyles(baseA);
+  const s = useThemedStyles(baseSharedStyles);
+
   return (
     <View style={a.counter}>
       <View>
@@ -51,6 +58,10 @@ export function GameCounter() {
   );
 }
 export function RandomGameButton() {
+  const c = useColors();
+  const a = useThemedStyles(baseA);
+  const s = useThemedStyles(baseSharedStyles);
+
   return (
     <Tap
       label="何やる？ ランダム画面を開く"
@@ -78,7 +89,7 @@ export function RandomGameButton() {
     </Tap>
   );
 }
-const accents = [c.cyan, c.pink, c.purple, c.yellow];
+const baseAccents = [c.cyan, c.pink, c.purple, c.yellow];
 const peopleIcons: IconName[] = [
   "person-outline",
   "people-outline",
@@ -92,6 +103,10 @@ export function PlayerSelector({
   selected?: string;
   onSelect?: (id: string) => void;
 }) {
+  const accents = useThemedStyles(baseAccents);
+  const a = useThemedStyles(baseA);
+  const s = useThemedStyles(baseSharedStyles);
+
   return (
     <View style={{ gap: 14 }}>
       <View style={s.row}>
@@ -131,6 +146,9 @@ export function PlayerSelector({
   );
 }
 export function CategoryLinks() {
+  const c = useColors();
+  const a = useThemedStyles(baseA);
+
   const items = [
     {
       label: "人気",
@@ -175,6 +193,10 @@ export function CategoryLinks() {
   );
 }
 export function GameCard({ game }: { game: Game }) {
+  const accents = useThemedStyles(baseAccents);
+  const a = useThemedStyles(baseA);
+  const s = useThemedStyles(baseSharedStyles);
+
   const accent = accents[(game.gameNumber - 1) % accents.length];
   const body = (
     <>
@@ -258,7 +280,7 @@ export function GameCard({ game }: { game: Game }) {
     </View>
   );
 }
-const a = StyleSheet.create({
+const baseA = StyleSheet.create({
   logo: { gap: 6 },
   game: {
     color: c.text,

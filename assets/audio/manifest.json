@@ -1,0 +1,150 @@
+{
+  "ui": {
+    "path": "common/ui.wav",
+    "ms": 75
+  },
+  "start": {
+    "path": "common/start.wav",
+    "ms": 310
+  },
+  "over": {
+    "path": "common/over.wav",
+    "ms": 520
+  },
+  "best": {
+    "path": "common/best.wav",
+    "ms": 670
+  },
+  "warning": {
+    "path": "common/warning.wav",
+    "ms": 100
+  },
+  "move": {
+    "path": "game001/move.wav",
+    "ms": 45
+  },
+  "rotate": {
+    "path": "game001/rotate.wav",
+    "ms": 115
+  },
+  "drop": {
+    "path": "game001/drop.wav",
+    "ms": 190
+  },
+  "lock": {
+    "path": "game001/lock.wav",
+    "ms": 75
+  },
+  "line1": {
+    "path": "game001/line1.wav",
+    "ms": 235
+  },
+  "line2": {
+    "path": "game001/line2.wav",
+    "ms": 340
+  },
+  "line3": {
+    "path": "game001/line3.wav",
+    "ms": 410
+  },
+  "line4": {
+    "path": "game001/line4.wav",
+    "ms": 590
+  },
+  "level": {
+    "path": "game001/level.wav",
+    "ms": 410
+  },
+  "break1": {
+    "path": "game002/break1.wav",
+    "ms": 95
+  },
+  "break2": {
+    "path": "game002/break2.wav",
+    "ms": 95
+  },
+  "break3": {
+    "path": "game002/break3.wav",
+    "ms": 110
+  },
+  "break4": {
+    "path": "game002/break4.wav",
+    "ms": 150
+  },
+  "fever": {
+    "path": "game002/fever.wav",
+    "ms": 390
+  },
+  "feverEnd": {
+    "path": "game002/feverEnd.wav",
+    "ms": 200
+  },
+  "pickup": {
+    "path": "game002/pickup.wav",
+    "ms": 100
+  },
+  "multi": {
+    "path": "game002/multi.wav",
+    "ms": 275
+  },
+  "wide": {
+    "path": "game002/wide.wav",
+    "ms": 300
+  },
+  "power": {
+    "path": "game002/power.wav",
+    "ms": 330
+  },
+  "miss": {
+    "path": "game002/miss.wav",
+    "ms": 200
+  },
+  "clear": {
+    "path": "game002/clear.wav",
+    "ms": 620
+  },
+  "allClear": {
+    "path": "game002/allClear.wav",
+    "ms": 1190
+  },
+  "place1": {
+    "path": "game003/place1.wav",
+    "ms": 85
+  },
+  "place2": {
+    "path": "game003/place2.wav",
+    "ms": 110
+  },
+  "place3": {
+    "path": "game003/place3.wav",
+    "ms": 150
+  },
+  "cover": {
+    "path": "game003/cover.wav",
+    "ms": 205
+  },
+  "win": {
+    "path": "game003/win.wav",
+    "ms": 610
+  },
+  "draw": {
+    "path": "game003/draw.wav",
+    "ms": 360
+  },
+  "bgmhome": {
+    "path": "common/bgm.wav",
+    "ms": 30968
+  },
+  "bgm001": {
+    "path": "game001/bgm.wav",
+    "ms": 40000
+  },
+  "bgm002": {
+    "path": "game002/bgm.wav",
+    "ms": 28235
+  },
+  "bgm003": {
+    "path": "game003/bgm.wav",
+    "ms": 46829
+  }
+}

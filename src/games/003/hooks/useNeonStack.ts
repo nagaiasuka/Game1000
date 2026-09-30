@@ -1,4 +1,7 @@
-import { useEffect, useReducer, useRef } from "react";
+import { audio } from "@/audio/native";
+import { stackSound } from "../audio";
+import { useFocusEffect } from "expo-router";
+import { useCallback, useEffect, useReducer, useRef } from "react";
 import { AppState, Platform } from "react-native";
 import * as Haptics from "expo-haptics";
 import { initialSession, sessionReducer } from "../logic/session";
@@ -11,8 +14,23 @@ export function useNeonStack() {
     initialSession,
   );
   const lastHaptic = useRef(0);
+  const phase = state.match?.phase;
+  useFocusEffect(
+    useCallback(() => {
+      audio.setScene("003", phase ? "003" : "home");
+      audio.setPaused("003", !!phase && phase !== "playing");
+      return () => audio.setPaused("003", true);
+    }, [phase]),
+  );
+  useEffect(() => {
+    audio.setPaused("003", !!state.match && state.match.phase !== "playing");
+  }, [state.match]);
   useEffect(() => {
     if (!state.event || AppState.currentState !== "active") return;
+    audio.play(
+      stackSound(state.event.kind, state.event.size),
+      state.event.kind === "win" ? 3 : 1,
+    );
     if (Date.now() - lastHaptic.current < 90) return;
     lastHaptic.current = Date.now();
     const kind = state.event.kind;

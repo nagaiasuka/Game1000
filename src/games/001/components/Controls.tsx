@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colors as c, mono } from "@/theme";
 import type { Action, HeldAction } from "../logic/engine";
@@ -39,6 +40,9 @@ const buttons: {
   ],
 ];
 export function Controls({ enabled, input, press, release }: Props) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <View style={styles.controls}>
       {buttons.map((row, i) => (
@@ -91,7 +95,7 @@ export function Controls({ enabled, input, press, release }: Props) {
     </View>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   controls: { gap: 8, width: "100%", maxWidth: 420, alignSelf: "center" },
   row: { flexDirection: "row", gap: 10 },
   button: {

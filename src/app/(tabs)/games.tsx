@@ -1,10 +1,19 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { ScrollView, Text, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { GameCard } from "@/components/arcade";
-import { Screen, Heading, EmptyState, Tap, s } from "@/components/ui";
+import {
+  Screen,
+  Heading,
+  EmptyState,
+  Tap,
+  s as baseSharedStyles,
+} from "@/components/ui";
 import { filterGames, games, playerOptions } from "@/data/catalog";
-import { colors } from "@/theme";
 export default function Games() {
+  const colors = useColors();
+  const s = useThemedStyles(baseSharedStyles);
+
   const params = useLocalSearchParams<{
     players?: string;
     collection?: string;

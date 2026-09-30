@@ -1,7 +1,9 @@
+import { Text } from "react-native";
+import { useColors } from "@/theme/ThemeProvider";
+import { audio } from "@/audio/native";
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Icon, type IconName } from "@/components/ui";
-import { colors as c } from "@/theme";
 const tabs: { name: string; title: string; label: string; icon: IconName }[] = [
   { name: "index", title: "HOME", label: "ホーム", icon: "home-outline" },
   {
@@ -17,11 +19,20 @@ const tabs: { name: string; title: string; label: string; icon: IconName }[] = [
     label: "お気に入り",
     icon: "heart-outline",
   },
+  {
+    name: "settings",
+    title: "SETTINGS",
+    label: "設定",
+    icon: "settings-outline",
+  },
 ];
 export default function TabLayout() {
+  const c = useColors();
+
   const insets = useSafeAreaInsets();
   return (
     <Tabs
+      screenListeners={{ tabPress: () => audio.play("ui") }}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: c.cyan,
@@ -47,6 +58,15 @@ export default function TabLayout() {
           name={tab.name}
           options={{
             title: tab.label,
+            tabBarLabel: ({ color }) => (
+              <Text
+                numberOfLines={1}
+                maxFontSizeMultiplier={1.1}
+                style={{ color, fontSize: 11, fontWeight: "700" }}
+              >
+                {tab.label}
+              </Text>
+            ),
             tabBarAccessibilityLabel: tab.label,
             tabBarIcon: ({ color }) => <Icon name={tab.icon} color={color} />,
           }}

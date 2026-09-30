@@ -1,3 +1,5 @@
+import { audio } from "@/audio/native";
+import { breakSounds } from "../audio";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AppState, Platform } from "react-native";
 import { useFocusEffect } from "expo-router";
@@ -49,6 +51,20 @@ export function useBlockBreak() {
       bestRef.current = Math.max(bestRef.current, engine.state.score);
     setBest(bestRef.current);
     const events = engine.drainEvents();
+    audio.setMusic("002", engine.state.phase === "select" ? "home" : "002");
+    audio.setPaused(
+      "002",
+      ["paused", "over", "clear", "complete"].includes(engine.state.phase),
+    );
+    for (const sound of breakSounds(events, engine.state))
+      audio.play(
+        sound,
+        ["over", "clear", "allClear", "fever"].includes(sound)
+          ? 3
+          : sound.startsWith("break")
+            ? 1
+            : 2,
+      );
     if (events.includes("break")) dirty.current = true;
     if (
       events.some((e) => ["clear", "over", "miss"].includes(e)) ||
@@ -108,6 +124,11 @@ export function useBlockBreak() {
   useFocusEffect(
     useCallback(() => {
       focused.current = true;
+      audio.setScene("002", engine.state.phase === "select" ? "home" : "002");
+      audio.setPaused(
+        "002",
+        ["paused", "over", "clear", "complete"].includes(engine.state.phase),
+      );
       let frame = 0,
         last: number | null = null;
       const loop = (time: number) => {

@@ -25,7 +25,16 @@ export type Phase =
 export type Action = "left" | "right" | "soft" | "rotate" | "drop";
 export type HeldAction = "left" | "right" | "soft";
 export type GameEvent =
-  "drop" | "lock" | "clear" | "four" | "level" | "over" | "scored";
+  | "drop"
+  | "lock"
+  | "clear"
+  | "four"
+  | "level"
+  | "over"
+  | "scored"
+  | "move"
+  | "rotate"
+  | "start";
 export type State = {
   board: Board;
   active: Piece | null;
@@ -189,8 +198,12 @@ export class BlockDropEngine {
       if (this.move(0, 1, false)) s.score++;
     } else if (action === "rotate") {
       const next = rotated(s.board, s.active);
-      if (next) this.adjust(next);
-    } else this.move(action === "left" ? -1 : 1, 0, true);
+      if (next) {
+        this.adjust(next);
+        this.events.push("rotate");
+      }
+    } else if (this.move(action === "left" ? -1 : 1, 0, true))
+      this.events.push("move");
     this.changed();
   }
   private grounded() {
@@ -266,6 +279,7 @@ export class BlockDropEngine {
       );
       if (s.countdown !== count) {
         s.countdown = count;
+        if (count === 0) this.events.push("start");
         this.changed();
       }
       if (this.countdownTime <= 0.001) {

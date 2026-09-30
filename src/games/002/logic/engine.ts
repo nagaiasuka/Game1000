@@ -51,7 +51,19 @@ export type Popup = {
   life: number;
 };
 export type GameEvent =
-  "hit" | "break" | "combo" | "fever" | "item" | "miss" | "clear" | "over";
+  | "hit"
+  | "break"
+  | "combo"
+  | "fever"
+  | "item"
+  | "miss"
+  | "clear"
+  | "over"
+  | "start"
+  | "feverEnd"
+  | "multi"
+  | "wide"
+  | "power";
 export type BreakState = {
   height: number;
   rowsLeft: number;
@@ -243,6 +255,7 @@ export class BlockBreakEngine {
     const s = this.state;
     if (s.phase !== "ready" || s.readyLeft > 0) return;
     s.phase = "playing";
+    this.events.add("start");
     const speed = STAGES[s.stage].speed;
     Object.assign(s.balls[0], {
       vx: speed * 0.3,
@@ -320,6 +333,7 @@ export class BlockBreakEngine {
       s.balls[0].x = s.paddle;
       return;
     }
+    const wasFever = s.feverLeft > 0;
     s.stageTime += dt;
     s.rowSlide = Math.max(0, s.rowSlide - dt * 80);
     this.updateRows(dt);
@@ -332,6 +346,7 @@ export class BlockBreakEngine {
       "noticeLeft",
     ] as const)
       s[key] = Math.max(0, s[key] - dt);
+    if (wasFever && s.feverLeft === 0) this.events.add("feverEnd");
     if (s.comboLeft === 0) s.combo = 0;
     s.sparks = s.sparks.filter((p) => (p.life -= dt) > 0);
     for (const p of s.sparks) {
@@ -560,6 +575,7 @@ export class BlockBreakEngine {
   private collect(kind: ItemKind) {
     const s = this.state;
     this.events.add("item");
+    this.events.add(kind);
     if (kind === "wide") {
       s.wideLeft = 12;
       this.notice("WIDE PADDLE");

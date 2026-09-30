@@ -1,12 +1,21 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Text, View } from "react-native";
 import { router } from "expo-router";
-import { Screen, Tap, Icon, Heading, s } from "@/components/ui";
+import {
+  Screen,
+  Tap,
+  Icon,
+  Heading,
+  s as baseSharedStyles,
+} from "@/components/ui";
 import { ProjectProgress } from "@/components/project-progress";
 import { BRAND } from "@/data/brand";
 import { japaneseDate } from "@/utils/project";
-import { colors } from "@/theme";
 
 export default function Project() {
+  const colors = useColors();
+  const s = useThemedStyles(baseSharedStyles);
+
   return (
     <Screen>
       <View style={s.row}>

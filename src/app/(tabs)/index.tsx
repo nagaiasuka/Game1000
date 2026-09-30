@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Text, View } from "react-native";
 import { router } from "expo-router";
 import {
@@ -6,7 +7,7 @@ import {
   PlayerSelector,
   CategoryLinks,
 } from "@/components/arcade";
-import { Screen, Tap, Icon, s } from "@/components/ui";
+import { Screen, Tap, Icon, s as baseSharedStyles } from "@/components/ui";
 import {
   BlockDropArtwork,
   BlockBreakArtwork,
@@ -15,9 +16,11 @@ import {
 import { ProjectProgress } from "@/components/project-progress";
 import { games, CATEGORY_LABELS } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
-import { colors } from "@/theme";
 import { DeveloperAccess } from "@/developer/DeveloperAccess";
 export default function Home() {
+  const colors = useColors();
+  const s = useThemedStyles(baseSharedStyles);
+
   return (
     <Screen>
       <View style={s.row}>

@@ -1,6 +1,7 @@
 import { applyMove, createMatch } from "./engine.ts";
 import type { Match, MoveError, PieceSize, Player } from "./types.ts";
-export type Feedback = "place" | "cover" | "win" | "draw" | "warning";
+export type Feedback =
+  "place" | "cover" | "win" | "draw" | "warning" | "start" | "undo";
 export type Session = {
   history: { match: Match; wins: Record<Player, number>; rounds: number }[];
   match: Match | null;
@@ -8,7 +9,7 @@ export type Session = {
   wins: Record<Player, number>;
   rounds: number;
   error: MoveError | "choose-size" | null;
-  event: { id: number; kind: Feedback } | null;
+  event: { id: number; kind: Feedback; size?: PieceSize } | null;
 };
 export const initialSession = (): Session => ({
   history: [],
@@ -25,7 +26,11 @@ export type Action =
   | { type: "select"; size: PieceSize }
   | { type: "place"; cell: number; expectedMoves: number };
 export function sessionReducer(state: Session, action: Action): Session {
-  const event = (kind: Feedback) => ({ id: (state.event?.id ?? 0) + 1, kind });
+  const event = (kind: Feedback, size?: PieceSize) => ({
+    id: (state.event?.id ?? 0) + 1,
+    kind,
+    size,
+  });
   if (action.type === "start")
     return {
       ...state,
@@ -33,7 +38,7 @@ export function sessionReducer(state: Session, action: Action): Session {
       match: createMatch(action.first),
       selected: null,
       error: null,
-      event: null,
+      event: event("start"),
     };
   const match = state.match;
   if (action.type === "undo") {
@@ -46,7 +51,7 @@ export function sessionReducer(state: Session, action: Action): Session {
       history: state.history.slice(0, -1),
       selected: null,
       error: null,
-      event: event("place"),
+      event: event("undo"),
     };
   }
   if (!match || match.phase !== "playing") return state;
@@ -88,6 +93,7 @@ export function sessionReducer(state: Session, action: Action): Session {
           : next.captured
             ? "cover"
             : "place",
+      next.lastMove?.size,
     ),
   };
 }

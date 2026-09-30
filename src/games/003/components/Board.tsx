@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { StackMonster } from "@/components/stack-monster";
 import { useEffect, useState } from "react";
 import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
@@ -132,6 +133,9 @@ export function Board({
   selected: PieceSize | null;
   onCell: (index: number) => void;
 }) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   const [width, setWidth] = useState(0);
   const cellSize = Math.max(44, Math.floor((width - 30) / 3));
   const ended = match.phase !== "playing";
@@ -266,7 +270,7 @@ export function Board({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   board: {
     width: "100%",
     aspectRatio: 1,

@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { breakNotice } from "../presentation";
 import { memo, useEffect, useMemo } from "react";
 import { PanResponder, StyleSheet, Text, View } from "react-native";
@@ -72,6 +73,9 @@ export function Field({
   cancel,
   getPaddle,
 }: Props) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   const phase = s.phase;
   const responder = useMemo(() => {
     const drag = { x: 0, active: false, moved: false };
@@ -316,7 +320,7 @@ export function Field({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   field: { borderWidth: 1, borderRadius: 10, overflow: "hidden" },
   ball: { position: "absolute", borderRadius: 20 },
   ready: {

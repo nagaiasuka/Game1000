@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { useCallback, useState } from "react";
 import {
   AppState,
@@ -11,12 +12,16 @@ import {
   View,
 } from "react-native";
 import { useFocusEffect } from "expo-router";
-import { Icon, Tap, s } from "@/components/ui";
+import { Icon, Tap, s as baseSharedStyles } from "@/components/ui";
 import { colors as c } from "@/theme";
 import { useDeveloperMode } from "./DeveloperMode";
 import { DEVELOPER_HOLD_MS } from "./access";
 
 export function DeveloperAccess() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+  const s = useThemedStyles(baseSharedStyles);
+
   const mode = useDeveloperMode();
   const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
@@ -157,7 +162,7 @@ export function DeveloperAccess() {
     </>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   backdrop: {
     flex: 1,
     backgroundColor: "#000000CC",

@@ -1,3 +1,5 @@
+import { audio } from "@/audio/native";
+import { dropSounds } from "../audio";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AppState, Platform } from "react-native";
 import { useFocusEffect } from "expo-router";
@@ -9,10 +11,13 @@ export function useBlockDrop() {
   const [engine] = useState(() => new BlockDropEngine());
   const [state, setState] = useState(() => engine.snapshot());
   const [best, setBest] = useState(0);
+  const [levelUp, setLevelUp] = useState(false);
+  const levelTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [storageError, setStorageError] = useState(false);
   const bestRef = useRef(0);
   const [runBest, setRunBest] = useState(0);
+  const audioRunBest = useRef(0);
   const mounted = useRef(true);
   const revision = useRef(-1);
   const focused = useRef(false);
@@ -40,6 +45,24 @@ export function useBlockDrop() {
       setState(engine.snapshot());
     }
     const events = engine.drainEvents();
+    audio.setMusic("001", engine.state.phase === "ready" ? "home" : "001");
+    if (events.includes("level")) {
+      setLevelUp(true);
+      if (levelTimer.current) clearTimeout(levelTimer.current);
+      levelTimer.current = setTimeout(() => {
+        if (mounted.current) setLevelUp(false);
+      }, 1600);
+    }
+    audio.setPaused("001", ["paused", "gameover"].includes(engine.state.phase));
+    for (const sound of dropSounds(
+      events,
+      engine.state,
+      engine.state.score > audioRunBest.current && engine.state.score > 0,
+    ))
+      audio.play(
+        sound,
+        ["over", "best", "line4", "level"].includes(sound) ? 3 : 1,
+      );
     if (
       events.includes("scored") ||
       events.includes("lock") ||
@@ -87,6 +110,7 @@ export function useBlockDrop() {
       });
     return () => {
       mounted.current = false;
+      if (levelTimer.current) clearTimeout(levelTimer.current);
       engine.pause();
       save();
     };
@@ -94,6 +118,11 @@ export function useBlockDrop() {
   useFocusEffect(
     useCallback(() => {
       focused.current = true;
+      audio.setScene("001", engine.state.phase === "ready" ? "home" : "001");
+      audio.setPaused(
+        "001",
+        ["paused", "gameover"].includes(engine.state.phase),
+      );
       let frame = 0;
       let last: number | null = null;
       const loop = (time: number) => {
@@ -148,6 +177,7 @@ export function useBlockDrop() {
   const canInput = () => focused.current && AppState.currentState === "active";
   return {
     state,
+    levelUp,
     touchStart,
     touchMove,
     touchEnd,
@@ -160,6 +190,9 @@ export function useBlockDrop() {
       if (!loaded || !canInput()) return;
       save();
       setRunBest(bestRef.current);
+      audioRunBest.current = bestRef.current;
+      setLevelUp(false);
+      if (levelTimer.current) clearTimeout(levelTimer.current);
       engine.start();
       publish();
     },

@@ -1,3 +1,4 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colors as c } from "@/theme";
 export function InputSettings({
@@ -7,6 +8,9 @@ export function InputSettings({
   buttons: boolean;
   onChange: (buttons: boolean) => void;
 }) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <View style={styles.panel}>
       <Text style={styles.title}>操作方法</Text>
@@ -46,7 +50,7 @@ export function InputSettings({
     </View>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   panel: { width: "100%", gap: 8, paddingVertical: 10 },
   title: { color: c.muted, fontSize: 12 },
   options: { flexDirection: "row", gap: 8 },

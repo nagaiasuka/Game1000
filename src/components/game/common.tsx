@@ -1,3 +1,5 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { SoundControls } from "@/audio/SoundSettings";
 import {
   Alert,
   Modal,
@@ -22,6 +24,9 @@ export function GameButton({
   secondary?: boolean;
   disabled?: boolean;
 }) {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -41,6 +46,8 @@ export function GameButton({
   );
 }
 export function HelpButton({ onPress }: { onPress: () => void }) {
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -61,6 +68,8 @@ export function GameInstructions({
   gameId: GameHelpId;
   compact?: boolean;
 }) {
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <View style={styles.instructions}>
       <Text accessibilityRole="header" style={styles.subtitle}>
@@ -85,6 +94,8 @@ export function HowToPlayModal({
   visible: boolean;
   onClose: () => void;
 }) {
+  const styles = useThemedStyles(baseStyles);
+
   return (
     <Modal
       visible={visible}
@@ -98,6 +109,7 @@ export function HowToPlayModal({
             {GAME_HELP[gameId].title}
           </Text>
           <GameInstructions gameId={gameId} />
+          <SoundControls />
           <GameButton title={UI_TEXT.close} onPress={onClose} />
         </ScrollView>
       </SafeAreaView>
@@ -126,7 +138,7 @@ export function confirmGameAction(
     { cancelable: true },
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: c.background },
   content: {
     padding: 24,

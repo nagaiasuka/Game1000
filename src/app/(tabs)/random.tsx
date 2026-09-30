@@ -1,8 +1,10 @@
+import { useColors } from "@/theme/ThemeProvider";
 import { router } from "expo-router";
 import { Text } from "react-native";
 import { Screen, Heading, EmptyState, Tap } from "@/components/ui";
-import { colors } from "@/theme";
 export default function Random() {
+  const colors = useColors();
+
   return (
     <Screen>
       <Heading

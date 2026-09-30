@@ -1,3 +1,5 @@
+import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { SoundButton } from "@/audio/SoundSettings";
 import {
   GameButton as MenuButton,
   HelpButton,
@@ -28,6 +30,9 @@ import { useBlockDrop } from "./hooks/useBlockDrop";
 import { boardColors } from "./theme";
 
 export default function GameScreen() {
+  const c = useColors();
+  const styles = useThemedStyles(baseStyles);
+
   const { fontScale } = useWindowDimensions();
   const [helpOpen, setHelpOpen] = useState(false);
   const game = useBlockDrop();
@@ -143,7 +148,7 @@ export default function GameScreen() {
           </View>
           <View style={styles.stats}>
             <Text maxFontSizeMultiplier={1.1} style={styles.stat}>
-              レベル{" "}
+              {game.levelUp ? "レベルアップ！ " : "レベル "}
               <Text style={styles.statValue}>
                 {String(state.level).padStart(2, "0")}
               </Text>
@@ -242,6 +247,7 @@ export default function GameScreen() {
                         >
                           {state.phase === "paused" ? UI_TEXT.paused : "設定"}
                         </Text>
+                        <SoundButton />
                         <InputSettings
                           buttons={buttons}
                           onChange={changeInput}
@@ -344,7 +350,7 @@ export default function GameScreen() {
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   dropProgress: {
     position: "absolute",
     left: 0,
