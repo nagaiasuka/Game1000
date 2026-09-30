@@ -1,3 +1,4 @@
+import { StackMonster } from "./stack-monster";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { colors as c, mono } from "@/theme";
@@ -255,3 +256,60 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 0 },
   },
 });
+
+export function NeonStackArtwork() {
+  return (
+    <LinearGradient
+      colors={["#102A35", c.background, "#381237"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.art}
+    >
+      <View style={styles.copy}>
+        <Text maxFontSizeMultiplier={1.1} style={styles.kicker}>
+          2人の、かぶせる三目並べ
+        </Text>
+        <Text maxFontSizeMultiplier={1.1} style={styles.title}>
+          NEON{"\n"}STACK<Text style={{ color: c.pink }}>.</Text>
+        </Text>
+        <View style={styles.underline} />
+        <Text maxFontSizeMultiplier={1.1} style={styles.caption}>
+          大きな駒で、逆転しよう。
+        </Text>
+      </View>
+      <View
+        accessible={false}
+        style={{
+          width: 126,
+          flexDirection: "row",
+          flexWrap: "wrap",
+          gap: 3,
+          transform: [{ rotate: "-8deg" }],
+        }}
+      >
+        {[1, 2, 0, 0, 2, 1, 1, 0, 2].map((player, index) => (
+          <View
+            key={index}
+            style={{
+              width: 40,
+              height: 40,
+              borderWidth: 1,
+              borderColor: c.cyan + "55",
+              borderRadius: 6,
+              backgroundColor: c.surface,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {!!player && (
+              <StackMonster
+                player={player === 1 ? 1 : 2}
+                diameter={index === 4 ? 35 : index === 0 ? 19 : 28}
+              />
+            )}
+          </View>
+        ))}
+      </View>
+    </LinearGradient>
+  );
+}

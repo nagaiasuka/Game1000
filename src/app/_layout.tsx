@@ -23,6 +23,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="play/001" options={{ gestureEnabled: false }} />
           <Stack.Screen name="play/002" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="play/003" options={{ gestureEnabled: false }} />
         </Stack>
       </ThemeProvider>
     </DeveloperModeProvider>

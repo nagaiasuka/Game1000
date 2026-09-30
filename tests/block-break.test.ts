@@ -59,10 +59,10 @@ function hit(e: BlockBreakEngine, b = brick()) {
   });
   e.advance(STEP);
 }
-test("002 is playable and ROAD TO 100 automatically counts both games", () => {
+test("002 is playable and ROAD TO 100 counts the current catalog", () => {
   assert.equal(games.find((g) => g.id === "002")?.status, "available");
-  assert.equal(projectProgress(games, 100).countLabel, "002 / 100");
-  assert.equal(projectProgress(games, 100).remaining, 98);
+  assert.equal(projectProgress(games, 100).countLabel, "003 / 100");
+  assert.equal(projectProgress(games, 100).remaining, 97);
 });
 test("ten distinct, bounded stages introduce durability, steel and rush", () => {
   assert.equal(STAGES.length, 10);

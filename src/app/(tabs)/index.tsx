@@ -7,7 +7,11 @@ import {
   CategoryLinks,
 } from "@/components/arcade";
 import { Screen, Tap, Icon, s } from "@/components/ui";
-import { BlockDropArtwork, BlockBreakArtwork } from "@/components/game-artwork";
+import {
+  BlockDropArtwork,
+  BlockBreakArtwork,
+  NeonStackArtwork,
+} from "@/components/game-artwork";
 import { ProjectProgress } from "@/components/project-progress";
 import { games, CATEGORY_LABELS } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
@@ -61,6 +65,7 @@ export default function Home() {
           >
             {game.artwork === "block-drop" && <BlockDropArtwork />}
             {game.artwork === "block-break" && <BlockBreakArtwork />}
+            {game.artwork === "neon-stack" && <NeonStackArtwork />}
             <View
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >

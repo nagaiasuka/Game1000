@@ -19,7 +19,7 @@ export type Game = {
   mode?: "endless";
   categories: GameCategory[];
   thumbnail?: string;
-  artwork?: "block-drop" | "block-break";
+  artwork?: "block-drop" | "block-break" | "neon-stack";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -57,12 +57,15 @@ export const games: Game[] = [
   {
     id: "003",
     gameNumber: 3,
-    title: "次のゲームを制作中！",
-    shortDescription: "みんなが集まれば、ゲームの時間。",
-    minPlayers: 3,
-    maxPlayers: 10,
-    categories: ["party"],
-    status: "coming-soon",
+    title: "NEON STACK",
+    shortDescription: "大きな駒で相手にかぶせる、2人の三目並べ。",
+    minPlayers: 2,
+    maxPlayers: 2,
+    categories: ["board", "brain"],
+    artwork: "neon-stack",
+    isNew: true,
+    status: "available",
+    route: "/play/003",
   },
 ];
 export const playerOptions = [
