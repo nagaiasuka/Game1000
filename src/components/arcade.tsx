@@ -1,3 +1,4 @@
+import { FavoriteButton } from "@/favorites/components";
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { CATEGORY_LABELS } from "@/data/catalog";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -267,15 +268,17 @@ export function GameCard({ game }: { game: Game }) {
     </>
   );
   return game.status === "available" ? (
-    <Tap
-      label={`${game.title}を遊ぶ`}
-      onPress={() =>
-        router.push(game.route as Parameters<typeof router.push>[0])
-      }
-      style={a.card}
-    >
-      {body}
-    </Tap>
+    <View style={a.card}>
+      <Tap
+        label={`${game.title}を遊ぶ`}
+        onPress={() =>
+          router.push(game.route as Parameters<typeof router.push>[0])
+        }
+      >
+        {body}
+      </Tap>
+      <FavoriteButton id={game.id} title={game.title} />
+    </View>
   ) : (
     <View
       style={a.card}

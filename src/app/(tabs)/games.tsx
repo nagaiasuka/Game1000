@@ -1,3 +1,4 @@
+import { FavoriteStatus } from "@/favorites/components";
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Text, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
@@ -41,6 +42,7 @@ export default function Games() {
         }
       />
       <CategoryLinks />
+      <FavoriteStatus />
       <View style={s.row}>
         <Text style={s.body}>
           {items.length}件

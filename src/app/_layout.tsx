@@ -1,3 +1,4 @@
+import { FavoritesProvider } from "@/favorites/FavoritesProvider";
 import { AppThemeProvider, useColors } from "@/theme/ThemeProvider";
 import { AudioProvider } from "@/audio/AudioProvider";
 import { DarkTheme, Stack, ThemeProvider } from "expo-router";
@@ -6,7 +7,9 @@ import { DeveloperModeProvider } from "@/developer/DeveloperMode";
 export default function RootLayout() {
   return (
     <AppThemeProvider>
-      <AppNavigation />
+      <FavoritesProvider>
+        <AppNavigation />
+      </FavoritesProvider>
     </AppThemeProvider>
   );
 }
