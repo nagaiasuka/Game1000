@@ -61,8 +61,8 @@ function hit(e: BlockBreakEngine, b = brick()) {
 }
 test("002 is playable and ROAD TO 100 counts the current catalog", () => {
   assert.equal(games.find((g) => g.id === "002")?.status, "available");
-  assert.equal(projectProgress(games, 100).countLabel, "004 / 100");
-  assert.equal(projectProgress(games, 100).remaining, 96);
+  assert.equal(projectProgress(games, 100).countLabel, "005 / 100");
+  assert.equal(projectProgress(games, 100).remaining, 95);
 });
 test("ten distinct, bounded stages introduce durability, steel and rush", () => {
   assert.equal(STAGES.length, 10);

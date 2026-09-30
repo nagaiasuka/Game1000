@@ -1,7 +1,7 @@
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
-import { ScrollView, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
-import { GameCard } from "@/components/arcade";
+import { GameCard, PlayerSelector, CategoryLinks } from "@/components/arcade";
 import {
   Screen,
   Heading,
@@ -9,7 +9,7 @@ import {
   Tap,
   s as baseSharedStyles,
 } from "@/components/ui";
-import { filterGames, games, playerOptions } from "@/data/catalog";
+import { filterGames, games } from "@/data/catalog";
 export default function Games() {
   const colors = useColors();
   const s = useThemedStyles(baseSharedStyles);
@@ -32,37 +32,15 @@ export default function Games() {
         title={title}
         detail="人数で絞って、ゲームを選ぼう。"
       />
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ gap: 8 }}
-      >
-        {[{ id: "all", label: "すべて" }, ...playerOptions].map((option) => {
-          const selected = option.id === (params.players || "all");
-          return (
-            <Tap
-              key={option.id}
-              label={`人数: ${selected ? "✓ " : ""}{option.label}`}
-              selected={selected}
-              onPress={() => router.setParams({ players: option.id })}
-              style={{
-                minHeight: 44,
-                paddingHorizontal: 16,
-                justifyContent: "center",
-                borderRadius: 22,
-                borderWidth: 1,
-                borderColor: selected ? colors.cyan : colors.border,
-                backgroundColor: colors.surface,
-              }}
-            >
-              <Text style={{ color: selected ? colors.cyan : colors.muted }}>
-                {selected ? "✓ " : ""}
-                {option.label}
-              </Text>
-            </Tap>
-          );
-        })}
-      </ScrollView>
+      <PlayerSelector
+        selected={params.players}
+        onSelect={(players) =>
+          router.setParams({
+            players: params.players === players ? "all" : players,
+          })
+        }
+      />
+      <CategoryLinks />
       <View style={s.row}>
         <Text style={s.body}>
           {items.length}件

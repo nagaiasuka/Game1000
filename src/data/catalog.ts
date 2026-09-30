@@ -19,7 +19,8 @@ export type Game = {
   mode?: "endless";
   categories: GameCategory[];
   thumbnail?: string;
-  artwork?: "block-drop" | "block-break" | "neon-stack" | "neon-path";
+  artwork?:
+    "block-drop" | "block-break" | "neon-stack" | "neon-path" | "neon-sling";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -80,6 +81,20 @@ export const games: Game[] = [
     isNew: true,
     status: "available",
     route: "/play/004",
+  },
+  {
+    id: "005",
+    gameNumber: 5,
+    title: "NEON SLING",
+    shortDescription: "引け。離せ。全部送り込め。2人同時のパック対戦。",
+    minPlayers: 2,
+    maxPlayers: 2,
+    estimatedMinutes: 2,
+    categories: ["reflex", "party"],
+    artwork: "neon-sling",
+    isNew: true,
+    status: "available",
+    route: "/play/005",
   },
 ];
 export const playerOptions = [

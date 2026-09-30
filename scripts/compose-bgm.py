@@ -189,5 +189,26 @@ def strategy_path():
     return s.finish(.068)
 
 
+def speed_sling():
+    """CROSSFIRE: B minor electro duel, answering stabs, breakbeat and a rising counterline."""
+    s=Score(142,16,105)
+    chords=[[59,62,66,73],[57,61,64,71],[55,59,62,69],[54,58,61,68]]
+    for bar in range(16):
+        b=bar*4;chord=chords[bar%4]
+        # Two phrases face each other, with space between the attacks.
+        for offset,note in [(0,chord[0]+12),(.25,chord[2]+12),(1.5,chord[1]+12),(2.5,chord[3]),(2.75,chord[2]+12)]:
+            s.note(b+offset,.2,note,'brass' if bar%2 else 'glass',.06)
+        for offset,interval in [(0,0),(.75,12),(1.75,7),(2.5,0),(3.25,12)]:
+            s.note(b+offset,.25,chord[0]-24+interval,'bass',.10)
+        s.chord(b+3.5,.22,chord,'pluck',.032)
+        if bar>=8:
+            for i,note in enumerate([chord[1]+12,chord[2]+12,chord[3]+12]):s.note(b+1+i*.25,.13,note,'glass',.026)
+        for offset in [0,1.5,2.25]:s.drum(b+offset,'kick',.15)
+        for offset in [1,3]:s.drum(b+offset,'snare',.052)
+        for offset in [.5,1.75,2.5,3.75]:s.drum(b+offset,'hat',.022)
+        if bar%4==3:s.drum(b+3.5,'clap',.025)
+    return s.finish(.11)
+
+
 def compose():
-    return {'home':arcade_home(), '001':puzzle_drop(), '002':action_break(), '003':board_stack(), '004':strategy_path()}
+    return {'home':arcade_home(), '001':puzzle_drop(), '002':action_break(), '003':board_stack(), '004':strategy_path(), '005':speed_sling()}

@@ -50,6 +50,12 @@ cues={
 'pathJump':('game004',[390,590,880],.035,.1,.10),
 'pathWall':('game004',[110,440],.025,.20,.19),
 'pathGoal':('game004',[494,587,740,988,1175],.115,.32,.19),
+'slingGrab':('game005',[820],.02,.045,.055),
+'slingShot':('game005',[240,720],.025,.13,.16),
+'slingHit':('game005',[160],.02,.07,.12),
+'slingGate':('game005',[660,990],.05,.14,.15),
+'slingWin':('game005',[494,622,740,988,1245],.105,.32,.21),
+'slingTick':('game005',[560],.02,.055,.07),
 }
 manifest={}
 for name,(folder,notes,spacing,duration,amp) in cues.items():

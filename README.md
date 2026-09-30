@@ -1,6 +1,6 @@
 # GAME100 — ゲームヒャク
 
-スマホの中に、ネオンのゲームセンターを。React Native / Expoで作るiOS・Android向けミニゲームアプリです。GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」、GAME #003「NEON STACK」、GAME #004「NEON PATH」をプレイできます。
+スマホの中に、ネオンのゲームセンターを。React Native / Expoで作るiOS・Android向けミニゲームアプリです。GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」、GAME #003「NEON STACK」、GAME #004「NEON PATH」、GAME #005「NEON SLING」をプレイできます。
 
 現在のユーザー向けブランドは **GAME100**。「2030年12月31日までにゲーム100本を作る会社員」という企画です。内部プロジェクト名は **GAME1000** のままです。
 
@@ -29,8 +29,8 @@ npm run android  # Android Studioのエミュレーター、または接続し�
 - HOMEは人数・おまかせから遊びを決める入口、GAMESはコンパクトな人数フィルターとゲーム一覧
 - 1人 / 2人 / 3〜4人 / 5人以上の人数フィルター
 - 人気・新着の一覧導線、準備中の空表示
-- GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」（10ステージ）、GAME #003「NEON STACK」（2人対戦）、GAME #004「NEON PATH」（2人の経路対戦）
-- HOMEの新作は公開済み新着の最大ゲーム番号を表示。ROAD TO 100は004 / 100・残り96本へ自動更新
+- GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」（10ステージ）、GAME #003「NEON STACK」（2人対戦）、GAME #004「NEON PATH」（2人の経路対戦）、GAME #005「NEON SLING」（2人同時パック対戦）
+- HOMEの新作は公開済み新着の最大ゲーム番号を表示。ROAD TO 100は005 / 100・残り95本へ自動更新
 - Safe Area、縦画面、スクロール、押下フィードバック、Haptics
 
 ランダム選択・お気に入り保存は準備中画面です。プレイ履歴、音、サーバー、課金、広告は未導入です。
@@ -50,13 +50,14 @@ src/
   games/002/             # BLOCK BREAK（10ステージ・アイテム・コンボ・FEVER）
   games/003/             # NEON STACK（2人のかぶせる三目並べ）
   games/004/             # NEON PATH（壁と移動で競う2人の頭脳戦）
+  games/005/             # NEON SLING（上下から同時に引いて撃つパック対戦）
   theme/index.ts         # 共通色、余白、フォント
 tests/                  # カタログ・BLOCK DROPのロジックと保存の検証
 ```
 
 ## ゲームの仕様と追加
 
-操作・ルール・保存・検証結果は [BLOCK DROP README](src/games/001/README.md)、[BLOCK BREAK README](src/games/002/README.md)、[NEON STACK README](src/games/003/README.md)、[NEON PATH README](src/games/004/README.md) に記載しています。次のゲームは以下の手順で追加できます。
+操作・ルール・保存・検証結果は [BLOCK DROP README](src/games/001/README.md)、[BLOCK BREAK README](src/games/002/README.md)、[NEON STACK README](src/games/003/README.md)、[NEON PATH README](src/games/004/README.md)、[NEON SLING README](src/games/005/README.md) に記載しています。次のゲームは以下の手順で追加できます。
 
 1. `src/games/004/GameScreen.tsx` にゲーム本体を実装。
 2. `src/app/play/004.tsx` でその画面をexport。

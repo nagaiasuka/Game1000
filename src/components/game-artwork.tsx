@@ -425,3 +425,118 @@ export function NeonPathArtwork() {
     </LinearGradient>
   );
 }
+
+export function NeonSlingArtwork() {
+  const c = useColors();
+  return (
+    <LinearGradient
+      colors={["#2D0B35", "#091120", "#072E3A"]}
+      style={{
+        height: 180,
+        borderRadius: 14,
+        overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      accessibilityLabel="中央のゲートへ白いパックを打ち合う2人同時対戦"
+    >
+      <View
+        style={{
+          width: 150,
+          height: 158,
+          borderWidth: 2,
+          borderColor: "#A88AFF66",
+          borderRadius: 12,
+          transform: [{ rotate: "-10deg" }],
+        }}
+      >
+        {[0, 87].map((x) => (
+          <View
+            key={x}
+            style={{
+              position: "absolute",
+              left: x,
+              top: 76,
+              width: 59,
+              height: 4,
+              backgroundColor: "#A88AFF",
+            }}
+          />
+        ))}
+        {[
+          { x: 26, y: 25 },
+          { x: 67, y: 34 },
+          { x: 109, y: 22 },
+          { x: 28, y: 124 },
+          { x: 105, y: 128 },
+          { x: 72, y: 96 },
+        ].map((p, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: p.x,
+              top: p.y,
+              width: 12,
+              height: 12,
+              borderRadius: 6,
+              backgroundColor: "#ECFCFF",
+              shadowColor: i < 3 ? "#FF2BD6" : "#00F5FF",
+              shadowOpacity: 1,
+              shadowRadius: 7,
+            }}
+          />
+        ))}
+        <View
+          style={{
+            position: "absolute",
+            left: 76,
+            top: 61,
+            width: 3,
+            height: 31,
+            backgroundColor: "#00F5FF",
+            transform: [{ rotate: "-8deg" }],
+          }}
+        />
+        <Text
+          allowFontScaling={false}
+          style={{
+            position: "absolute",
+            top: 47,
+            left: 66,
+            fontSize: 23,
+            color: "#00F5FF",
+          }}
+        >
+          ↑
+        </Text>
+      </View>
+      <Text
+        allowFontScaling={false}
+        style={{
+          position: "absolute",
+          left: 14,
+          bottom: 12,
+          color: c.text,
+          fontSize: 11,
+          fontWeight: "800",
+          letterSpacing: 2,
+        }}
+      >
+        NEON SLING
+      </Text>
+      <Text
+        allowFontScaling={false}
+        style={{
+          position: "absolute",
+          right: 12,
+          top: 12,
+          color: c.cyan,
+          fontSize: 11,
+        }}
+      >
+        2人同時対戦
+      </Text>
+    </LinearGradient>
+  );
+}

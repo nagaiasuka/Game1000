@@ -1,5 +1,5 @@
 import type { SoundId } from "./sounds.ts";
-export type Scene = "home" | "001" | "002" | "003" | "004";
+export type Scene = "home" | "001" | "002" | "003" | "004" | "005";
 export type Effect = Exclude<SoundId, `bgm${string}`>;
 export type AudioSettings = {
   bgm: boolean;
@@ -33,6 +33,16 @@ export function readSettings(raw: string | null): AudioSettings {
 }
 export const sceneEffects: Record<Scene, readonly Effect[]> = {
   home: ["ui", "start", "warning"],
+  "005": [
+    "ui",
+    "start",
+    "slingGrab",
+    "slingShot",
+    "slingHit",
+    "slingGate",
+    "slingWin",
+    "slingTick",
+  ],
   "004": [
     "ui",
     "start",

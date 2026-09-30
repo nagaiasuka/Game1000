@@ -1,18 +1,14 @@
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { Text, View } from "react-native";
 import { router } from "expo-router";
-import {
-  GameLogo,
-  RandomGameButton,
-  PlayerSelector,
-  CategoryLinks,
-} from "@/components/arcade";
+import { GameLogo, RandomGameButton } from "@/components/arcade";
 import { Screen, Tap, Icon, s as baseSharedStyles } from "@/components/ui";
 import {
   BlockDropArtwork,
   BlockBreakArtwork,
   NeonStackArtwork,
   NeonPathArtwork,
+  NeonSlingArtwork,
 } from "@/components/game-artwork";
 import { ProjectProgress } from "@/components/project-progress";
 import { games, CATEGORY_LABELS } from "@/data/catalog";
@@ -71,6 +67,7 @@ export default function Home() {
             {game.artwork === "block-break" && <BlockBreakArtwork />}
             {game.artwork === "neon-stack" && <NeonStackArtwork />}
             {game.artwork === "neon-path" && <NeonPathArtwork />}
+            {game.artwork === "neon-sling" && <NeonSlingArtwork />}
             <View
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >
@@ -101,8 +98,6 @@ export default function Home() {
           </Tap>
         ))}
       <RandomGameButton />
-      <PlayerSelector />
-      <CategoryLinks />
       <Tap
         label="ゲームをすべて見る"
         onPress={() =>
@@ -125,7 +120,7 @@ export default function Home() {
       >
         <View style={{ gap: 5, flex: 1 }}>
           <Text style={s.subtitle}>ゲーム一覧から探す</Text>
-          <Text style={s.body}>遊びたいゲームが決まっているなら</Text>
+          <Text style={s.body}>人数や新着から、遊びたい1本を探そう</Text>
         </View>
         <Icon name="arrow-forward" color={colors.cyan} />
       </Tap>

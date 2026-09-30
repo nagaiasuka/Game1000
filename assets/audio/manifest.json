@@ -147,6 +147,30 @@
     "path": "game004/pathGoal.wav",
     "ms": 790
   },
+  "slingGrab": {
+    "path": "game005/slingGrab.wav",
+    "ms": 55
+  },
+  "slingShot": {
+    "path": "game005/slingShot.wav",
+    "ms": 165
+  },
+  "slingHit": {
+    "path": "game005/slingHit.wav",
+    "ms": 80
+  },
+  "slingGate": {
+    "path": "game005/slingGate.wav",
+    "ms": 200
+  },
+  "slingWin": {
+    "path": "game005/slingWin.wav",
+    "ms": 750
+  },
+  "slingTick": {
+    "path": "game005/slingTick.wav",
+    "ms": 65
+  },
   "bgmhome": {
     "path": "common/bgm.wav",
     "ms": 30968
@@ -166,5 +190,9 @@
   "bgm004": {
     "path": "game004/bgm.wav",
     "ms": 43636
+  },
+  "bgm005": {
+    "path": "game005/bgm.wav",
+    "ms": 27042
   }
 }
