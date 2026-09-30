@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "GAME100",
+    "icon": "./assets/images/icon.png",
     "slug": "game1000",
     "version": "1.0.0",
     "scheme": "game1000",
@@ -12,18 +13,32 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.nagaiasuka.game1000"
+      "bundleIdentifier": "com.nagaiasuka.game1000",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#070711",
+        "monochromeImage": "./assets/images/monochrome-icon.png"
+      },
       "package": "com.nagaiasuka.game1000",
-      "predictiveBackGestureEnabled": true
+      "predictiveBackGestureEnabled": true,
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#070711"
+          "backgroundColor": "#070711",
+          "image": "./assets/images/icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain"
         }
       ],
       [
@@ -34,10 +49,17 @@
           "enableBackgroundPlayback": false,
           "enableBackgroundRecording": false
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c409765b-aef8-49ce-9832-f845079b922a"
+      }
     }
   }
 }

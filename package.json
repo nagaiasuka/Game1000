@@ -6,6 +6,7 @@
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.25",
+    "expo-asset": "~57.0.18",
     "expo-audio": "~57.0.5",
     "expo-constants": "~57.0.19",
     "expo-font": "~57.0.4",
@@ -33,8 +34,10 @@
     "typescript": "~6.0.3"
   },
   "scripts": {
+    "postinstall": "node scripts/fix-ios-unicode-path.cjs",
     "start": "expo start",
-    "ios": "expo start --ios",
+    "ios": "expo run:ios --configuration Release --no-bundler",
+    "ios:go": "expo start --ios --go",
     "android": "expo start --android",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",

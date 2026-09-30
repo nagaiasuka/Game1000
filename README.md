@@ -22,6 +22,22 @@ npm run android  # Android Studioのエミュレーター、または接続し�
 
 実機のExpo Goでは `npm start` を実行し、同じネットワーク上の端末でQRコードを読み取ります。Expo SDK 57対応のExpo Goが必要です。Webは対象外です。
 
+### 正式アイコンから起動するiPhoneシミュレーター版
+
+かさねいろと同じく、次のコマンドでMac上でビルド・インストール・起動します（macOS / Xcodeが必要）。
+
+```sh
+npm run ios
+```
+
+JS・画像・音声を同梱するReleaseビルドです。初回はネイティブ依存の準備に時間がかかります。インストール後はホーム画面の「GAME100」アイコンから起動でき、Expo Goや開発サーバーは不要です。コードや画像を変更した場合も、再び `npm run ios` を実行すれば更新できます。
+
+Expo Goで確認したい場合は `npm run ios:go` を使います。`ios/` はExpoが生成し、Git管理から除外します。ネイティブ設定は `app.json` とconfig pluginで管理してください。既に生成済みの状態でアイコンやプラグイン設定を変更した場合は、`npx expo prebuild --platform ios --no-install` で反映してから `npm run ios` を実行します。
+
+日本語を含むプロジェクトパスでCocoaPodsが失敗するHermesの文字コード問題には、`postinstall`の限定的な補正で対応しています。React Native更新時には `scripts/fix-ios-unicode-path.cjs` の必要性を再確認してください。
+
+TestFlight用は既存のEAS `production`プロファイルを使用します。クラウドでシミュレーター版を作る場合のみ、EASの `simulator` プロファイルを使えます。
+
 ## 実装範囲
 
 - ネオン調ホーム、ロゴ、プレイ可能ゲームの収録数、何やる？ボタン
@@ -80,7 +96,7 @@ npx expo-doctor
 npx expo export --platform ios --platform android
 ```
 
-正式なアプリアイコン・スプラッシュ画像は今後追加してください。ブランドロゴは `GameLogo` 内で画像に差し替えられます。現状は文字とネイティブ部品で構築しています。
+正式なアプリアイコンとSplashは[ブランドアセット仕様](assets/images/README.md)を参照してください。アプリ内ブランドロゴは `GameLogo` 内で文字とネイティブ部品により構築しています。
 
 ## サウンド
 
