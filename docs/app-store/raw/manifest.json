@@ -1,0 +1,187 @@
+{
+  "date": "2026-10-01",
+  "app_source_commit": "8aaa873",
+  "repository_commit_at_capture": "8e97bdd",
+  "build": "Release Simulator / bundled JavaScript",
+  "simulator": "iPhone 13 Pro Max",
+  "simulator_name": "GAME100 App Store iPhone 13 Pro Max",
+  "runtime": "iOS 26.5",
+  "capture_method": "xcrun simctl io screenshot",
+  "reused_unchanged_sources": {
+    "01-home.png": "02-home.png",
+    "02-challenge.png": "01-challenge.png",
+    "03-games.png": "03-games-top.png",
+    "12-games-more.png": "03-games-middle.png",
+    "13-games-sling.png": "03-games-bottom.png",
+    "04-block-drop.png": "extra-block-drop.png",
+    "05-block-break.png": "04-block-break-a.png",
+    "06-neon-stack.png": "05-neon-stack.png",
+    "07-neon-path.png": "extra-neon-path.png",
+    "08-neon-sling.png": "06-neon-sling-a.png",
+    "09-random.png": "extra-random.png",
+    "10-favorites.png": "extra-favorites.png",
+    "11-settings.png": "extra-settings.png"
+  },
+  "images": [
+    {
+      "file": "01-challenge.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 664936,
+      "sha256": "2481e14a299b082e6d09556b807eeb096d4aeac636167abac15bce8403f5e59b"
+    },
+    {
+      "file": "02-home.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 583529,
+      "sha256": "c06194b5133c1b67eb23b528a7cac437ac62e860b36272280e26989632aafc44"
+    },
+    {
+      "file": "03-games-bottom.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1195517,
+      "sha256": "3fa44018d81d1251d1eb2c9fd604775df9fd76be6056bc041daa89ffb2fea7b0"
+    },
+    {
+      "file": "03-games-middle.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1484467,
+      "sha256": "1aeaa58ef3dfb372891b386db3fe4048b75cc8634d4b30dd92678c45dc072fdd"
+    },
+    {
+      "file": "03-games-top.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1457789,
+      "sha256": "b2e57a314dde0533e1cc7b448d80236d0f56f887703046eb0457dfa8221e8251"
+    },
+    {
+      "file": "04-block-break-a.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 152964,
+      "sha256": "930d3432fae33352f43523427593b04e7b79054ee3254e029be87694637ed307"
+    },
+    {
+      "file": "04-block-break-b.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 171365,
+      "sha256": "14a2aa8c23857ffee26de2ed480e4c4541516d402ce84e5a51bf55e4a84e4079"
+    },
+    {
+      "file": "04-block-break-c.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 171174,
+      "sha256": "1a07dd0d93a73d4f1f2ff37fa9167b7f8775d40d7b844f853753ab810d1cd4c9"
+    },
+    {
+      "file": "04-block-break-d.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 152110,
+      "sha256": "2dd2447e964c665a21ff1263c9eeeea5b8ee0339ecc7924625374e901a7e3ff9"
+    },
+    {
+      "file": "05-neon-stack.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 268286,
+      "sha256": "96fd0256014b2e55a60ec4e49e8fdf70c08f60aff4f5de4e26973b28ffe80457"
+    },
+    {
+      "file": "06-neon-sling-a.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 445626,
+      "sha256": "160159ab47609dceae77cd7a54c21d8b0dc9729bd7f0da768be4a9e320ed7adf"
+    },
+    {
+      "file": "06-neon-sling-b.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 497246,
+      "sha256": "f857c42d812e6bae4d38dea57612b75ebe19c9d79b365d01675037ce53b1cc4a"
+    },
+    {
+      "file": "06-neon-sling-c.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 512799,
+      "sha256": "e8cde886dcd61a28c662f66a78581c5ec8f0dd065b67019f5958683f64243a92"
+    },
+    {
+      "file": "07-games.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1373512,
+      "sha256": "20888dbd90968d4571b08957fad9dc67ec88da7fa960f1b801fd85dc9f78f5ee"
+    },
+    {
+      "file": "07-progress.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 874289,
+      "sha256": "6f45dd3776a7cd37fe3d1f02ae8a49808f7f39450d30b46f1deb09ae91f37e39"
+    },
+    {
+      "file": "extra-block-drop.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 173806,
+      "sha256": "a3ba1700f19f83d8f8eb793cbcddf46656817dae0725b32204d484911998f15a"
+    },
+    {
+      "file": "extra-favorites.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1366952,
+      "sha256": "d5d0ea9b3fefac22da7ec216068cee2d1d26ad14b81f8e90f04d658c55fc11bd"
+    },
+    {
+      "file": "extra-neon-path.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 319081,
+      "sha256": "57b291ad65c0820dab52fa6a21dc2284b4f8606ef047215d14abec41994be174"
+    },
+    {
+      "file": "extra-random.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 953973,
+      "sha256": "d3b59aeb0886ad66837ad5744c7f57500b56f16ddb965a5969ad39a6bf94f883"
+    },
+    {
+      "file": "extra-settings.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 291932,
+      "sha256": "515eeddc47f50fa6163ce252fd8eafcaab9d5817f63e71ef178e311e437206d0"
+    }
+  ]
+}
