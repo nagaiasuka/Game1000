@@ -2,7 +2,7 @@ import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
-import { BRAND } from "@/data/brand";
+import { CHALLENGE } from "@/data/challenge";
 import { useProjectProgress } from "@/hooks/useProjectProgress";
 import { japaneseDate } from "@/utils/project";
 import { colors as c, mono } from "@/theme";
@@ -21,33 +21,38 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
     >
       <View style={s.row}>
         <Text accessibilityRole="header" style={styles.eyebrow}>
-          ROAD TO {BRAND.targetGames}
+          {progress.phase === "complete" ? "100 DAYS COMPLETE" : CHALLENGE.label}
         </Text>
         <Icon name="sparkles-outline" size={18} color={c.cyan} />
       </View>
       <Text style={styles.tagline}>
-        {japaneseDate(BRAND.deadline)}までに{"\n"}ゲーム{BRAND.targetGames}
-        本を作る会社員。
+        ゲーム制作未経験の会社員が{"\n"}100日でゲーム30個作る。
       </Text>
-      <View style={styles.voices}>
-        <Icon name="chatbubbles-outline" size={20} color={c.pink} />
-        <View style={{ flex: 1, gap: 4 }}>
-          <Text style={styles.voiceTitle}>次のゲームは、あなたの声から。</Text>
-          <Text style={styles.voiceCopy}>
-            「こんなの遊びたい」をヒントに、次の1本を決めていきます。
-          </Text>
+      {!link && (
+        <View style={styles.voices}>
+          <Icon name="chatbubbles-outline" size={20} color={c.pink} />
+          <View style={{ flex: 1, gap: 4 }}>
+            <Text style={styles.voiceTitle}>次のゲームは、あなたの声から。</Text>
+            <Text style={styles.voiceCopy}>
+              「こんなの遊びたい」をヒントに、次の1本を決めていきます。
+            </Text>
+          </View>
         </View>
-      </View>
+      )}
       <View style={styles.countRow}>
         <View>
-          <Text style={styles.label}>現在のゲーム数</Text>
+          <Text style={styles.label}>
+            {progress.phase === "complete" ? "RESULT" : "GAMES"}
+          </Text>
           <Text maxFontSizeMultiplier={1.3} style={styles.count}>
-            {String(progress.available).padStart(3, "0")}
-            <Text style={styles.total}> / {BRAND.targetGames}</Text>
+            {progress.countLabel}
           </Text>
         </View>
-        <Text style={styles.remaining}>残り{progress.remaining}本</Text>
+        <Text style={styles.remaining}>
+          {progress.achieved ? "30ゲーム達成！" : `あと${progress.remaining}ゲーム`}
+        </Text>
       </View>
+      {progress.achieved && <Text style={styles.eyebrow}>CHALLENGE CLEAR!</Text>}
       <View
         style={styles.track}
         accessibilityRole="progressbar"
@@ -77,13 +82,15 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
       </View>
       <View style={styles.deadline}>
         <View style={{ gap: 5 }}>
-          <Text style={styles.label}>期限</Text>
-          <Text style={styles.date}>{japaneseDate(BRAND.deadline)}</Text>
+          <Text style={styles.label}>
+            {progress.phase === "upcoming" ? "開始日" : "100日目"}
+          </Text>
+          <Text style={styles.date}>
+            {japaneseDate(progress.phase === "upcoming" ? CHALLENGE.startDate : progress.endDate)}
+          </Text>
         </View>
         <Text style={styles.days}>
-          {progress.expired
-            ? "挑戦は続きます"
-            : `あと ${progress.daysLeft.toLocaleString()}日`}
+          {progress.phase === "upcoming" ? "まもなくスタート" : progress.dayLabel}
         </Text>
       </View>
       {link && (
@@ -96,7 +103,7 @@ export function ProjectProgress({ link = false }: { link?: boolean }) {
   );
   return link ? (
     <Tap
-      label={`ROAD TO ${BRAND.targetGames}。現在${progress.available}本、残り${progress.remaining}本。企画について読む`}
+      label={`${CHALLENGE.label}。${progress.phase === "complete" ? "期間終了" : progress.phase === "upcoming" ? "開始前" : progress.dayLabel}。現在${progress.available}ゲーム、${progress.achieved ? "30ゲーム達成" : `あと${progress.remaining}ゲーム`}。企画について読む`}
       onPress={() => router.push("/project")}
       style={styles.frame}
     >
@@ -146,7 +153,7 @@ const baseStyles = StyleSheet.create({
     gap: 8,
   },
   label: { color: c.muted, fontSize: 12, fontFamily: mono, letterSpacing: 1 },
-  count: { color: c.cyan, fontFamily: mono, fontSize: 40, fontWeight: "800" },
+  count: { color: c.cyan, fontFamily: mono, fontSize: 32, fontWeight: "800" },
   total: { color: c.muted, fontSize: 20 },
   remaining: {
     color: c.pink,

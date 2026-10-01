@@ -3,6 +3,7 @@ import { Screen, Heading } from "@/components/ui";
 import { SoundControls } from "@/audio/SoundSettings";
 import { audio } from "@/audio/native";
 import { useAppTheme, useColors } from "@/theme/ThemeProvider";
+import { GameLogo } from "@/components/arcade";
 import { MAIN_COLORS } from "@/theme/preferences";
 export default function Settings() {
   const c = useColors();
@@ -40,16 +41,7 @@ export default function Settings() {
             gap: 8,
           }}
         >
-          <Text
-            style={{
-              color: c.text,
-              fontSize: 28,
-              fontWeight: "900",
-              fontStyle: "italic",
-            }}
-          >
-            GAME<Text style={{ color: c.cyan }}>100</Text>
-          </Text>
+          <GameLogo compact />
           <Text style={{ color: c.cyan, fontSize: 14 }}>
             あなたの好きな色で、遊ぼう。
           </Text>

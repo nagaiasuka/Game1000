@@ -1,12 +1,12 @@
-# GAME100 — ゲームヒャク
+# ASOBIT
 
-スマホの中に、ネオンのゲームセンターを。React Native / Expoで作るiOS・Android向けミニゲームアプリです。GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」、GAME #003「NEON STACK」、GAME #004「NEON PATH」、GAME #005「NEON SLING」をプレイできます。
+スマホの中に、ゲームセンターを。ひとりでも、みんなでも。
 
-現在のユーザー向けブランドは **GAME100**。「2030年12月31日までにゲーム100本を作る会社員」という企画です。内部プロジェクト名は **GAME1000** のままです。
+ASOBIT（アソビット）はiOS・Android向けミニゲームアプリです。Internal Project: GAME100 / GAME1000。既存リポジトリ・アプリ識別子・保存キーは維持しています。
 
-表示名は `app.json` の `expo.name`、目標数と読み方は `src/data/brand.ts` で管理し、ロゴ・カウンター・ホームのコピーで共用します。カウンターの収録数はカタログのavailable件数から自動計算します。将来GAME1000へ進める場合は表示名・目標数・読み方を更新してください。リポジトリ、slug、scheme、Bundle Identifier、Android Package、npmパッケージ名、保存キーは変更不要です。
+ブランドは `src/data/brand.ts`、期間限定企画は `src/data/challenge.ts` に分離しています。現在の企画は「ゲーム制作未経験の会社員が、100日でゲーム30個作る。」（100 DAYS / 30 GAMES）。日本時間の2026年10月1日がDAY 01、2027年1月8日がDAY 100です。
 
-HOMEの「ROAD TO 100」から `/project` の企画説明へ進めます。目標数・期限・基準タイムゾーンは `src/data/brand.ts` で管理し、カタログのavailable件数から収録数・残り本数・進捗率を自動計算します。残り日数は日本時間の暦日で計算し、期限当日は0日、翌日以降はPROJECT CONTINUESを表示します。画面復帰時と表示中は毎分更新します。計算は `src/utils/project.ts`、境界条件のテストは `tests/project.test.ts` に分離しています。
+HOMEのChallengeカードから `/project` のASOBIT CHALLENGEへ進めます。カタログのavailable件数から `005 / 030`・あと25ゲームを自動計算。30本達成でCHALLENGE CLEAR、期間終了で100 DAYS COMPLETEとRESULTを表示します。31本以降もカタログに登録でき、ASOBIT全体の収録数は実数を表示します。開始前は開始日と「まもなくスタート」を表示します。日付は日本時間で計算し、画面復帰時と表示中は毎分更新します。
 
 ## 起動
 
@@ -30,7 +30,7 @@ npm run android  # Android Studioのエミュレーター、または接続し�
 npm run ios
 ```
 
-JS・画像・音声を同梱するReleaseビルドです。初回はネイティブ依存の準備に時間がかかります。インストール後はホーム画面の「GAME100」アイコンから起動でき、Expo Goや開発サーバーは不要です。コードや画像を変更した場合も、再び `npm run ios` を実行すれば更新できます。
+JS・画像・音声を同梱するReleaseビルドです。初回はネイティブ依存の準備に時間がかかります。インストール後はホーム画面の「ASOBIT」アイコンから起動でき、Expo Goや開発サーバーは不要です。コードや画像を変更した場合も、再び `npm run ios` を実行すれば更新できます。
 
 Expo Goで確認したい場合は `npm run ios:go` を使います。`ios/` はExpoが生成し、Git管理から除外します。ネイティブ設定は `app.json` とconfig pluginで管理してください。既に生成済みの状態でアイコンやプラグイン設定を変更した場合は、`npx expo prebuild --platform ios --no-install` で反映してから `npm run ios` を実行します。
 
@@ -41,15 +41,15 @@ TestFlight用は既存のEAS `production`プロファイルを使用します。
 ## 実装範囲
 
 - ネオン調ホーム、ロゴ、プレイ可能ゲームの収録数、何やる？ボタン
-- HOME / GAMES / RANDOM / FAVORITESの4タブ
+- HOME / GAMES / RANDOM / FAVORITES / SETTINGSの5タブ
 - HOMEは人数・おまかせから遊びを決める入口、GAMESはコンパクトな人数フィルターとゲーム一覧
 - 1人 / 2人 / 3〜4人 / 5人以上の人数フィルター
 - 人気・新着の一覧導線、準備中の空表示
 - GAME #001「テトリス BLOCK DROP」、GAME #002「BLOCK BREAK」（10ステージ）、GAME #003「NEON STACK」（2人対戦）、GAME #004「NEON PATH」（2人の経路対戦）、GAME #005「NEON SLING」（2人同時パック対戦）
-- HOMEの新作は公開済み新着の最大ゲーム番号を表示。ROAD TO 100は005 / 100・残り95本へ自動更新
+- HOMEの新作は公開済み新着の最大ゲーム番号を表示。Challengeは005 / 030・あと25ゲームへ自動更新
 - Safe Area、縦画面、スクロール、押下フィードバック、Haptics
 
-ランダム選択・お気に入り保存は準備中画面です。プレイ履歴、音、サーバー、課金、広告は未導入です。
+ランダム選択、お気に入り保存、メインカラー、BGM・効果音設定に対応しています。
 
 ## 構成
 
@@ -57,7 +57,7 @@ TestFlight用は既存のEAS `production`プロファイルを使用します。
 src/
   app/
     _layout.tsx           # 全体のStackとダークテーマ
-    (tabs)/              # Home / Games / Random / Favorites
+    (tabs)/              # Home / Games / Random / Favorites / Settings
   components/
     ui.tsx               # Safe Area付き画面、ボタン、見出し、空表示
     arcade.tsx           # ロゴ、カウンター、人数選択、GameCardなど
@@ -105,3 +105,5 @@ npx expo export --platform ios --platform android
 ## 設定・メインカラー
 
 「設定」タブでメインカラー5色とBGM・効果音を変更できます。選択は端末に保存されます。[設定とテーマの実装](docs/settings.md)を参照。
+
+ブランド移行・手動更新項目は[ASOBITリブランディング](docs/asobit-rebrand.md)、公開用文章は[ストア・SNS文案](docs/app-store/asobit-copy.md)を参照してください。

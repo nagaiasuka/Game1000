@@ -10,7 +10,7 @@ import {
 } from "@/components/ui";
 import { ProjectProgress } from "@/components/project-progress";
 import { BRAND } from "@/data/brand";
-import { japaneseDate } from "@/utils/project";
+import { CHALLENGE } from "@/data/challenge";
 
 export default function Project() {
   const colors = useColors();
@@ -28,11 +28,11 @@ export default function Project() {
         >
           <Icon name="arrow-back" color={colors.cyan} />
         </Tap>
-        <Text style={s.eyebrow}>この企画について</Text>
+        <Text style={s.eyebrow}>ASOBIT CHALLENGE</Text>
       </View>
       <Heading
         eyebrow={BRAND.displayName}
-        title={"みんなの声で、\n育つゲームセンター。"}
+        title={"100 DAYS\n30 GAMES"}
       />
       <ProjectProgress />
       <View style={{ gap: 12 }}>
@@ -50,22 +50,25 @@ export default function Project() {
       <View style={{ gap: 16 }}>
         <Text style={s.subtitle}>本業のあとに、もうひとつの挑戦。</Text>
         <Text style={s.body}>
-          本業をしながら、{japaneseDate(BRAND.deadline)}までにゲーム
-          {BRAND.targetGames}本を作るプロジェクトです。
+          ゲーム制作未経験の会社員が、{CHALLENGE.durationDays}日間で
+          {CHALLENGE.targetGames}個のゲーム制作に挑戦します。
         </Text>
         <Text style={s.body}>
-          1人で遊べるゲームから、2人対戦、みんなで遊べるパーティーゲームまで。GAME
-          #001から、1本ずつ追加していきます。
+          ひとりで遊べるゲームから、友達との2人対戦、みんなで遊べるゲームまで。1本ずつASOBITに追加していきます。
         </Text>
         <Text style={s.body}>
-          作って、遊んでもらって、声を聞いて、また作る。新しいゲームが増えるたび、みなさんと一緒にこのゲームセンターを育てていきます。
+          100日後、このゲームセンターはどこまで大きくなっているのか。ぜひ一緒に見届けてください。
         </Text>
         <Text style={[s.subtitle, { color: colors.cyan }]}>
-          {BRAND.targetGames}本。その先へ。
+          まずは30本。その先へ。
         </Text>
         <Text style={[s.body, { fontSize: 12 }]}>
-          残り日数は日本時間の日付を基準にしています。
+          100日間の企画が終わっても、ASOBITは続きます。DAYは日本時間の日付を基準にしています。
         </Text>
+      </View>
+      <View style={{ gap: 8 }}>
+        <Text style={s.subtitle}>ASOBI + BIT</Text>
+        <Text style={s.body}>デジタルな遊びを、スマホひとつに。</Text>
       </View>
       <Tap
         label="公開中のゲームを探す"

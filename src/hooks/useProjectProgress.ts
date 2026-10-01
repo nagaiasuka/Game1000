@@ -1,21 +1,21 @@
 import { useCallback, useState } from "react";
 import { AppState } from "react-native";
 import { useFocusEffect } from "expo-router";
-import { BRAND } from "@/data/brand";
+import { CHALLENGE } from "@/data/challenge";
 import { games } from "@/data/catalog";
 import {
   calendarDate,
-  deadlineProgress,
+  challengeCalendar,
   projectProgress,
 } from "@/utils/project";
 
 export function useProjectProgress() {
   const [today, setToday] = useState(() =>
-    calendarDate(new Date(), BRAND.timeZone),
+    calendarDate(new Date(), CHALLENGE.timeZone),
   );
   useFocusEffect(
     useCallback(() => {
-      const update = () => setToday(calendarDate(new Date(), BRAND.timeZone));
+      const update = () => setToday(calendarDate(new Date(), CHALLENGE.timeZone));
       update();
       // Refresh across midnight while visible and immediately on foreground return.
       let timer: ReturnType<typeof setInterval> | undefined;
@@ -37,7 +37,7 @@ export function useProjectProgress() {
     }, []),
   );
   return {
-    ...projectProgress(games, BRAND.targetGames),
-    ...deadlineProgress(today, BRAND.deadline),
+    ...projectProgress(games, CHALLENGE.targetGames),
+    ...challengeCalendar(today, CHALLENGE.startDate, CHALLENGE.durationDays),
   };
 }

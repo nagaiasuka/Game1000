@@ -19,16 +19,26 @@ export function calendarDate(now: Date, timeZone: string) {
   return `${part("year")}-${part("month")}-${part("day")}`;
 }
 
-export function deadlineProgress(today: string, deadline: string) {
-  const difference = dayNumber(deadline) - dayNumber(today);
-  return { daysLeft: Math.max(0, difference), expired: difference < 0 };
+export function challengeCalendar(today: string, startDate: string, durationDays: number) {
+  const elapsed = dayNumber(today) - dayNumber(startDate);
+  const endDate = new Date((dayNumber(startDate) + durationDays - 1) * DAY_MS)
+    .toISOString().slice(0, 10);
+  const phase = elapsed < 0 ? "upcoming" : elapsed >= durationDays ? "complete" : "active";
+  const day = Math.min(durationDays, Math.max(0, elapsed + 1));
+  return {
+    day,
+    dayLabel: `DAY ${String(day).padStart(2, "0")} / ${durationDays}`,
+    endDate,
+    phase,
+  };
 }
 
 export function projectProgress(catalog: readonly Game[], target: number) {
   const available = availableCount(catalog);
   return {
     available,
-    countLabel: `${String(available).padStart(3, "0")} / ${target}`,
+    achieved: available >= target,
+    countLabel: `${String(Math.min(available, target)).padStart(3, "0")} / ${String(target).padStart(3, "0")}`,
     remaining: Math.max(0, target - available),
     percent: Math.min(100, Math.max(0, (available / target) * 100)),
   };

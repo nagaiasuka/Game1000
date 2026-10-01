@@ -20,7 +20,7 @@ import {
   NeonSlingArtwork,
 } from "./game-artwork";
 import { Icon, Tap, s as baseSharedStyles, type IconName } from "./ui";
-export function GameLogo() {
+export function GameLogo({ compact = false }: { compact?: boolean }) {
   const c = useColors();
   const a = useThemedStyles(baseA);
 
@@ -30,11 +30,16 @@ export function GameLogo() {
       accessibilityLabel={`${BRAND.displayName}、${BRAND.reading}`}
       style={a.logo}
     >
-      <Text maxFontSizeMultiplier={1.3} style={a.game}>
-        GAME<Text style={a.thousand}>{BRAND.targetGames}</Text>
+      <Text
+        maxFontSizeMultiplier={1.3}
+        style={[a.game, { color: c.cyan }, compact && { fontSize: 28 }]}
+      >
+        {BRAND.displayName}
         <Text style={{ fontSize: 12, color: c.pink }}> ✦</Text>
       </Text>
-      <Text style={a.logoSub}>{BRAND.reading} / ポケットのゲームセンター</Text>
+      {!compact && (
+        <Text style={a.logoSub}>{BRAND.reading} / ポケットのゲームセンター</Text>
+      )}
     </View>
   );
 }
@@ -48,13 +53,13 @@ export function GameCounter() {
         <Text style={s.eyebrow}>遊べるゲーム</Text>
         <Text style={a.count}>
           {String(availableCount(games)).padStart(3, "0")}
-          <Text style={a.total}> / {BRAND.targetGames}</Text>
+          <Text style={a.total}> GAMES</Text>
         </Text>
       </View>
       <View style={a.counterRight}>
         <View style={a.dot} />
         <Text style={a.counterNote}>
-          ここから、{BRAND.targetGames}の遊びへ。
+          遊びは、まだまだ増える。
         </Text>
       </View>
     </View>

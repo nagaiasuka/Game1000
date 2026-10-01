@@ -1,0 +1,134 @@
+[
+  {
+    "file": "docs/app-store/screenshots/raw/01-home.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 694116,
+    "sha256": "5278c77517be9dd5d4d4caa54d1d57fba34240478570d5ef7c0febcaf25859c0"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/02-road-to-100.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 686808,
+    "sha256": "099345fd1991d4c19578173b3be887a5fc9c0ac8d67b9faf225a31f830d56569"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/03-games.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 1453973,
+    "sha256": "c31ba6ab3f73e929c4129b029360af84d79efd17df3d40d382b3081d7a665ba4"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/04-block-drop.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 171447,
+    "sha256": "0c2c8741f7117d67e409f4bdd519a1c7ab507fbbfa93f1647c0327b98e13fca6"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/05-block-break.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 155490,
+    "sha256": "0ec9103a6aca697d847f9b3c9b58892a4994e397a4e5aecf6339e1764915787c"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/06-neon-stack.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 268286,
+    "sha256": "96fd0256014b2e55a60ec4e49e8fdf70c08f60aff4f5de4e26973b28ffe80457"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/07-neon-path.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 319081,
+    "sha256": "57b291ad65c0820dab52fa6a21dc2284b4f8606ef047215d14abec41994be174"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/08-neon-sling.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 455490,
+    "sha256": "a6c4cf67ae4fd2cfd9cbfd7283102c1290e5bce5e27bd3eb499781e6f67c66a0"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/09-random.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 818143,
+    "sha256": "4a678638758a23e2eb41bb8c80c85f9219c106f357075482c944948aaa514dd0"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/10-favorites.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 1366952,
+    "sha256": "d5d0ea9b3fefac22da7ec216068cee2d1d26ad14b81f8e90f04d658c55fc11bd"
+  },
+  {
+    "file": "docs/app-store/screenshots/raw/11-settings.png",
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGBA",
+    "alpha_range": [
+      255,
+      255
+    ],
+    "bytes": 293212,
+    "sha256": "a57e64e4cb2af8e0a7f498fbbc879e494ceebec5e92e85dfe002cd915aed0711"
+  }
+]

@@ -1,11 +1,9 @@
 import appConfig from "../../app.json";
 
-// Display branding only. Repository, native IDs and storage keys stay unchanged.
-export const GAME_TARGET = 100;
+// Service identity is independent of any time-limited challenge.
 export const BRAND = {
   displayName: appConfig.expo.name,
-  reading: "ゲームヒャク",
-  targetGames: GAME_TARGET,
-  deadline: "2030-12-31",
-  timeZone: "Asia/Tokyo",
+  reading: "アソビット",
+  tagline: "スマホの中に、ゲームセンターを。",
+  subTagline: "ひとりでも、みんなでも。",
 } as const;

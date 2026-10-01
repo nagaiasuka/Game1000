@@ -30,10 +30,11 @@ export default function Home() {
           accessibilityRole="header"
           style={[s.title, { fontSize: 27, lineHeight: 38 }]}
         >
-          みんなの声で、{"\n"}育つゲームセンター。
+          スマホの中に、{"\n"}ゲームセンターを。
         </Text>
-        <Text style={s.body}>ひとりでも、みんなでも。遊んで、次の遊びへ。</Text>
+        <Text style={s.body}>{BRAND.subTagline}</Text>
       </View>
+      <Text style={s.subtitle}>今日は、何して遊ぶ？</Text>
       <ProjectProgress link />
       <View style={{ gap: 6 }}>
         <Text style={[s.eyebrow, { color: colors.cyan }]}>
@@ -125,7 +126,7 @@ export default function Home() {
         <Icon name="arrow-forward" color={colors.cyan} />
       </Tap>
       <Text style={[s.eyebrow, { textAlign: "center", fontSize: 9 }]}>
-        {BRAND.targetGames}本のゲームで、ずっと遊ぼう。
+        遊びは、まだまだ増える。
       </Text>
     </Screen>
   );

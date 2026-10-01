@@ -50,10 +50,10 @@ test("003 is available to exactly two players and progress derives the catalog c
   assert.equal(game?.maxPlayers, 2);
   assert.ok(filterGames(games, "2").includes(game!));
   assert.ok(!filterGames(games, "1").includes(game!));
-  const progress = projectProgress(games, 100);
-  assert.equal(progress.countLabel, "005 / 100");
-  assert.equal(progress.remaining, 95);
-  assert.equal(progress.percent, 5);
+  const progress = projectProgress(games, 30);
+  assert.equal(progress.countLabel, "005 / 030");
+  assert.equal(progress.remaining, 25);
+  assert.equal(progress.percent, 5 / 30 * 100);
 });
 test("each player begins with two of each size, independent hands and nine independent stacks", () => {
   const match = createMatch(2);
