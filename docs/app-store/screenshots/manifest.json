@@ -1,134 +1,114 @@
-[
-  {
-    "file": "docs/app-store/screenshots/raw/01-home.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 694116,
-    "sha256": "5278c77517be9dd5d4d4caa54d1d57fba34240478570d5ef7c0febcaf25859c0"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/02-road-to-100.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 686808,
-    "sha256": "099345fd1991d4c19578173b3be887a5fc9c0ac8d67b9faf225a31f830d56569"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/03-games.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 1453973,
-    "sha256": "c31ba6ab3f73e929c4129b029360af84d79efd17df3d40d382b3081d7a665ba4"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/04-block-drop.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 171447,
-    "sha256": "0c2c8741f7117d67e409f4bdd519a1c7ab507fbbfa93f1647c0327b98e13fca6"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/05-block-break.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 155490,
-    "sha256": "0ec9103a6aca697d847f9b3c9b58892a4994e397a4e5aecf6339e1764915787c"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/06-neon-stack.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 268286,
-    "sha256": "96fd0256014b2e55a60ec4e49e8fdf70c08f60aff4f5de4e26973b28ffe80457"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/07-neon-path.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 319081,
-    "sha256": "57b291ad65c0820dab52fa6a21dc2284b4f8606ef047215d14abec41994be174"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/08-neon-sling.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 455490,
-    "sha256": "a6c4cf67ae4fd2cfd9cbfd7283102c1290e5bce5e27bd3eb499781e6f67c66a0"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/09-random.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 818143,
-    "sha256": "4a678638758a23e2eb41bb8c80c85f9219c106f357075482c944948aaa514dd0"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/10-favorites.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 1366952,
-    "sha256": "d5d0ea9b3fefac22da7ec216068cee2d1d26ad14b81f8e90f04d658c55fc11bd"
-  },
-  {
-    "file": "docs/app-store/screenshots/raw/11-settings.png",
-    "width": 1284,
-    "height": 2778,
-    "mode": "RGBA",
-    "alpha_range": [
-      255,
-      255
-    ],
-    "bytes": 293212,
-    "sha256": "a57e64e4cb2af8e0a7f498fbbc879e494ceebec5e92e85dfe002cd915aed0711"
-  }
-]
+{
+  "captured_on": "2026-10-01",
+  "source_commit": "8aaa873b1c086be7e0b10eeaab74befef74935da",
+  "simulator": "iPhone 13 Pro Max",
+  "runtime": "iOS 26.5",
+  "build": "Release / bundled JS",
+  "capture": "xcrun simctl io screenshot; real UI interactions via XCTest",
+  "raw": [
+    {
+      "file": "01-home.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 583529,
+      "sha256": "c06194b5133c1b67eb23b528a7cac437ac62e860b36272280e26989632aafc44"
+    },
+    {
+      "file": "02-challenge.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 664936,
+      "sha256": "2481e14a299b082e6d09556b807eeb096d4aeac636167abac15bce8403f5e59b"
+    },
+    {
+      "file": "03-games.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1457789,
+      "sha256": "b2e57a314dde0533e1cc7b448d80236d0f56f887703046eb0457dfa8221e8251"
+    },
+    {
+      "file": "04-block-drop.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 173806,
+      "sha256": "a3ba1700f19f83d8f8eb793cbcddf46656817dae0725b32204d484911998f15a"
+    },
+    {
+      "file": "05-block-break.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 152964,
+      "sha256": "930d3432fae33352f43523427593b04e7b79054ee3254e029be87694637ed307"
+    },
+    {
+      "file": "06-neon-stack.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 268286,
+      "sha256": "96fd0256014b2e55a60ec4e49e8fdf70c08f60aff4f5de4e26973b28ffe80457"
+    },
+    {
+      "file": "07-neon-path.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 319081,
+      "sha256": "57b291ad65c0820dab52fa6a21dc2284b4f8606ef047215d14abec41994be174"
+    },
+    {
+      "file": "08-neon-sling.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 445626,
+      "sha256": "160159ab47609dceae77cd7a54c21d8b0dc9729bd7f0da768be4a9e320ed7adf"
+    },
+    {
+      "file": "09-random.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 953973,
+      "sha256": "d3b59aeb0886ad66837ad5744c7f57500b56f16ddb965a5969ad39a6bf94f883"
+    },
+    {
+      "file": "10-favorites.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1366952,
+      "sha256": "d5d0ea9b3fefac22da7ec216068cee2d1d26ad14b81f8e90f04d658c55fc11bd"
+    },
+    {
+      "file": "11-settings.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 291932,
+      "sha256": "515eeddc47f50fa6163ce252fd8eafcaab9d5817f63e71ef178e311e437206d0"
+    },
+    {
+      "file": "12-games-more.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1484467,
+      "sha256": "1aeaa58ef3dfb372891b386db3fe4048b75cc8634d4b30dd92678c45dc072fdd"
+    },
+    {
+      "file": "13-games-sling.png",
+      "width": 1284,
+      "height": 2778,
+      "mode": "RGBA",
+      "bytes": 1195517,
+      "sha256": "3fa44018d81d1251d1eb2c9fd604775df9fd76be6056bc041daa89ffb2fea7b0"
+    }
+  ]
+}

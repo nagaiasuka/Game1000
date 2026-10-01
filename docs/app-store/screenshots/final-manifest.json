@@ -1,0 +1,290 @@
+[
+  {
+    "file": "01-arcade.png",
+    "title": [
+      "スマホの中に、",
+      "ゲームセンターを。"
+    ],
+    "sub": [
+      "ひとりでも、みんなでも。"
+    ],
+    "accent": "#00F5FF",
+    "screen": "01-home.png",
+    "badge": "5つのゲームを、1つのアプリに。",
+    "sources": [
+      {
+        "source": "01-home.png",
+        "crop": null,
+        "placement": [
+          220,
+          825,
+          844,
+          1826
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 600722,
+    "sha256": "4202ce70ba62c150b4b09b71aced9ae1e5b9e8c9bdaad2acb09e623a7029fb6a"
+  },
+  {
+    "file": "02-100days.png",
+    "title": [
+      "100日で、",
+      "ゲーム30個。"
+    ],
+    "sub": [
+      "ゲーム制作未経験の会社員が、",
+      "本気で挑戦中。"
+    ],
+    "accent": "#FF2BD6",
+    "screen": "02-challenge.png",
+    "badge": "30ゲームを目指して制作中。現在5ゲーム公開",
+    "sources": [
+      {
+        "source": "02-challenge.png",
+        "crop": [
+          0,
+          0,
+          1284,
+          2660
+        ],
+        "placement": [
+          227,
+          825,
+          830,
+          1719
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 673981,
+    "sha256": "cf1a21dc9e70dad1844f2bf26740cdddd60fa57474fd04c612813df8091bf64b"
+  },
+  {
+    "file": "03-games.png",
+    "title": [
+      "今日は、",
+      "何して遊ぶ？"
+    ],
+    "sub": [
+      "パズルも、アクションも、頭脳戦も。"
+    ],
+    "accent": "#A88AFF",
+    "screen": "03-games.png",
+    "badge": "いま遊べる、5つのゲーム。",
+    "sources": [
+      {
+        "source": "03-games.png",
+        "crop": [
+          54,
+          210,
+          1230,
+          2310
+        ],
+        "placement": [
+          76,
+          860,
+          548,
+          979
+        ]
+      },
+      {
+        "source": "12-games-more.png",
+        "crop": [
+          54,
+          212,
+          1230,
+          2320
+        ],
+        "placement": [
+          660,
+          860,
+          548,
+          982
+        ]
+      },
+      {
+        "source": "13-games-sling.png",
+        "crop": [
+          60,
+          1350,
+          1224,
+          2215
+        ],
+        "placement": [
+          192,
+          1980,
+          900,
+          669
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 1056292,
+    "sha256": "6b0d766d00f8df4d7e4dfa04fe35c3cedebc77ce9e44d34f3559584953c76eec"
+  },
+  {
+    "file": "04-solo.png",
+    "title": [
+      "ひとりで、",
+      "気づけば夢中。"
+    ],
+    "sub": [
+      "スキマ時間が、ゲーム時間に変わる。"
+    ],
+    "accent": "#00F5FF",
+    "screen": "05-block-break.png",
+    "badge": "GAME #002  /  BLOCK BREAK",
+    "sources": [
+      {
+        "source": "05-block-break.png",
+        "crop": null,
+        "placement": [
+          220,
+          825,
+          844,
+          1826
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 231605,
+    "sha256": "aa7db101973b56c0700f350df406a5009195705475c796bef59895213fdf43fb"
+  },
+  {
+    "file": "05-versus.png",
+    "title": [
+      "スマホ1台で、",
+      "すぐ対戦。"
+    ],
+    "sub": [
+      "友達と。家族と。向かい合って遊ぼう。"
+    ],
+    "accent": "#A88AFF",
+    "screen": "06-neon-stack.png",
+    "badge": "GAME #003  /  NEON STACK",
+    "sources": [
+      {
+        "source": "06-neon-stack.png",
+        "crop": null,
+        "placement": [
+          220,
+          825,
+          844,
+          1826
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 361768,
+    "sha256": "b1f5c82434fda390d015e7b4f612b08da631dabbd88350c0d108e2649d4acfd8"
+  },
+  {
+    "file": "06-simultaneous.png",
+    "title": [
+      "2人同時に、",
+      "本気で勝負。"
+    ],
+    "sub": [
+      "引いて、狙って、離して撃て。"
+    ],
+    "accent": "#FF2BD6",
+    "screen": "08-neon-sling.png",
+    "badge": "GAME #005  /  NEON SLING",
+    "sources": [
+      {
+        "source": "08-neon-sling.png",
+        "crop": null,
+        "placement": [
+          220,
+          825,
+          844,
+          1826
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 324685,
+    "sha256": "373c4dab69fb7137c5d5274ead6ce19bf5bf63c2aa85c8509880715d1cd234ee"
+  },
+  {
+    "file": "07-growing.png",
+    "title": [
+      "まずは30本。",
+      "ゲームは、",
+      "まだまだ増える。"
+    ],
+    "sub": [
+      "100日後、このゲームセンターは",
+      "どこまで大きくなる？"
+    ],
+    "accent": "#00F5FF",
+    "screen": "02-challenge.png",
+    "badge": null,
+    "sources": [
+      {
+        "source": "02-challenge.png",
+        "crop": [
+          54,
+          770,
+          1230,
+          1970
+        ],
+        "placement": [
+          122,
+          945,
+          1040,
+          1061
+        ]
+      },
+      {
+        "source": "03-games.png",
+        "crop": [
+          60,
+          225,
+          1224,
+          1074
+        ],
+        "placement": [
+          76,
+          2230,
+          548,
+          400
+        ]
+      },
+      {
+        "source": "12-games-more.png",
+        "crop": [
+          60,
+          225,
+          1224,
+          1074
+        ],
+        "placement": [
+          660,
+          2230,
+          548,
+          400
+        ]
+      }
+    ],
+    "width": 1284,
+    "height": 2778,
+    "mode": "RGB",
+    "bytes": 851720,
+    "sha256": "1b38463ad9156ef05ee8ad1595af4f3f82f95702a95545780220fd35d02002ad"
+  }
+]

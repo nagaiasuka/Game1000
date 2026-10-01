@@ -1,60 +1,82 @@
-# 旧GAME100スクリーンショット撮影記録
+# ASOBIT App Store スクリーンショット
 
-**ASOBITへの移行前の素材です。現行App Store掲載用には使用しないでください。RAW原本は履歴として保持しています。**
+2026年10月1日撮影・制作。完成画像7枚、未加工RAW13枚。
 
-撮影日：2026-10-01（日本時間）。撮影時に確認した最新main：`cd3bb00`（origin/mainとの差分0）。正式アイコンを含むGAME100単体のReleaseアプリを使用。
+[完成画像の横並びプレビュー](overview.png) / [完成PNGフォルダ](final/) / [RAWフォルダ](raw/)
 
-## 環境・保存形式
+## 撮影環境
 
-- Simulator：GAME100 App Store iPhone 13 Pro Max / iOS 26.5
-- UDID：30F5CD5F-E010-4F50-8FDD-12FD2BF4E73F
-- 論理解像度428×926、ネイティブ画像解像度1284×2778。
-- ステータスバー：09:41、Wi-Fi、電波4本、バッテリー100%で統一。
-- `xcrun simctl io … screenshot`で取得したPNG原本。拡大、切り抜き、色調補正、広告文字、AI加工なし。
-- 全11枚の実ピクセルサイズとPNGのデコードを機械確認済み。SHA-256・容量は[manifest.json](manifest.json)に記録。
-- 全画像はSimulator出力そのままのRGBA。アルファ値は全画素255（透明画素なし）。RAWは変更していない。
+- macOS 26.5.2 / Xcode 26.6 / Expo SDK 57、iOS Release Simulator build（JavaScript同梱）。Metroへの接続不要。
+- iPhone 13 Pro Max / iOS 26.5。専用Simulator名: `GAME100 App Store iPhone 13 Pro Max`。
+- Simulator UDID: `30F5CD5F-E010-4F50-8FDD-12FD2BF4E73F`。
+- 撮影対象: `8aaa873`（TikTok導線追加済み）のASOBIT。全画面1284 × 2778 px。
+- 時計09:41、電池100%、通信状態をSimulator標準機能で統一。
+- 実際の画面をXCTestでタップ・ドラッグして撮影。ゲーム盤面・スコア・矢印の描き足しなし。
+- ChallengeのDAY 01 / 100、005 / 030、2027年1月8日は撮影日の実表示。30ゲームは制作目標であり、現在の収録数は5。
 
-## 素材一覧
+## 完成画像7枚
 
-| ファイル | 実寸（幅×高さ） | 撮影内容 |
-| --- | --- | --- |
-| [raw/01-home.png](raw/01-home.png) | 1284×2778 | HOME。GAME100・企画紹介・ROAD TO 100。自然なスクロールで開発者ボタンを画面外へ。 |
-| [raw/02-road-to-100.png](raw/02-road-to-100.png) | 1284×2778 | PROJECT。2030年12月31日までに100本、現在5本・残り95本。 |
-| [raw/03-games.png](raw/03-games.png) | 1284×2778 | ゲーム一覧。BLOCK DROPとBLOCK BREAKのカードを中心に撮影。 |
-| [raw/04-block-drop.png](raw/04-block-drop.png) | 1284×2778 | 実プレイ。複数色の積み上げ、落下中のブロック、スコア118・レベル01。 |
-| [raw/05-block-break.png](raw/05-block-break.png) | 1284×2778 | 実プレイ。スコア300、コンボ×1、破壊演出、ボールの軌跡・パドル。 |
-| [raw/06-neon-stack.png](raw/06-neon-stack.png) | 1284×2778 | 2人対戦。大小の駒、相手の駒を覆った2段のマス。 |
-| [raw/07-neon-path.png](raw/07-neon-path.png) | 1284×2778 | 2人対戦中盤。前進した2人の駒、6枚の壁、残り各7枚。 |
-| [raw/08-neon-sling.png](raw/08-neon-sling.png) | 1284×2778 | 対戦中。両陣地のパック、中央ゲート、右HUD、発射後の軌跡。 |
-| [raw/09-random.png](raw/09-random.png) | 1284×2778 | 実際のランダム選択結果。BLOCK DROP、もう一度選ぶボタン。 |
-| [raw/10-favorites.png](raw/10-favorites.png) | 1284×2778 | お気に入り3本登録済み。NEON STACKとBLOCK BREAKが見える位置。 |
-| [raw/11-settings.png](raw/11-settings.png) | 1284×2778 | メインカラー5色・BGM・効果音設定を同時に表示。 |
+全画像1284 × 2778 px、RGB PNG、アルファチャンネル・透過なし。ファイル番号順に登録。
 
-## App Store・後工程
+| 完成画像 | メインコピー | サブコピー | 使用画面 | サイズ（bytes） |
+|---|---|---|---|---:|
+| [01-arcade.png](final/01-arcade.png) | スマホの中に、<br>ゲームセンターを。 | ひとりでも、みんなでも。 | 01-home.png | 600,722 |
+| [02-100days.png](final/02-100days.png) | 100日で、<br>ゲーム30個。 | ゲーム制作未経験の会社員が、本気で挑戦中。 | 02-challenge.png | 673,981 |
+| [03-games.png](final/03-games.png) | 今日は、<br>何して遊ぶ？ | パズルも、アクションも、頭脳戦も。 | 03-games.png, 12-games-more.png, 13-games-sling.png | 1,056,292 |
+| [04-solo.png](final/04-solo.png) | ひとりで、<br>気づけば夢中。 | スキマ時間が、ゲーム時間に変わる。 | 05-block-break.png | 231,605 |
+| [05-versus.png](final/05-versus.png) | スマホ1台で、<br>すぐ対戦。 | 友達と。家族と。向かい合って遊ぼう。 | 06-neon-stack.png | 361,768 |
+| [06-simultaneous.png](final/06-simultaneous.png) | 2人同時に、<br>本気で勝負。 | 引いて、狙って、離して撃て。 | 08-neon-sling.png | 324,685 |
+| [07-growing.png](final/07-growing.png) | まずは30本。<br>ゲームは、<br>まだまだ増える。 | 100日後、このゲームセンターはどこまで大きくなる？ | 02-challenge.png, 03-games.png, 12-games-more.png | 851,720 |
 
-1284×2778はAppleが示すiPhone 6.5インチ縦スクリーンショットの受付サイズ。6.9インチの素材を提出しない場合の対象サイズとして使用可能。今回の11枚は候補素材で、掲載時は予定どおり6〜7枚を選定する（1セット最大10枚）。
+完成7枚の合計: **4,100,773 bytes（3.91 MiB）**。
 
-参照：[Apple Screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)
+## RAW画像
 
-後工程の1284×2778完成画像へ、拡大せず配置できる。完成画像の書き出し時はRGB・アルファチャンネルなしのPNGにする。今回は原本保存を優先しているため、RAWをそのまま提出する前提ではない。広告コピー付き完成画像は今回の対象外。
+PNG原本を保持。拡大・色調補正・文字合成・アルファ除去などの加工なし。完成画像への縮小・切り抜きは別ファイルにのみ実施。
 
-## 撮影上の差異・問題
+| RAW | 内容 | 実寸 | サイズ（bytes） |
+|---|---|---|---:|
+| [01-home.png](raw/01-home.png) | HOME（TikTok・Challenge表示） | 1284 × 2778 | 583,529 |
+| [02-challenge.png](raw/02-challenge.png) | Challenge詳細（DAY 01 / 100、005 / 030） | 1284 × 2778 | 664,936 |
+| [03-games.png](raw/03-games.png) | ゲーム一覧: BLOCK DROP / BLOCK BREAK | 1284 × 2778 | 1,457,789 |
+| [04-block-drop.png](raw/04-block-drop.png) | BLOCK DROP: 実プレイ中、スコア208 | 1284 × 2778 | 173,806 |
+| [05-block-break.png](raw/05-block-break.png) | BLOCK BREAK: 実プレイ中、スコア200、コンボ×1 | 1284 × 2778 | 152,964 |
+| [06-neon-stack.png](raw/06-neon-stack.png) | NEON STACK: 2人対戦中、大小・重なりのある盤面 | 1284 × 2778 | 268,286 |
+| [07-neon-path.png](raw/07-neon-path.png) | NEON PATH: 移動・壁配置を行った対戦盤面 | 1284 × 2778 | 319,081 |
+| [08-neon-sling.png](raw/08-neon-sling.png) | NEON SLING: パックを引いて狙っている瞬間 | 1284 × 2778 | 445,626 |
+| [09-random.png](raw/09-random.png) | ランダム: 実際の抽選結果NEON PATH | 1284 × 2778 | 953,973 |
+| [10-favorites.png](raw/10-favorites.png) | お気に入り: 登録済みゲーム | 1284 × 2778 | 1,366,952 |
+| [11-settings.png](raw/11-settings.png) | 設定: テーマカラー・BGM・効果音 | 1284 × 2778 | 291,932 |
+| [12-games-more.png](raw/12-games-more.png) | 追加一覧: NEON STACK / NEON PATH | 1284 × 2778 | 1,484,467 |
+| [13-games-sling.png](raw/13-games-sling.png) | 追加一覧: NEON PATH / NEON SLING | 1284 × 2778 | 1,195,517 |
 
-未撮影の指定画面はなし。各ゲームは実操作で状態を作成し、スコアや盤面の注入は行っていない。
+RAW合計: **9,358,858 bytes（8.93 MiB）**。
 
-- 現在のHOMEの見出しは「みんなの声で、育つゲームセンター。」。指示書の「今日は、何して遊ぶ？」に書き換えず、実際の最新版を撮影。
-- HOME上端に現行アプリの開発者モード入口があるため、自然にスクロールして画面外へ出した。撮影画像内に開発者ボタンはない。
-- 一覧のカードは大きく、5本すべてを同時表示できないため、2本を中心とする自然なスクロール位置で撮影。
-- BLOCK DROPでは「次のブロック」の見出しが現行レイアウトで折り返される。撮影用のUI修正は行っていない。
-- BLOCK BREAKはコンボ×1と破壊演出を取得。フィーバー発動中の素材は含めていない。
+## 制作・再生成
 
-## コード・検証・容量
+既存のASOBITベクターロゴを使用。背景は濃紺、アクセントはシアン・ピンク・紫。端末枠は独自の単純な角丸枠で、Apple端末素材は使用していません。日本語はmacOS付属ヒラギノ角ゴシックを使用し、フォントファイルは配布しません。
 
-既存アプリコード、ゲームロジック、依存関係への変更なし。撮影専用fixtureなし。Simulatorの操作用XCTestは`/tmp`に分離し、リポジトリには含めていない。専用Simulatorを使用し、既存の利用者データは変更していない。
+```bash
+python scripts/compose-app-store.py
+```
 
-- `npm run typecheck`：成功
-- `npm run lint`：成功
-- `npm test`：187件成功、失敗0件
-- RAW合計：6,682,998 bytes（約6.37 MiB）
+必要環境: Python + Pillow、rsvg-convert、macOSヒラギノ角ゴシック。RAWから7枚とoverviewを再生成できます。画像生成AIは使っていません。
 
-今回追加した成果物はこのディレクトリ内のみ。コミット・pushは未実施。
+切り抜き座標・配置・コピー・SHA-256は [final-manifest.json](final-manifest.json)、RAWのSHA-256は [manifest.json](manifest.json) に記録。
+
+## 検証
+
+- RAW13枚と完成7枚を全件デコードし、寸法を機械検証。完成7枚のRGB・透過なし・SHA-256を確認。
+- 全RAWと完成7枚を目視確認。日本語の文字化け、完成コピーの文字切れ、黒画像、破損なし。7枚横並びも確認。
+- 1284 × 2778はAppleの6.5インチ枠の対応サイズ。7枚は1〜10枚の範囲。6.9インチ用画像ではありません。
+- [Apple公式スクリーンショット仕様](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/)を確認。App Store Connectへのアップロードは未実施。
+- `npm run typecheck`: 成功。
+- `npm run lint`: 成功。
+- `npm test`: **190件成功、0件失敗**。
+- iOS Release Simulatorビルド: 成功（エラー0）。
+
+## 変更範囲・旧素材
+
+本番アプリのコード・ゲームロジック・依存関係は変更なし。変更は画像、制作スクリプト、マニフェスト、本文書のみ。撮影用fixtureも追加していません。
+
+旧GAME100の撮影素材と当時の報告は [archive/game100-cd3bb00](archive/game100-cd3bb00/) に保管。今回の登録には `final/` 内の7枚を使用してください。
