@@ -8,6 +8,7 @@ import {
   Heading,
   s as baseSharedStyles,
 } from "@/components/ui";
+import { TikTokLink } from "@/components/tiktok-link";
 import { ProjectProgress } from "@/components/project-progress";
 import { BRAND } from "@/data/brand";
 import { CHALLENGE } from "@/data/challenge";
@@ -47,6 +48,7 @@ export default function Project() {
           ひとりでも、みんなでも。遊んで感じたことや、新しいアイデアが、次の1本につながるゲームセンターです。
         </Text>
       </View>
+      <TikTokLink />
       <View style={{ gap: 16 }}>
         <Text style={s.subtitle}>本業のあとに、もうひとつの挑戦。</Text>
         <Text style={s.body}>

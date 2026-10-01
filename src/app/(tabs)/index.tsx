@@ -10,6 +10,7 @@ import {
   NeonPathArtwork,
   NeonSlingArtwork,
 } from "@/components/game-artwork";
+import { TikTokLink } from "@/components/tiktok-link";
 import { ProjectProgress } from "@/components/project-progress";
 import { games, CATEGORY_LABELS } from "@/data/catalog";
 import { BRAND } from "@/data/brand";
@@ -35,6 +36,7 @@ export default function Home() {
         <Text style={s.body}>{BRAND.subTagline}</Text>
       </View>
       <Text style={s.subtitle}>今日は、何して遊ぶ？</Text>
+      <TikTokLink />
       <ProjectProgress link />
       <View style={{ gap: 6 }}>
         <Text style={[s.eyebrow, { color: colors.cyan }]}>

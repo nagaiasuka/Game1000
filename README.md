@@ -107,3 +107,7 @@ npx expo export --platform ios --platform android
 「設定」タブでメインカラー5色とBGM・効果音を変更できます。選択は端末に保存されます。[設定とテーマの実装](docs/settings.md)を参照。
 
 ブランド移行・手動更新項目は[ASOBITリブランディング](docs/asobit-rebrand.md)、公開用文章は[ストア・SNS文案](docs/app-store/asobit-copy.md)を参照してください。
+
+## TikTokへの導線
+
+HOMEのChallengeカード直上とASOBIT CHALLENGEの企画説明に「TikTokで制作の様子を見る」を表示します。リンク先は `src/data/brand.ts` の `tikTokUrl`（https://www.tiktok.com/@asobit_game）。共有用クエリを含めず、既存のexpo-linkingでHTTPSリンクを開きます。OSの設定に応じた外部アプリ／ブラウザで開き、開けない場合は日本語で案内します。
