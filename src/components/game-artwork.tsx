@@ -540,3 +540,137 @@ export function NeonSlingArtwork() {
     </LinearGradient>
   );
 }
+
+export function NeonPushArtwork() {
+  const c = useColors();
+  return (
+    <LinearGradient
+      colors={["#261032", c.background, "#07303B"]}
+      style={{
+        height: 180,
+        borderRadius: 14,
+        overflow: "hidden",
+        flexDirection: "row",
+        alignItems: "center",
+        padding: 18,
+      }}
+      accessibilityLabel="暗い六角盤面でシアンの2駒がピンクの駒を押し出す"
+    >
+      <View style={{ flex: 1, gap: 7 }}>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{ color: c.cyan, fontSize: 8, letterSpacing: 1 }}
+        >
+          PUSH. OUTSMART. WIN.
+        </Text>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{
+            color: c.text,
+            fontSize: 32,
+            lineHeight: 33,
+            fontWeight: "900",
+            fontStyle: "italic",
+          }}
+        >
+          NEON{"\n"}PUSH<Text style={{ color: "#FF2BD6" }}>.</Text>
+        </Text>
+        <Text style={{ color: c.muted, fontSize: 12 }}>押して、落とせ。</Text>
+      </View>
+      <View
+        style={{ width: 132, height: 146, transform: [{ rotate: "-10deg" }] }}
+      >
+        {Array.from({ length: 19 }, (_, i) => {
+          const row = i < 3 ? 0 : i < 7 ? 1 : i < 12 ? 2 : i < 16 ? 3 : 4;
+          const offset = [0, 3, 7, 12, 16][row];
+          const x = (i - offset) * 25 + Math.abs(2 - row) * 12;
+          return (
+            <View
+              key={i}
+              style={{
+                position: "absolute",
+                left: x,
+                top: row * 26,
+                width: 24,
+                height: 28,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {[0, 60, 120].map((deg) => (
+                <View
+                  key={deg}
+                  style={{
+                    position: "absolute",
+                    width: 24,
+                    height: 14,
+                    backgroundColor: c.surface,
+                    borderWidth: 1,
+                    borderColor: c.border,
+                    transform: [{ rotate: `${deg}deg` }],
+                  }}
+                />
+              ))}
+            </View>
+          );
+        })}
+        {[1, 1, 2].map((p, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: 51,
+              top: 92 - i * 28,
+              width: 23,
+              height: 23,
+              borderRadius: 12,
+              borderWidth: 2,
+              borderColor: p === 1 ? "#00F5FF" : "#FF2BD6",
+              backgroundColor: "#071020",
+              alignItems: "center",
+              justifyContent: "center",
+              shadowColor: p === 1 ? "#00F5FF" : "#FF2BD6",
+              shadowRadius: 8,
+              shadowOpacity: 0.9,
+            }}
+          >
+            <Text
+              allowFontScaling={false}
+              style={{
+                color: p === 1 ? "#00F5FF" : "#FF2BD6",
+                fontSize: 10,
+                fontWeight: "900",
+              }}
+            >
+              {p}
+            </Text>
+          </View>
+        ))}
+        <Text
+          allowFontScaling={false}
+          style={{
+            position: "absolute",
+            left: 49,
+            top: 8,
+            fontSize: 27,
+            color: "#FF2BD6",
+          }}
+        >
+          ↑
+        </Text>
+        <View
+          style={{
+            position: "absolute",
+            left: 39,
+            top: 22,
+            width: 46,
+            height: 46,
+            borderRadius: 23,
+            borderWidth: 2,
+            borderColor: "#FF2BD677",
+          }}
+        />
+      </View>
+    </LinearGradient>
+  );
+}

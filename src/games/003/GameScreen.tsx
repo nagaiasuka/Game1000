@@ -9,7 +9,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   Keyboard,
   View,
   useWindowDimensions,
@@ -22,6 +21,7 @@ import {
   HelpButton,
   HowToPlayModal,
 } from "@/components/game/common";
+import { PlayerNameInputs } from "@/components/game/PlayerNameInputs";
 import { UI_TEXT } from "@/data/ui-text";
 import { colors as c } from "@/theme";
 import { Board, Chip } from "./components/Board";
@@ -141,33 +141,17 @@ export default function GameScreen() {
             </View>
             <Text style={styles.subtitle}>上からかぶせる、三目並べ。</Text>
             <GameInstructions gameId="003" compact />
-            <View style={{ width: "100%", gap: 12 }}>
-              <Text style={styles.note}>
-                名前を入れて遊べます（入力しなくてもOK）
-              </Text>
-              {([1, 2] as const).map((player) => (
-                <View key={player} style={{ gap: 6 }}>
-                  <Text
-                    style={[styles.player, { color: PLAYER[player].color }]}
-                  >
-                    {PLAYER[player].label} · {PLAYER[player].symbol}
-                  </Text>
-                  <TextInput
-                    accessibilityLabel={`${PLAYER[player].label}の名前`}
-                    value={names[player]}
-                    onChangeText={(value) =>
-                      setNames((old) => ({ ...old, [player]: value }))
-                    }
-                    placeholder={PLAYER[player].label}
-                    placeholderTextColor={c.muted}
-                    maxLength={12}
-                    returnKeyType="done"
-                    autoCorrect={false}
-                    style={styles.nameInput}
-                  />
-                </View>
-              ))}
-            </View>
+            <PlayerNameInputs
+              players={([1, 2] as const).map((player) => ({
+                id: player,
+                color: PLAYER[player].color,
+                detail: PLAYER[player].symbol,
+              }))}
+              names={names}
+              onChange={(player, value) =>
+                setNames((old) => ({ ...old, [player]: value }))
+              }
+            />
             <GameButton title="2人でスタート" onPress={begin} />
             <Text style={styles.note}>先攻はランダムに決まります。</Text>
           </View>
@@ -379,16 +363,6 @@ export default function GameScreen() {
   );
 }
 const baseStyles = StyleSheet.create({
-  nameInput: {
-    minHeight: 48,
-    borderWidth: 1,
-    borderColor: c.border,
-    borderRadius: 12,
-    padding: 12,
-    fontSize: 16,
-    color: c.text,
-    backgroundColor: c.surface,
-  },
   safe: { flex: 1, backgroundColor: c.background },
   header: {
     flexDirection: "row",

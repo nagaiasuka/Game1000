@@ -194,5 +194,37 @@
   "bgm005": {
     "path": "game005/bgm.wav",
     "ms": 27042
+  },
+  "pushSelect": {
+    "path": "game006/pushSelect.wav",
+    "ms": 70
+  },
+  "pushMove": {
+    "path": "game006/pushMove.wav",
+    "ms": 120
+  },
+  "pushHit": {
+    "path": "game006/pushHit.wav",
+    "ms": 190
+  },
+  "pushBlocked": {
+    "path": "game006/pushBlocked.wav",
+    "ms": 130
+  },
+  "pushOut": {
+    "path": "game006/pushOut.wav",
+    "ms": 380
+  },
+  "pushTurn": {
+    "path": "game006/pushTurn.wav",
+    "ms": 100
+  },
+  "pushWin": {
+    "path": "game006/pushWin.wav",
+    "ms": 680
+  },
+  "bgm006": {
+    "path": "game003/bgm.wav",
+    "ms": 46829
   }
 }

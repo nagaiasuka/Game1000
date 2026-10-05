@@ -1,4 +1,5 @@
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
+import { RulesVideo } from "./RulesVideo";
 import { SoundControls } from "@/audio/SoundSettings";
 import {
   Alert,
@@ -108,6 +109,7 @@ export function HowToPlayModal({
           <Text accessibilityRole="header" style={styles.title}>
             {GAME_HELP[gameId].title}
           </Text>
+          {gameId === "006" && visible && <RulesVideo />}
           <GameInstructions gameId={gameId} />
           <SoundControls />
           <GameButton title={UI_TEXT.close} onPress={onClose} />

@@ -45,9 +45,11 @@ function Line({
 export function Field({
   engine,
   state,
+  names,
   onLayout,
   onInput,
 }: {
+  names: Readonly<Record<1 | 2, string>>;
   engine: SlingEngine;
   state: State;
   onLayout: (width: number, height: number) => void;
@@ -149,6 +151,7 @@ export function Field({
               </View>
               <Text
                 numberOfLines={1}
+                adjustsFontSizeToFit
                 maxFontSizeMultiplier={1.1}
                 style={{
                   position: "absolute",
@@ -163,7 +166,7 @@ export function Field({
                   transform: p === 2 ? [{ rotate: "180deg" }] : [],
                 }}
               >
-                プレイヤー{p} · 手前に引いて、離す
+                {names[p].trim() || `プレイヤー${p}`} · 手前に引いて、離す
               </Text>
               {state.winner === p && (
                 <VictoryWave color={COLORS[p]} size={width * 0.7} />

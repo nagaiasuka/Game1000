@@ -49,6 +49,14 @@ export const sources = {
   bgm003: require("../../assets/audio/game003/bgm.wav"),
   bgm004: require("../../assets/audio/game004/bgm.wav"),
   bgm005: require("../../assets/audio/game005/bgm.wav"),
+  pushSelect: require("../../assets/audio/game006/pushSelect.wav"),
+  pushMove: require("../../assets/audio/game006/pushMove.wav"),
+  pushHit: require("../../assets/audio/game006/pushHit.wav"),
+  pushBlocked: require("../../assets/audio/game006/pushBlocked.wav"),
+  pushOut: require("../../assets/audio/game006/pushOut.wav"),
+  pushTurn: require("../../assets/audio/game006/pushTurn.wav"),
+  pushWin: require("../../assets/audio/game006/pushWin.wav"),
+  bgm006: require("../../assets/audio/game003/bgm.wav"),
 } as const;
 export type SoundId = keyof typeof sources;
 export const durations: Record<SoundId, number> = {
@@ -101,4 +109,12 @@ export const durations: Record<SoundId, number> = {
   bgm003: 46829,
   bgm004: 43636,
   bgm005: 27042,
+  pushSelect: 70,
+  pushMove: 120,
+  pushHit: 190,
+  pushBlocked: 130,
+  pushOut: 380,
+  pushTurn: 100,
+  pushWin: 680,
+  bgm006: 46829,
 };

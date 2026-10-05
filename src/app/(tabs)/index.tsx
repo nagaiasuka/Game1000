@@ -9,6 +9,7 @@ import {
   NeonStackArtwork,
   NeonPathArtwork,
   NeonSlingArtwork,
+  NeonPushArtwork,
 } from "@/components/game-artwork";
 import { TikTokLink } from "@/components/tiktok-link";
 import { ProjectProgress } from "@/components/project-progress";
@@ -71,6 +72,7 @@ export default function Home() {
             {game.artwork === "neon-stack" && <NeonStackArtwork />}
             {game.artwork === "neon-path" && <NeonPathArtwork />}
             {game.artwork === "neon-sling" && <NeonSlingArtwork />}
+            {game.artwork === "neon-push" && <NeonPushArtwork />}
             <View
               style={{ paddingHorizontal: 14, paddingVertical: 11, gap: 5 }}
             >

@@ -1,0 +1,16 @@
+﻿Scene,Asset,Format,Size,Duration,Status
+01,scene01-100days-bg,MP4 / PNG / SVG,1080 × 1920,2秒,完了
+01,scene01-number-100,透過PNG / SVG,640 × 360,—,完了
+02,scene02-30slots,MP4 / PNG / SVG,1080 × 1920,3秒,完了
+03,scene03-rookie-arcade,PNG / SVG,1080 × 1920,—,完了（静止）
+04,scene04-asobit-reveal,MP4,1080 × 1920,2秒,完了
+04,asobit-logo / asobit-icon,PNG / SVG（ロゴ）,1024 × 1024,—,完了（正式アセット）
+05,game001-best,MP4,1584 × 2816,8秒,完了（ライン消去）
+05,game002-best,MP4,1584 × 2816,12秒,完了（ブロック破壊・COMBO ×1）
+05,game003-best,MP4,1584 × 2816,10秒,完了（相手の駒へかぶせる）
+05,game004-best,MP4,1584 × 2816,12秒,完了（壁設置）
+05,game005-best,MP4,1584 × 2816,10秒,完了（Aim・発射・ゲート通過）
+06,scene06-progress,MP4 / PNG / SVG,1080 × 1920,3秒,完了
+07,scene07-countdown-bg,MP4 / PNG / SVG,1080 × 1920,3秒,完了（数字は後付け）
+08,scene08-growing-arcade,PNG / SVG,1080 × 1920,—,完了（静止）
+09,scene09-game006-empty,PNG / SVG,1080 × 1920,—,完了（静止）

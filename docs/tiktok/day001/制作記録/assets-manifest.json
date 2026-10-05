@@ -1,0 +1,678 @@
+{
+  "ai_generation": false,
+  "assets": [
+    {
+      "file": "motion/scene01-100days-bg.mp4",
+      "format": "MP4",
+      "bytes": 592068,
+      "sha256": "ad0afda122fc8647955a9fff625d7731763352edcd36cebfa19a1509fac0b505",
+      "width": 1080,
+      "height": 1920,
+      "fps": 60.0,
+      "frames": 120,
+      "seconds": 2.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "motion/scene01-100days-bg.png",
+      "format": "PNG",
+      "bytes": 272396,
+      "sha256": "ef84746ae5bed04fc69d0bc04b2234b4ee214ac2db3dd963a1700354050641ba",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene01-100days-bg.svg",
+      "format": "SVG",
+      "bytes": 1898,
+      "sha256": "911bb469e1a13c794e476f9cce83a3382a7f401e09716f6cce4801b5fe45280a",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/scene01-number-100.png",
+      "format": "PNG",
+      "bytes": 38586,
+      "sha256": "0e19925c9afe2a67f21bb64e2fd17590c331483ccd34684331240b079a821f61",
+      "width": 640,
+      "height": 360,
+      "transparent": true
+    },
+    {
+      "file": "motion/scene01-number-100.svg",
+      "format": "SVG",
+      "bytes": 2508,
+      "sha256": "1047f75820483b5a48d09da9e3c53072118b6370f8b02fb03ad78f64d4cc3130",
+      "width": 640,
+      "height": 360,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/scene02-30slots.mp4",
+      "format": "MP4",
+      "bytes": 95155,
+      "sha256": "8d1a9608c99efb34b2f1494a291ddf9d11c7c7e6fbcffcff296151c11e7b136c",
+      "width": 1080,
+      "height": 1920,
+      "fps": 60.0,
+      "frames": 180,
+      "seconds": 3.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "motion/scene02-30slots.png",
+      "format": "PNG",
+      "bytes": 291720,
+      "sha256": "96b49b4636be4b6a617761746904d1cfc4653cfe5e9cf2b6547badddfecf59ca",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene02-30slots.svg",
+      "format": "SVG",
+      "bytes": 13056,
+      "sha256": "616b8c38fb4dd3cc36d1e53e785655d6f4f159702fb418e0240bfffd97465f1d",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 30
+    },
+    {
+      "file": "motion/scene02-slot-active.png",
+      "format": "PNG",
+      "bytes": 5599,
+      "sha256": "cc920a7a55e02ce17fd6d5bc094b894f58d65df041a9c59ff5813bb2443301fe",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/scene02-slot-active.svg",
+      "format": "SVG",
+      "bytes": 1255,
+      "sha256": "4c65ad73e414bf0df4c0b68185065fd7fc032cb00851109017c0523e2e4b2dde",
+      "width": 162,
+      "height": 146,
+      "slot_groups": 1
+    },
+    {
+      "file": "motion/scene02-slots-empty.png",
+      "format": "PNG",
+      "bytes": 263184,
+      "sha256": "ec004b5fc8622d6ae76b48b39ae0d732a19bba981c77ad3fb5f48f4646757141",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene02-slots-empty.svg",
+      "format": "SVG",
+      "bytes": 12207,
+      "sha256": "af4d21fa6b3f1d4907e947b00eb28fff5982b18aebb24b5285dc9d4b6f39f309",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 30
+    },
+    {
+      "file": "motion/scene03-rookie-arcade.png",
+      "format": "PNG",
+      "bytes": 274900,
+      "sha256": "9fb7cb7fdb9682d5ea726c7c521707dd16821f1db7510c9b1e9c5808864ac765",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene03-rookie-arcade.svg",
+      "format": "SVG",
+      "bytes": 3624,
+      "sha256": "0573e1e1e03695a7f1970eeb3dfa5ebfaf33712f9ca653d68ef15786771f9466",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/scene06-progress-bg.png",
+      "format": "PNG",
+      "bytes": 291720,
+      "sha256": "96b49b4636be4b6a617761746904d1cfc4653cfe5e9cf2b6547badddfecf59ca",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene06-progress-bg.svg",
+      "format": "SVG",
+      "bytes": 13056,
+      "sha256": "616b8c38fb4dd3cc36d1e53e785655d6f4f159702fb418e0240bfffd97465f1d",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 30
+    },
+    {
+      "file": "motion/scene06-progress.mp4",
+      "format": "MP4",
+      "bytes": 95107,
+      "sha256": "ee34ea00f97763a328974f084b7f13a95075e4110617d13e04b0185ac0b7bb21",
+      "width": 1080,
+      "height": 1920,
+      "fps": 60.0,
+      "frames": 180,
+      "seconds": 3.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "motion/scene07-countdown-bg.mp4",
+      "format": "MP4",
+      "bytes": 70112,
+      "sha256": "1669d4c5dd5d3281677346f0f512fd2ac79ecccf69be8b11512931688f5ebb01",
+      "width": 1080,
+      "height": 1920,
+      "fps": 60.0,
+      "frames": 180,
+      "seconds": 3.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "motion/scene07-countdown-bg.png",
+      "format": "PNG",
+      "bytes": 257916,
+      "sha256": "4004954857c8d4b3bd80b513974268b83b2ba788b59b7f472f2a3116abb66865",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene07-countdown-bg.svg",
+      "format": "SVG",
+      "bytes": 3952,
+      "sha256": "c3003b9ad056e6f8f7149c3819caf44a5ec336a0b3dcfb023b8bc47ccb1015ba",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/scene08-growing-arcade.png",
+      "format": "PNG",
+      "bytes": 254897,
+      "sha256": "640256f6e6c577c1538a994214f0f8257831bd99651af5ae39ad74ec735675a4",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene08-growing-arcade.svg",
+      "format": "SVG",
+      "bytes": 39657,
+      "sha256": "29bee87c9917dfff10971fc7bc1c6fedb918bdbb1318676fff6e443a7721bd67",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/scene09-game006-empty.png",
+      "format": "PNG",
+      "bytes": 266978,
+      "sha256": "4cde69a455dbb3e870f6be6efbbb6256d338b3fb8f9af8a05974fc492b6fee3b",
+      "width": 1080,
+      "height": 1920,
+      "transparent": false
+    },
+    {
+      "file": "motion/scene09-game006-empty.svg",
+      "format": "SVG",
+      "bytes": 3360,
+      "sha256": "da26066f306b7526cf68cdd8b99b940aa9d904da268e4c4ed552be6e43d3d1fe",
+      "width": 1080,
+      "height": 1920,
+      "slot_groups": 0
+    },
+    {
+      "file": "motion/slots/slot-01-off.png",
+      "format": "PNG",
+      "bytes": 3019,
+      "sha256": "7421dec363c3a202b7caf3bef86186252143f9cd7221ebca48ebf860caddc65a",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-01-on.png",
+      "format": "PNG",
+      "bytes": 5599,
+      "sha256": "cc920a7a55e02ce17fd6d5bc094b894f58d65df041a9c59ff5813bb2443301fe",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-02-off.png",
+      "format": "PNG",
+      "bytes": 3485,
+      "sha256": "248da097c2c98ca332072b2658598e3aeb6c782ed322233ddd01a34c98080963",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-02-on.png",
+      "format": "PNG",
+      "bytes": 6862,
+      "sha256": "209dfff0c6414accc6c0fc339db96c9f208dc60850baec39586bc306cb813602",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-03-off.png",
+      "format": "PNG",
+      "bytes": 3694,
+      "sha256": "123a83f74b711ef44db86e3ff98807e22929e20a4481aa330434c73eccab8251",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-03-on.png",
+      "format": "PNG",
+      "bytes": 6146,
+      "sha256": "e3cf0bbd68a2b5815043d6962db02591d5e7fdf12e79cc7d87755018e4eba073",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-04-off.png",
+      "format": "PNG",
+      "bytes": 3269,
+      "sha256": "f56b1ed956da8991ad2a6d58df199aa3c4024dfdfa86a564cd7cb9d22fd03b17",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-04-on.png",
+      "format": "PNG",
+      "bytes": 6676,
+      "sha256": "35c7f7e3bed8de1f20970dd0b2845fb7e1a498f9b0e0ce4c4e84448a0486fa76",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-05-off.png",
+      "format": "PNG",
+      "bytes": 3416,
+      "sha256": "79ff4c1070e6ad63ad32adcc148553d057723a9e578e3aaaea25e141535a21ed",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-05-on.png",
+      "format": "PNG",
+      "bytes": 5934,
+      "sha256": "de308ffa83811922fe8dd07029c38cebfda5d435272eae61a70b62e8e4e77b06",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-06-off.png",
+      "format": "PNG",
+      "bytes": 3758,
+      "sha256": "6e2d109e8c24bd7553214d6717ef264dc363a68e4ab09acc08f69b012108a043",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-07-off.png",
+      "format": "PNG",
+      "bytes": 3286,
+      "sha256": "8560e6a3e539ebdd06ae7d3d3ce625524fa7f4c18c7005857bebee3019301cb2",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-08-off.png",
+      "format": "PNG",
+      "bytes": 3870,
+      "sha256": "16b05530a00d94061d8d384c2de084125d3761b64fbb6634a76625c3785055cf",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-09-off.png",
+      "format": "PNG",
+      "bytes": 3727,
+      "sha256": "633c3b265aaa4b84fb11795773366ab5651c17925814edea29a61975147c0496",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-10-off.png",
+      "format": "PNG",
+      "bytes": 2993,
+      "sha256": "c5c19887ead0136658c2fd35254b1c350a2196968772c4798a2a80719f52614e",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-11-off.png",
+      "format": "PNG",
+      "bytes": 2067,
+      "sha256": "775899a5b37ecdc7c5918fb429168182fc5edba1300237178af07ae168a78627",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-12-off.png",
+      "format": "PNG",
+      "bytes": 2616,
+      "sha256": "80f7f4371945d2ed594318d67ebf9361e6997cae0e21af054b5535440ae23027",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-13-off.png",
+      "format": "PNG",
+      "bytes": 2801,
+      "sha256": "f04c830486c9dfdbf9397848ee6709884ac07a40cc54e4519b99da7276760588",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-14-off.png",
+      "format": "PNG",
+      "bytes": 2393,
+      "sha256": "3b3b87983116388e903780574ede52ecd4557c218cf951dc9eb8652c9ae01956",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-15-off.png",
+      "format": "PNG",
+      "bytes": 2539,
+      "sha256": "e43408cda3323d842a2f04a9c68213cbf5a1071fad5efcecfc7dd162c3abdbf5",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-16-off.png",
+      "format": "PNG",
+      "bytes": 2921,
+      "sha256": "2d9ff78f8eac69ea8ea9200c4a3f227da3b331e48e85bf0b7e70013c19f679dd",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-17-off.png",
+      "format": "PNG",
+      "bytes": 2390,
+      "sha256": "78c0a454f1fa01c7643dad80354229eedcb6f1e82559b844709a51e4dcf7865e",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-18-off.png",
+      "format": "PNG",
+      "bytes": 3084,
+      "sha256": "64f4d75a9fe9f60ec1afa6f60a52018e4d432885bb7fbda47cda3e9b78011d3d",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-19-off.png",
+      "format": "PNG",
+      "bytes": 2919,
+      "sha256": "b89d6148b6deb3f84375ba2e955d65eee1191a8a2f927464576d5db14ed4f772",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-20-off.png",
+      "format": "PNG",
+      "bytes": 3508,
+      "sha256": "a2dd773e3d3f6e9bd292de4d948e77887fe3b6de96377dceafdffd3ee80e263b",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-21-off.png",
+      "format": "PNG",
+      "bytes": 2635,
+      "sha256": "a34e5c47943b6f98e6784ea2550a6c557605a58bdb8f904b7f30b4072315d806",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-22-off.png",
+      "format": "PNG",
+      "bytes": 3126,
+      "sha256": "fbd6a1da91c8acd50a2a9d475a1e4ed2ff3e33f8adf7d84c7bd751179c1ac626",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-23-off.png",
+      "format": "PNG",
+      "bytes": 3321,
+      "sha256": "1c2bfcaef1d271d9acfc4caff906980deed49a3452c681165350d368564abd21",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-24-off.png",
+      "format": "PNG",
+      "bytes": 2915,
+      "sha256": "7f0952f222040e1aa59164d46b97fed94b4573fa1cbb40bc6a3acc08b5070337",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-25-off.png",
+      "format": "PNG",
+      "bytes": 3081,
+      "sha256": "19aab228f85157ad36316f942a19cb9c0d70810eb480a2dea1b7399f6172c882",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-26-off.png",
+      "format": "PNG",
+      "bytes": 3428,
+      "sha256": "74692efa9ff452cd964f3714e515c505cb14aba75321e3d62b1c1c6a51bc4e1b",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-27-off.png",
+      "format": "PNG",
+      "bytes": 2919,
+      "sha256": "f9c709fcf95cba9eeaedb8735d3b54c30691968ef49a3f74bd2702e69dfd27f9",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-28-off.png",
+      "format": "PNG",
+      "bytes": 3582,
+      "sha256": "9298d7551d854ff7dc2f5e74a6c81f814cabb28436eb19b64e6792753f3848a9",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-29-off.png",
+      "format": "PNG",
+      "bytes": 3408,
+      "sha256": "9d123de8d27f1af201039fa6f00387f5c337ee8f467ed75a5d92e0f985b51819",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "motion/slots/slot-30-off.png",
+      "format": "PNG",
+      "bytes": 3686,
+      "sha256": "d1b569fd6c4f1e8879fb22109770df1cdc165ec62e05155c0b7a5c6733a913ce",
+      "width": 162,
+      "height": 146,
+      "transparent": true
+    },
+    {
+      "file": "branding/asobit-icon.png",
+      "format": "PNG",
+      "bytes": 134222,
+      "sha256": "7a14dba4cbf7f1708220df5a28580aaa7c8c2dd18fa46720ba55b6817fdf6aa0",
+      "width": 1024,
+      "height": 1024,
+      "transparent": false
+    },
+    {
+      "file": "branding/asobit-logo.png",
+      "format": "PNG",
+      "bytes": 228809,
+      "sha256": "df635e6f10282ed7ab401df4664215b4eae6c00025a07bdcc8bde445526a272d",
+      "width": 1024,
+      "height": 1024,
+      "transparent": true
+    },
+    {
+      "file": "branding/asobit-logo.svg",
+      "format": "SVG",
+      "bytes": 2399,
+      "sha256": "5b33f7b6e5e40bce51ed901582bade8f49aa94f31509d8dc79551bc81e40b5d3",
+      "width": 1024,
+      "height": 1024,
+      "slot_groups": 0
+    },
+    {
+      "file": "branding/scene04-asobit-reveal.mp4",
+      "format": "MP4",
+      "bytes": 62026,
+      "sha256": "478e5f6c65ea0d105752c592c37bfa615886d30c609cecdcbbdf26c60008e3a1",
+      "width": 1080,
+      "height": 1920,
+      "fps": 60.0,
+      "frames": 120,
+      "seconds": 2.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/game001-best.mp4",
+      "format": "MP4",
+      "bytes": 255630,
+      "sha256": "7062afc4f8b716ff0a25cc6e5ad164be9caf502c1ad7f2ca3a8fb6a8b1c6c377",
+      "width": 1584,
+      "height": 2816,
+      "fps": 60.0,
+      "frames": 480,
+      "seconds": 8.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/game002-best.mp4",
+      "format": "MP4",
+      "bytes": 441079,
+      "sha256": "10c89dbc28668d1e74f020a6d088bf628a6f6f4a8cb59d8bff9f1609b9cc2917",
+      "width": 1584,
+      "height": 2816,
+      "fps": 60.0,
+      "frames": 720,
+      "seconds": 12.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/game003-best.mp4",
+      "format": "MP4",
+      "bytes": 577291,
+      "sha256": "e36652208bd051361fd94a2fb8226bc51296d6d793550b88da04aecb761eb61f",
+      "width": 1584,
+      "height": 2816,
+      "fps": 60.0,
+      "frames": 600,
+      "seconds": 10.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/game004-best.mp4",
+      "format": "MP4",
+      "bytes": 494216,
+      "sha256": "e686d8f13b984ef9cfd96e1c6783586324f72722893b4902824885deeb18b066",
+      "width": 1584,
+      "height": 2816,
+      "fps": 60.0,
+      "frames": 720,
+      "seconds": 12.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/game005-best.mp4",
+      "format": "MP4",
+      "bytes": 711231,
+      "sha256": "ac6c41dcc391c9f6871ddd9ce4bcff6a09597a62805854b3c917ca3e4fc380ad",
+      "width": 1584,
+      "height": 2816,
+      "fps": 60.0,
+      "frames": 600,
+      "seconds": 10.0,
+      "codec": "H.264 High / yuv420p",
+      "audio": false,
+      "full_decode": "passed"
+    },
+    {
+      "file": "gameplay/native/game001-line-clear-native-0941.mov",
+      "format": "MOV",
+      "bytes": 1034144,
+      "sha256": "e2de63523eea5fe780ba0d8fbf34f13d515b7dd58929ed8e3dcad5e70bd2cb90",
+      "width": 1284,
+      "height": 2778,
+      "fps": 8.271474019088018,
+      "frames": 169,
+      "seconds": 20.431666666666665
+    }
+  ]
+}

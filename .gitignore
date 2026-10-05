@@ -41,3 +41,10 @@ example
 # generated native folders
 /ios
 /android
+
+# TikTok recordings (keep scripts and capture reports in Git)
+scripts/tiktok/__pycache__/
+docs/tiktok/**/motion/*.mp4
+docs/tiktok/**/gameplay/**/*.mp4
+docs/tiktok/**/gameplay/**/*.mov
+docs/tiktok/**/branding/*.mp4

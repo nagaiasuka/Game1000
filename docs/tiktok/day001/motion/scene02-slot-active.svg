@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162" height="146" viewBox="0 0 162 146"><defs>
+<linearGradient id="neon"><stop stop-color="#00E5FF"/><stop offset=".5" stop-color="#AD91FF"/><stop offset="1" stop-color="#FF29CF"/></linearGradient>
+<linearGradient id="body" x2=".8" y2="1"><stop stop-color="#172139"/><stop offset="1" stop-color="#080D19"/></linearGradient>
+<radialGradient id="ambient"><stop stop-color="#143253"/><stop offset="1" stop-color="#050811"/></radialGradient>
+<radialGradient id="pool"><stop stop-color="#00E5FF" stop-opacity=".18"/><stop offset="1" stop-color="#00E5FF" stop-opacity="0"/></radialGradient>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs><g id="slot-01"><g filter="url(#glow)" opacity=".5"><rect x="0" y="0" width="138" height="116" rx="17" fill="#00E5FF" fill-opacity="0.065" stroke="#00E5FF" stroke-width="3"/></g><rect x="0" y="0" width="138" height="116" rx="17" fill="#00E5FF" fill-opacity="0.065" stroke="#00E5FF" stroke-width="3"/><path d="M20 92h98" stroke="#00E5FF" stroke-width="2" opacity=".55"/><text x="69" y="72" text-anchor="middle" font-family="Menlo,monospace" font-size="47" font-weight="700" fill="#00E5FF">01</text></g></svg>

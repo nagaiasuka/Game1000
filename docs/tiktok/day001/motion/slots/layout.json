@@ -1,0 +1,288 @@
+{
+  "canvas": [
+    1080,
+    1920
+  ],
+  "layers": [
+    {
+      "file": "slot-01-off.png",
+      "x": 90,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-01-on.png",
+      "x": 90,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": true
+    },
+    {
+      "file": "slot-02-off.png",
+      "x": 252,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-02-on.png",
+      "x": 252,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": true
+    },
+    {
+      "file": "slot-03-off.png",
+      "x": 414,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-03-on.png",
+      "x": 414,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": true
+    },
+    {
+      "file": "slot-04-off.png",
+      "x": 576,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-04-on.png",
+      "x": 576,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": true
+    },
+    {
+      "file": "slot-05-off.png",
+      "x": 738,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-05-on.png",
+      "x": 738,
+      "y": 380,
+      "width": 162,
+      "height": 146,
+      "completed": true
+    },
+    {
+      "file": "slot-06-off.png",
+      "x": 90,
+      "y": 526,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-07-off.png",
+      "x": 252,
+      "y": 526,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-08-off.png",
+      "x": 414,
+      "y": 526,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-09-off.png",
+      "x": 576,
+      "y": 526,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-10-off.png",
+      "x": 738,
+      "y": 526,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-11-off.png",
+      "x": 90,
+      "y": 672,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-12-off.png",
+      "x": 252,
+      "y": 672,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-13-off.png",
+      "x": 414,
+      "y": 672,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-14-off.png",
+      "x": 576,
+      "y": 672,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-15-off.png",
+      "x": 738,
+      "y": 672,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-16-off.png",
+      "x": 90,
+      "y": 818,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-17-off.png",
+      "x": 252,
+      "y": 818,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-18-off.png",
+      "x": 414,
+      "y": 818,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-19-off.png",
+      "x": 576,
+      "y": 818,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-20-off.png",
+      "x": 738,
+      "y": 818,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-21-off.png",
+      "x": 90,
+      "y": 964,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-22-off.png",
+      "x": 252,
+      "y": 964,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-23-off.png",
+      "x": 414,
+      "y": 964,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-24-off.png",
+      "x": 576,
+      "y": 964,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-25-off.png",
+      "x": 738,
+      "y": 964,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-26-off.png",
+      "x": 90,
+      "y": 1110,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-27-off.png",
+      "x": 252,
+      "y": 1110,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-28-off.png",
+      "x": 414,
+      "y": 1110,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-29-off.png",
+      "x": 576,
+      "y": 1110,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    },
+    {
+      "file": "slot-30-off.png",
+      "x": 738,
+      "y": 1110,
+      "width": 162,
+      "height": 146,
+      "completed": false
+    }
+  ]
+}

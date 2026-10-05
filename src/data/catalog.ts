@@ -20,7 +20,12 @@ export type Game = {
   categories: GameCategory[];
   thumbnail?: string;
   artwork?:
-    "block-drop" | "block-break" | "neon-stack" | "neon-path" | "neon-sling";
+    | "block-drop"
+    | "block-break"
+    | "neon-stack"
+    | "neon-path"
+    | "neon-sling"
+    | "neon-push";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -95,6 +100,21 @@ export const games: Game[] = [
     isNew: true,
     status: "available",
     route: "/play/005",
+  },
+  {
+    id: "006",
+    gameNumber: 6,
+    title: "NEON PUSH",
+    shortDescription:
+      "押して、落とせ。駒をつないで押し合う、2人のネオン戦略ゲーム。",
+    minPlayers: 2,
+    maxPlayers: 2,
+    estimatedMinutes: 4,
+    categories: ["board", "brain"],
+    artwork: "neon-push",
+    isNew: true,
+    status: "available",
+    route: "/play/006",
   },
 ];
 export const playerOptions = [

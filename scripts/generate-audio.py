@@ -77,3 +77,6 @@ for name,v in manifest.items(): lines.append(f'  {name}: require("../../assets/a
 lines+=['} as const;','export type SoundId = keyof typeof sources;', 'export const durations: Record<SoundId, number> = '+json.dumps({k:v['ms'] for k,v in manifest.items()})+';']
 (ROOT/'src/audio/sounds.ts').write_text('\n'.join(lines)+'\n')
 print(f'Generated {len(manifest)} original WAVs')
+
+# Keep GAME #006 registered whenever the full audio library is regenerated.
+runpy.run_path(str(ROOT / "scripts/generate-push-audio.py"), run_name="__main__")

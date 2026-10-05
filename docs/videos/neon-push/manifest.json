@@ -1,0 +1,30 @@
+{
+  "duration": 15,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "video": "neon-push-rules-15s.mp4",
+  "scenes": [
+    {
+      "start": 0,
+      "end": 3.4,
+      "caption": "自分の駒を選ぶ・隣へ1マス移動"
+    },
+    {
+      "start": 3.4,
+      "end": 7.4,
+      "caption": "多い駒で押す：2対1・3対1・3対2"
+    },
+    {
+      "start": 7.4,
+      "end": 10.4,
+      "caption": "同じ数では押せない"
+    },
+    {
+      "start": 10.4,
+      "end": 15,
+      "caption": "盤外で1点・5点で勝利"
+    }
+  ],
+  "audio": "Existing original ASOBIT BGM and GAME #006 effects"
+}

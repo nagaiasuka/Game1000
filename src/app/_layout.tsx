@@ -40,6 +40,7 @@ function AppNavigation() {
             <Stack.Screen name="play/003" options={{ gestureEnabled: false }} />
             <Stack.Screen name="play/004" options={{ gestureEnabled: false }} />
             <Stack.Screen name="play/005" options={{ gestureEnabled: false }} />
+            <Stack.Screen name="play/006" options={{ gestureEnabled: false }} />
           </Stack>
         </ThemeProvider>
       </DeveloperModeProvider>

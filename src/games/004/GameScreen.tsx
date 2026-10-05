@@ -8,7 +8,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -23,6 +22,7 @@ import {
 } from "@/components/game/common";
 import { NeonPathArtwork } from "@/components/game-artwork";
 import { useColors } from "@/theme/ThemeProvider";
+import { PlayerNameInputs } from "@/components/game/PlayerNameInputs";
 import { UI_TEXT } from "@/data/ui-text";
 import { initialSession, sessionReducer } from "./logic/session";
 import {
@@ -207,38 +207,17 @@ export default function GameScreen() {
             道を進め。道をふさげ。
           </Text>
           <GameInstructions gameId="004" compact />
-          <Text style={{ color: c.muted, fontSize: 14 }}>
-            名前を入れて遊べます（入力しなくてもOK）
-          </Text>
-          {([1, 2] as const).map((p) => (
-            <View key={p} style={{ gap: 6 }}>
-              <Text style={{ color: PLAYER_COLOR[p], fontSize: 14 }}>
-                プレイヤー{p} · {p === 1 ? "上" : "下"}
-                がゴール
-              </Text>
-              <TextInput
-                accessibilityLabel={`プレイヤー${p}の名前`}
-                placeholder={`プレイヤー${p}`}
-                placeholderTextColor={c.muted}
-                value={names[p]}
-                onChangeText={(value) =>
-                  setNames((old) => ({ ...old, [p]: value }))
-                }
-                maxLength={12}
-                autoCorrect={false}
-                returnKeyType="done"
-                style={{
-                  color: c.text,
-                  backgroundColor: c.surface,
-                  borderColor: c.border,
-                  borderWidth: 1,
-                  borderRadius: 10,
-                  padding: 12,
-                  minHeight: 48,
-                }}
-              />
-            </View>
-          ))}
+          <PlayerNameInputs
+            players={([1, 2] as const).map((player) => ({
+              id: player,
+              color: PLAYER_COLOR[player],
+              detail: `${player === 1 ? "上" : "下"}がゴール`,
+            }))}
+            names={names}
+            onChange={(player, value) =>
+              setNames((old) => ({ ...old, [player]: value }))
+            }
+          />
           <GameButton title="2人でスタート" onPress={start} />
           <Text style={{ color: c.muted, textAlign: "center" }}>
             プレイヤー1が先攻。もう一度遊ぶと先攻が交代します。

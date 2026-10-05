@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import {
   Alert,
   BackHandler,
+  Keyboard,
   Pressable,
   ScrollView,
   Text,
@@ -16,6 +17,7 @@ import {
   HowToPlayModal,
 } from "@/components/game/common";
 import { NeonSlingArtwork } from "@/components/game-artwork";
+import { PlayerNameInputs } from "@/components/game/PlayerNameInputs";
 import { useColors } from "@/theme/ThemeProvider";
 import { useSling } from "./useSling";
 import { Field } from "./components/Field";
@@ -24,6 +26,13 @@ const COLORS = { 1: "#00F5FF", 2: "#FF2BD6" };
 export default function GameScreen() {
   const c = useColors(),
     { engine, state, publish, pause, resume, start } = useSling();
+  const [names, setNames] = useState({ 1: "", 2: "" });
+  const playerName = (player: 1 | 2) =>
+    names[player].trim() || `プレイヤー${player}`;
+  const begin = () => {
+    Keyboard.dismiss();
+    start();
+  };
   const [help, setHelp] = useState(false);
   const { width } = useWindowDimensions();
   const goHome = useCallback(() => {
@@ -87,6 +96,8 @@ export default function GameScreen() {
       />
       {state.phase === "ready" ? (
         <ScrollView
+          automaticallyAdjustKeyboardInsets
+          keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
             padding: 22,
             gap: 20,
@@ -125,7 +136,17 @@ export default function GameScreen() {
             スマホを机に置いて、上下から2人同時対戦！
           </Text>
           <GameInstructions gameId="005" compact />
-          <GameButton title="2人でスタート" onPress={start} />
+          <PlayerNameInputs
+            players={[
+              { id: 1, color: COLORS[1], detail: "下 · シアン" },
+              { id: 2, color: COLORS[2], detail: "上 · ピンク" },
+            ]}
+            names={names}
+            onChange={(player, value) =>
+              setNames((old) => ({ ...old, [player]: value }))
+            }
+          />
+          <GameButton title="2人でスタート" onPress={begin} />
           <GameButton
             secondary
             title="遊び方・サウンド設定"
@@ -136,6 +157,7 @@ export default function GameScreen() {
         <View style={{ flex: 1, flexDirection: "row" }}>
           <View style={{ flex: 1 }}>
             <Field
+              names={names}
               engine={engine}
               state={state}
               onLayout={(w, h) => {
@@ -196,7 +218,7 @@ export default function GameScreen() {
                       transform: [{ rotate: "180deg" }],
                     }}
                   >
-                    プレイヤー{state.winner}の勝ち！
+                    {playerName(state.winner)}の勝ち！
                   </Text>
                   <Text
                     maxFontSizeMultiplier={1.2}
@@ -218,7 +240,7 @@ export default function GameScreen() {
                       fontWeight: "800",
                     }}
                   >
-                    プレイヤー{state.winner}の勝ち！
+                    {playerName(state.winner)}の勝ち！
                   </Text>
                   <Text
                     style={{
@@ -227,7 +249,8 @@ export default function GameScreen() {
                       fontSize: 13,
                     }}
                   >
-                    1：{state.wins[1]}勝 ／ 2：{state.wins[2]}勝
+                    {playerName(1)}：{state.wins[1]}勝 ／ {playerName(2)}：
+                    {state.wins[2]}勝
                   </Text>
                 </View>
                 <GameButton title="もう一度" onPress={start} />
