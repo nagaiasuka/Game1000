@@ -61,8 +61,8 @@ function hit(e: BlockBreakEngine, b = brick()) {
 }
 test("002 is playable and challenge counts the current catalog", () => {
   assert.equal(games.find((g) => g.id === "002")?.status, "available");
-  assert.equal(projectProgress(games, 30).countLabel, "006 / 030");
-  assert.equal(projectProgress(games, 30).remaining, 24);
+  assert.equal(projectProgress(games, 30).countLabel, "007 / 030");
+  assert.equal(projectProgress(games, 30).remaining, 23);
 });
 test("ten distinct, bounded stages introduce durability, steel and rush", () => {
   assert.equal(STAGES.length, 10);

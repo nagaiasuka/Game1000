@@ -1,3 +1,4 @@
+import { FishHead, FishTail } from "./neon-fish";
 import { useColors, useThemedStyles } from "@/theme/ThemeProvider";
 import { PathPerson } from "./path-person";
 import { StackMonster } from "./stack-monster";
@@ -672,5 +673,75 @@ export function NeonPushArtwork() {
         />
       </View>
     </LinearGradient>
+  );
+}
+
+export function NeonFishArtwork() {
+  const c = useColors();
+  return (
+    <View
+      accessibilityLabel="NEON FISH、蛇腹の胴体が伸びるネオンの魚"
+      style={{
+        height: 180,
+        borderRadius: 18,
+        overflow: "hidden",
+        backgroundColor: "#071C30",
+        padding: 18,
+        flexDirection: "row",
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: c.cyan + "55",
+      }}
+    >
+      <View style={{ flex: 1, gap: 8 }}>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{ color: c.cyan, fontSize: 11, fontWeight: "800" }}
+        >
+          2〜4人の釣り大会
+        </Text>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{
+            color: c.text,
+            fontSize: 31,
+            lineHeight: 33,
+            fontStyle: "italic",
+            fontWeight: "900",
+          }}
+        >
+          NEON{"\n"}FISH<Text style={{ color: "#FF2BD6" }}>.</Text>
+        </Text>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{ color: c.muted, fontSize: 12 }}
+        >
+          釣って、伸ばして、逆転しろ。
+        </Text>
+      </View>
+      <View
+        style={{
+          width: 85,
+          alignItems: "center",
+          transform: [{ rotate: "12deg" }],
+        }}
+      >
+        <FishHead color="#00E5FF" surprised />
+        {Array.from({ length: 5 }, (_, i) => (
+          <View
+            key={i}
+            style={{
+              height: 14,
+              width: 40,
+              borderRadius: 4,
+              backgroundColor: i % 2 ? "#00E5FF66" : "#00E5FFAA",
+              borderWidth: 1,
+              borderColor: "#00E5FF",
+            }}
+          />
+        ))}
+        <FishTail color="#00E5FF" />
+      </View>
+    </View>
   );
 }

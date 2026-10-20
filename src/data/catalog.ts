@@ -25,7 +25,8 @@ export type Game = {
     | "neon-stack"
     | "neon-path"
     | "neon-sling"
-    | "neon-push";
+    | "neon-push"
+    | "neon-fish";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -115,6 +116,20 @@ export const games: Game[] = [
     isNew: true,
     status: "available",
     route: "/play/006",
+  },
+  {
+    id: "007",
+    gameNumber: 7,
+    title: "NEON FISH",
+    shortDescription: "釣って、伸ばして、逆転しろ。魚の長さを競う釣り対戦。",
+    minPlayers: 2,
+    maxPlayers: 4,
+    estimatedMinutes: 3,
+    categories: ["party", "luck"],
+    artwork: "neon-fish",
+    isNew: true,
+    status: "available",
+    route: "/play/007",
   },
 ];
 export const playerOptions = [

@@ -13,3 +13,5 @@ Router用ファイルは `src/app/` のみに置き、ゲーム内部の部品�
 ## 共通UI
 
 新規・既存ゲームとも [日本語ファースト共通仕様](../../docs/japanese-first-ui.md) を適用します。共通ボタン・遊び方・終了確認は `src/components/game/common.tsx`、文言と説明は `src/data/ui-text.ts` を利用してください。
+
+`007/` はGAME #007「NEON FISH」。2〜4人のローカル釣り対戦。操作・伸長演出・音声・検証は [007/README.md](007/README.md) を参照してください。

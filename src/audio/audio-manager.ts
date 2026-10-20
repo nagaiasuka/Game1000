@@ -26,6 +26,7 @@ export class AudioManager {
   private music: Partial<Record<Scene, Scene>> = {};
   private paused: Partial<Record<Scene, boolean>> = {};
   private voices: Voice[] = [];
+  private musicLevels: Partial<Record<Scene, number>> = {};
   private bgm: Player | null = null;
   private bgmScene: Scene | null = null;
   private fade: ReturnType<typeof setInterval> | null = null;
@@ -85,6 +86,13 @@ export class AudioManager {
       if (paused) this.stopEffects();
       this.syncBgm();
     }
+  }
+  /** Scene-local ducking retains the shared user volume and mute settings. */
+  setMusicLevel(scene: Scene, level: number) {
+    const next = Math.max(0, Math.min(1, level));
+    if ((this.musicLevels[scene] ?? 1) === next) return;
+    this.musicLevels[scene] = next;
+    if (this.scene === scene) this.syncBgm();
   }
   setActive(active: boolean) {
     if (this.active === active) return;
@@ -242,7 +250,7 @@ export class AudioManager {
       });
     if (this.bgm) {
       this.safe(() => this.bgm!.play());
-      this.ramp(this.settings.bgmVolume);
+      this.ramp(this.settings.bgmVolume * (this.musicLevels[this.scene] ?? 1));
     }
   }
   dispose() {

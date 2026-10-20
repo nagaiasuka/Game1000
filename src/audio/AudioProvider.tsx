@@ -6,7 +6,7 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
-import { AppState } from "react-native";
+import { AppState, Platform } from "react-native";
 import { usePathname } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { audio, prepareAudio } from "./native";
@@ -56,17 +56,21 @@ export function AudioProvider({ children }: PropsWithChildren) {
     const change = AppState.addEventListener("change", (state) =>
       audio.setActive(state === "active"),
     );
-    const blur = AppState.addEventListener("blur", () =>
-      audio.setActive(false),
-    );
-    const focus = AppState.addEventListener("focus", () =>
-      audio.setActive(AppState.currentState === "active"),
-    );
+    const blur =
+      Platform.OS === "android"
+        ? AppState.addEventListener("blur", () => audio.setActive(false))
+        : null;
+    const focus =
+      Platform.OS === "android"
+        ? AppState.addEventListener("focus", () =>
+            audio.setActive(AppState.currentState === "active"),
+          )
+        : null;
     return () => {
       alive = false;
       change.remove();
-      blur.remove();
-      focus.remove();
+      blur?.remove();
+      focus?.remove();
       audio.dispose();
     };
   }, []);

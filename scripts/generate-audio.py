@@ -80,3 +80,6 @@ print(f'Generated {len(manifest)} original WAVs')
 
 # Keep GAME #006 registered whenever the full audio library is regenerated.
 runpy.run_path(str(ROOT / "scripts/generate-push-audio.py"), run_name="__main__")
+
+# Keep GAME #007 registered on full regeneration.
+runpy.run_path(str(ROOT / "scripts/generate-fish-audio.py"), run_name="__main__")

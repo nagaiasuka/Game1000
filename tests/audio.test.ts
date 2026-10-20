@@ -266,7 +266,15 @@ test("drop emits successful input sounds and one start at end of countdown", () 
 });
 
 test("game intros keep home music; starting changes only music and keeps prepared effects", async () => {
-  for (const scene of ["001", "002", "003", "004", "005", "006"] as const) {
+  for (const scene of [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+  ] as const) {
     const h = harness();
     h.manager.initialize();
     h.manager.setScene(scene, "home");
@@ -299,4 +307,46 @@ test("return to stage selection restores home music; inactive games cannot chang
   h.manager.setMusic("001", "001");
   assert.equal(h.sounding().find((p) => p.loop)?.id, "bgmhome");
   h.manager.dispose();
+});
+
+test("fish ducking respects user volume and mute, retains one BGM and restores other scenes", async () => {
+  const h = harness();
+  try {
+    h.manager.setScene("007");
+    h.manager.initialize();
+    h.tick(140);
+    await new Promise((resolve) => setTimeout(resolve, 25));
+    const music = h.sounding().find((p) => p.loop)!;
+    h.manager.setMusicLevel("007", 0.35);
+    h.tick(140);
+    await new Promise((resolve) => setTimeout(resolve, 25));
+    assert.ok(Math.abs(music.volume - DEFAULT_AUDIO.bgmVolume * 0.35) < 0.001);
+    h.manager.configure({ ...DEFAULT_AUDIO, se: false });
+    h.manager.play("fishPop1");
+    await flush();
+    assert.equal(h.starts("fishPop1"), 0);
+    h.manager.configure({ ...DEFAULT_AUDIO, bgm: false });
+    h.manager.setMusicLevel("007", 1);
+    assert.equal(music.volume, 0);
+    h.manager.configure(DEFAULT_AUDIO);
+    h.tick(140);
+    await new Promise((resolve) => setTimeout(resolve, 25));
+    assert.equal(music.volume, DEFAULT_AUDIO.bgmVolume);
+    assert.equal(h.all.filter((p) => p.id === "bgm007").length, 1);
+    h.manager.setMusicLevel("007", 0);
+    h.manager.play("fishWin", 3);
+    await flush();
+    assert.equal(h.starts("fishWin"), 1);
+    h.manager.setScene("001");
+    h.tick(140);
+    await new Promise((resolve) => setTimeout(resolve, 25));
+    h.tick(140);
+    await new Promise((resolve) => setTimeout(resolve, 25));
+    assert.equal(
+      h.sounding().find((p) => p.loop)?.volume,
+      DEFAULT_AUDIO.bgmVolume,
+    );
+  } finally {
+    h.manager.dispose();
+  }
 });

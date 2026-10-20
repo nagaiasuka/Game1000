@@ -1,5 +1,6 @@
 import type { SoundId } from "./sounds.ts";
-export type Scene = "home" | "001" | "002" | "003" | "004" | "005" | "006";
+export type Scene =
+  "home" | "001" | "002" | "003" | "004" | "005" | "006" | "007";
 export type Effect = Exclude<SoundId, `bgm${string}`>;
 export type AudioSettings = {
   bgm: boolean;
@@ -32,6 +33,28 @@ export function readSettings(raw: string | null): AudioSettings {
   }
 }
 export const sceneEffects: Record<Scene, readonly Effect[]> = {
+  "007": [
+    "ui",
+    "start",
+    "fishSelect",
+    "fishHook",
+    "fishLift",
+    "fishPop1",
+    "fishPop2",
+    "fishPop3",
+    "fishPop4",
+    "fishPop5",
+    "fishPop6",
+    "fishPop7",
+    "fishPop8",
+    "fishPop9",
+    "fishSmall",
+    "fishMedium",
+    "fishBig",
+    "fishJackpot",
+    "fishOvertake",
+    "fishWin",
+  ],
   "006": [
     "ui",
     "start",

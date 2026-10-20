@@ -226,5 +226,81 @@
   "bgm006": {
     "path": "game003/bgm.wav",
     "ms": 46829
+  },
+  "fishSelect": {
+    "path": "game007/fishSelect.wav",
+    "ms": 180
+  },
+  "fishHook": {
+    "path": "game007/fishHook.wav",
+    "ms": 100
+  },
+  "fishLift": {
+    "path": "game007/fishLift.wav",
+    "ms": 200
+  },
+  "fishSmall": {
+    "path": "game007/fishSmall.wav",
+    "ms": 230
+  },
+  "fishMedium": {
+    "path": "game007/fishMedium.wav",
+    "ms": 350
+  },
+  "fishBig": {
+    "path": "game007/fishBig.wav",
+    "ms": 500
+  },
+  "fishJackpot": {
+    "path": "game007/fishJackpot.wav",
+    "ms": 680
+  },
+  "fishOvertake": {
+    "path": "game007/fishOvertake.wav",
+    "ms": 450
+  },
+  "fishWin": {
+    "path": "game007/fishWin.wav",
+    "ms": 850
+  },
+  "fishPop1": {
+    "path": "game007/fishPop1.wav",
+    "ms": 85
+  },
+  "fishPop2": {
+    "path": "game007/fishPop2.wav",
+    "ms": 85
+  },
+  "fishPop3": {
+    "path": "game007/fishPop3.wav",
+    "ms": 85
+  },
+  "fishPop4": {
+    "path": "game007/fishPop4.wav",
+    "ms": 85
+  },
+  "fishPop5": {
+    "path": "game007/fishPop5.wav",
+    "ms": 85
+  },
+  "fishPop6": {
+    "path": "game007/fishPop6.wav",
+    "ms": 85
+  },
+  "fishPop7": {
+    "path": "game007/fishPop7.wav",
+    "ms": 85
+  },
+  "fishPop8": {
+    "path": "game007/fishPop8.wav",
+    "ms": 85
+  },
+  "fishPop9": {
+    "path": "game007/fishPop9.wav",
+    "ms": 85
+  },
+  "bgm007": {
+    "path": "game007/bgm007.wav",
+    "ms": 29091
   }
 }
