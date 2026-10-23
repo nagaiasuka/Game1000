@@ -16,7 +16,7 @@ test("random selection intersects players and favorites and excludes unreleased 
       ...games,
       { ...games[0], id: "099", status: "coming-soon" },
     ]).length,
-    7,
+    8,
   );
 });
 test("draw reaches every candidate without immediately repeating the previous game", () => {

@@ -350,3 +350,66 @@ test("fish ducking respects user volume and mute, retains one BGM and restores o
     h.manager.dispose();
   }
 });
+
+test("CASCADE's batched impacts keep the four-voice ceiling, fixed pool and mute semantics", async () => {
+  const h = harness();
+  try {
+    h.manager.setScene("008");
+    h.manager.initialize();
+    const allocated = h.all.length;
+    assert.ok(allocated <= 23);
+    for (let frame = 0; frame < 500; frame++) {
+      for (const hit of [
+        "cascadeHit1",
+        "cascadeHit2",
+        "cascadeHit3",
+        "cascadeHit4",
+        "cascadeHit5",
+        "cascadeHit6",
+      ] as Effect[])
+        h.manager.play(hit, 1);
+      if (frame % 13 === 0) h.manager.play("cascadeGate", 2);
+      if (frame % 23 === 0) h.manager.play("cascadeBomb", 2);
+      await flush();
+      assert.ok(h.sounding().filter((p) => !p.loop).length <= 4);
+      assert.equal(h.all.length, allocated);
+      h.tick(16);
+    }
+    h.manager.configure({ ...DEFAULT_AUDIO, se: false });
+    h.manager.play("cascadeWin", 3);
+    await flush();
+    assert.equal(h.starts("cascadeWin"), 0);
+  } finally {
+    h.manager.dispose();
+  }
+});
+test("CASCADE fever music switches within its scene and pause never resumes it implicitly", async () => {
+  const h = harness();
+  try {
+    h.manager.setScene("008");
+    h.manager.initialize();
+    h.manager.setMusic("008", "008fever");
+    h.tick(140);
+    await new Promise((r) => setTimeout(r, 25));
+    assert.equal(h.sounding().filter((p) => p.loop).length, 1);
+    assert.equal(h.sounding().find((p) => p.loop)?.id, "bgm008fever");
+    const effects = h.all.filter((p) => !p.loop && !p.removed);
+    h.manager.setPaused("008", true);
+    h.manager.setActive(false);
+    h.manager.setActive(true);
+    assert.equal(h.sounding().filter((p) => p.loop).length, 0);
+    h.manager.setPaused("008", false);
+    assert.equal(h.sounding().find((p) => p.loop)?.id, "bgm008fever");
+    h.manager.setMusic("008", "008");
+    h.tick(140);
+    await new Promise((r) => setTimeout(r, 25));
+    assert.equal(h.sounding().find((p) => p.loop)?.id, "bgm008");
+    assert.ok(effects.every((p) => !p.removed));
+    h.manager.setScene("001");
+    h.tick(140);
+    await new Promise((r) => setTimeout(r, 25));
+    assert.equal(h.sounding().find((p) => p.loop)?.id, "bgm001");
+  } finally {
+    h.manager.dispose();
+  }
+});

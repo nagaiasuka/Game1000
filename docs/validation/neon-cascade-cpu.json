@@ -1,0 +1,45 @@
+{
+  "runtime": "v24.21.0",
+  "platform": "darwin/x64",
+  "scope": "Node CPU only; native JS/UI FPS, real-device audio and thermal behaviour not measured",
+  "colliders": 162,
+  "framesPerCase": 1800,
+  "results": [
+    {
+      "balls": 1,
+      "p50Ms": 0.0079,
+      "p95Ms": 0.0456,
+      "p99Ms": 0.1012,
+      "maxMs": 0.5331,
+      "meanMs": 0.0141,
+      "heapAfterGcDelta": 179504
+    },
+    {
+      "balls": 16,
+      "p50Ms": 0.0302,
+      "p95Ms": 0.2101,
+      "p99Ms": 0.4152,
+      "maxMs": 5.6764,
+      "meanMs": 0.0644,
+      "heapAfterGcDelta": 11336
+    },
+    {
+      "balls": 32,
+      "p50Ms": 0.069,
+      "p95Ms": 0.3659,
+      "p99Ms": 0.6067,
+      "maxMs": 6.9099,
+      "meanMs": 0.127,
+      "heapAfterGcDelta": 1224
+    },
+    {
+      "balls": 64,
+      "p50Ms": 0.1572,
+      "p95Ms": 0.3972,
+      "p99Ms": 0.6038,
+      "maxMs": 35.9948,
+      "meanMs": 0.2016,
+      "heapAfterGcDelta": -608
+    }
+  ]
+}

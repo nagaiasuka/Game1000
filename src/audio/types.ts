@@ -1,6 +1,7 @@
 import type { SoundId } from "./sounds.ts";
 export type Scene =
-  "home" | "001" | "002" | "003" | "004" | "005" | "006" | "007";
+  "home" | "001" | "002" | "003" | "004" | "005" | "006" | "007" | "008";
+export type Music = Scene | "008fever";
 export type Effect = Exclude<SoundId, `bgm${string}`>;
 export type AudioSettings = {
   bgm: boolean;
@@ -33,6 +34,24 @@ export function readSettings(raw: string | null): AudioSettings {
   }
 }
 export const sceneEffects: Record<Scene, readonly Effect[]> = {
+  "008": [
+    "ui",
+    "start",
+    "cascadeHit1",
+    "cascadeHit2",
+    "cascadeHit3",
+    "cascadeHit4",
+    "cascadeHit5",
+    "cascadeHit6",
+    "cascadeGate",
+    "cascadeBumper",
+    "cascadeBomb",
+    "cascadeFever",
+    "cascadeFeverEnd",
+    "cascadeClear",
+    "cascadeOver",
+    "cascadeWin",
+  ],
   "007": [
     "ui",
     "start",

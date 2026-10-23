@@ -1,0 +1,130 @@
+[
+  {
+    "stage": 1,
+    "shots": [
+      {
+        "angle": 0.5,
+        "wait": 0
+      }
+    ],
+    "score": 1190,
+    "stars": 3,
+    "peak": 2
+  },
+  {
+    "stage": 2,
+    "shots": [
+      {
+        "angle": -0.4,
+        "wait": 0
+      }
+    ],
+    "score": 2060,
+    "stars": 3,
+    "peak": 5
+  },
+  {
+    "stage": 3,
+    "shots": [
+      {
+        "angle": -0.4,
+        "wait": 0
+      },
+      {
+        "angle": -0.55,
+        "wait": 0
+      }
+    ],
+    "score": 1360,
+    "stars": 3,
+    "peak": 4
+  },
+  {
+    "stage": 4,
+    "shots": [
+      {
+        "angle": -0.25,
+        "wait": 0
+      },
+      {
+        "angle": 0.4,
+        "wait": 0
+      }
+    ],
+    "score": 1270,
+    "stars": 3,
+    "peak": 4
+  },
+  {
+    "stage": 5,
+    "shots": [
+      {
+        "angle": -0.85,
+        "wait": 0
+      }
+    ],
+    "score": 6900,
+    "stars": 3,
+    "peak": 3
+  },
+  {
+    "stage": 6,
+    "shots": [
+      {
+        "angle": 0.55,
+        "wait": 0
+      }
+    ],
+    "score": 1550,
+    "stars": 3,
+    "peak": 8
+  },
+  {
+    "stage": 7,
+    "shots": [
+      {
+        "angle": 0.45,
+        "wait": 600
+      }
+    ],
+    "score": 2060,
+    "stars": 3,
+    "peak": 8
+  },
+  {
+    "stage": 8,
+    "shots": [
+      {
+        "angle": 0,
+        "wait": 0
+      }
+    ],
+    "score": 2880,
+    "stars": 3,
+    "peak": 8
+  },
+  {
+    "stage": 9,
+    "shots": [
+      {
+        "angle": 0.3,
+        "wait": 0
+      }
+    ],
+    "score": 4530,
+    "stars": 3,
+    "peak": 16
+  },
+  {
+    "stage": 10,
+    "shots": [
+      {
+        "angle": 0.3,
+        "wait": 0
+      }
+    ],
+    "score": 9040,
+    "stars": 3,
+    "peak": 50
+  }
+]

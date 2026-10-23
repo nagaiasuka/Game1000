@@ -1,0 +1,32 @@
+{
+  "scope": "Chromium touch UI via temporary Expo Web harness; audio muted; native performance not measured",
+  "checks": [
+    "pause freezes rendered field",
+    "touch launch clears stage 1 after pause/cancel/resume",
+    "stars and stage 2 unlock survive reload",
+    "stage 2 clears using side reflection",
+    "endless wave 1 clear",
+    "endless wave 2 carries accumulated score",
+    "endless restart returns to wave 1",
+    "320x568 playfield and launch controls fit",
+    "endless record and reduced effects persist",
+    "catalog shows NEON CASCADE"
+  ],
+  "pageErrors": [],
+  "storedRecords": {
+    "highest": 3,
+    "stages": {
+      "1": {
+        "score": 1190,
+        "stars": 3
+      },
+      "2": {
+        "score": 2060,
+        "stars": 3
+      }
+    },
+    "endlessBest": 1440,
+    "endlessWave": 1,
+    "reducedEffects": true
+  }
+}

@@ -26,7 +26,8 @@ export type Game = {
     | "neon-path"
     | "neon-sling"
     | "neon-push"
-    | "neon-fish";
+    | "neon-fish"
+    | "neon-cascade";
   isNew?: boolean;
   isPopular?: boolean;
 } & (
@@ -130,6 +131,21 @@ export const games: Game[] = [
     isNew: true,
     status: "available",
     route: "/play/007",
+  },
+  {
+    id: "008",
+    gameNumber: 8,
+    title: "NEON CASCADE",
+    shortDescription:
+      "増やして、つないで、崩しきれ。最大64球の連鎖アクション。",
+    minPlayers: 1,
+    maxPlayers: 1,
+    estimatedMinutes: 3,
+    categories: ["reflex", "puzzle"],
+    artwork: "neon-cascade",
+    isNew: true,
+    status: "available",
+    route: "/play/008",
   },
 ];
 export const playerOptions = [

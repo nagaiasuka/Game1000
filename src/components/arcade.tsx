@@ -20,6 +20,7 @@ import {
   NeonSlingArtwork,
   NeonPushArtwork,
   NeonFishArtwork,
+  NeonCascadeArtwork,
 } from "./game-artwork";
 import { Icon, Tap, s as baseSharedStyles, type IconName } from "./ui";
 export function GameLogo({ compact = false }: { compact?: boolean }) {
@@ -220,6 +221,8 @@ export function GameCard({ game }: { game: Game }) {
         <NeonPathArtwork />
       ) : game.artwork === "neon-sling" ? (
         <NeonSlingArtwork />
+      ) : game.artwork === "neon-cascade" ? (
+        <NeonCascadeArtwork />
       ) : game.artwork === "neon-fish" ? (
         <NeonFishArtwork />
       ) : game.artwork === "neon-push" ? (

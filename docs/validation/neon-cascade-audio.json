@@ -1,0 +1,98 @@
+{
+  "scope": "PCM waveform and conservative linear mix bounds only; real-device playback quality/latency not measured",
+  "files": {
+    "bgm008": {
+      "peak": 0.22,
+      "rms": 0.03793,
+      "milliseconds": 29091,
+      "loopSeamSampleDifference": 0.000214
+    },
+    "bgm008fever": {
+      "peak": 0.22,
+      "rms": 0.03463,
+      "milliseconds": 29091,
+      "loopSeamSampleDifference": 0.002563
+    },
+    "cascadeHit1": {
+      "peak": 0.13,
+      "rms": 0.05294,
+      "milliseconds": 65
+    },
+    "cascadeHit2": {
+      "peak": 0.13,
+      "rms": 0.05289,
+      "milliseconds": 65
+    },
+    "cascadeHit3": {
+      "peak": 0.13,
+      "rms": 0.05218,
+      "milliseconds": 65
+    },
+    "cascadeHit4": {
+      "peak": 0.13,
+      "rms": 0.0527,
+      "milliseconds": 65
+    },
+    "cascadeHit5": {
+      "peak": 0.13,
+      "rms": 0.05266,
+      "milliseconds": 65
+    },
+    "cascadeHit6": {
+      "peak": 0.13,
+      "rms": 0.05235,
+      "milliseconds": 65
+    },
+    "cascadeGate": {
+      "peak": 0.14999,
+      "rms": 0.04636,
+      "milliseconds": 220
+    },
+    "cascadeBumper": {
+      "peak": 0.14999,
+      "rms": 0.05011,
+      "milliseconds": 85
+    },
+    "cascadeBomb": {
+      "peak": 0.14999,
+      "rms": 0.04417,
+      "milliseconds": 300
+    },
+    "cascadeFever": {
+      "peak": 0.14999,
+      "rms": 0.0452,
+      "milliseconds": 520
+    },
+    "cascadeFeverEnd": {
+      "peak": 0.14999,
+      "rms": 0.04524,
+      "milliseconds": 230
+    },
+    "cascadeClear": {
+      "peak": 0.14999,
+      "rms": 0.04463,
+      "milliseconds": 720
+    },
+    "cascadeOver": {
+      "peak": 0.14999,
+      "rms": 0.04405,
+      "milliseconds": 460
+    },
+    "cascadeWin": {
+      "peak": 0.14999,
+      "rms": 0.039,
+      "milliseconds": 1180
+    },
+    "ui": {
+      "peak": 0.05347,
+      "rms": 0.01557,
+      "milliseconds": 75
+    },
+    "start": {
+      "peak": 0.26697,
+      "rms": 0.08078,
+      "milliseconds": 310
+    }
+  },
+  "fourEffectsPlusBgmPeakUpperBoundAtVolumeOne": 0.93695
+}

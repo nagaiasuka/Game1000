@@ -302,5 +302,69 @@
   "bgm007": {
     "path": "game007/bgm007.wav",
     "ms": 29091
+  },
+  "bgm008": {
+    "path": "game008/bgm008.wav",
+    "ms": 29091
+  },
+  "bgm008fever": {
+    "path": "game008/bgm008fever.wav",
+    "ms": 29091
+  },
+  "cascadeHit1": {
+    "path": "game008/cascadeHit1.wav",
+    "ms": 65
+  },
+  "cascadeHit2": {
+    "path": "game008/cascadeHit2.wav",
+    "ms": 65
+  },
+  "cascadeHit3": {
+    "path": "game008/cascadeHit3.wav",
+    "ms": 65
+  },
+  "cascadeHit4": {
+    "path": "game008/cascadeHit4.wav",
+    "ms": 65
+  },
+  "cascadeHit5": {
+    "path": "game008/cascadeHit5.wav",
+    "ms": 65
+  },
+  "cascadeHit6": {
+    "path": "game008/cascadeHit6.wav",
+    "ms": 65
+  },
+  "cascadeGate": {
+    "path": "game008/cascadeGate.wav",
+    "ms": 220
+  },
+  "cascadeBumper": {
+    "path": "game008/cascadeBumper.wav",
+    "ms": 85
+  },
+  "cascadeBomb": {
+    "path": "game008/cascadeBomb.wav",
+    "ms": 300
+  },
+  "cascadeFever": {
+    "path": "game008/cascadeFever.wav",
+    "ms": 520
+  },
+  "cascadeFeverEnd": {
+    "path": "game008/cascadeFeverEnd.wav",
+    "ms": 230
+  },
+  "cascadeClear": {
+    "path": "game008/cascadeClear.wav",
+    "ms": 720
+  },
+  "cascadeOver": {
+    "path": "game008/cascadeOver.wav",
+    "ms": 460
+  },
+  "cascadeWin": {
+    "path": "game008/cascadeWin.wav",
+    "ms": 1180
   }
 }

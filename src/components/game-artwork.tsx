@@ -745,3 +745,120 @@ export function NeonFishArtwork() {
     </View>
   );
 }
+
+export function NeonCascadeArtwork() {
+  const c = useColors();
+  return (
+    <View
+      accessibilityLabel="NEON CASCADE、増殖ゲートを通った光の球がブロックを連鎖で崩す"
+      style={{
+        height: 180,
+        borderRadius: 18,
+        backgroundColor: "#091522",
+        borderWidth: 1,
+        borderColor: c.cyan + "55",
+        overflow: "hidden",
+        padding: 18,
+        flexDirection: "row",
+        alignItems: "center",
+      }}
+    >
+      <View style={{ flex: 1, gap: 8 }}>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{ color: c.cyan, fontSize: 10, fontWeight: "800" }}
+        >
+          最大64球の連鎖
+        </Text>
+        <Text
+          maxFontSizeMultiplier={1.05}
+          style={{
+            fontSize: 28,
+            lineHeight: 30,
+            color: c.text,
+            fontWeight: "900",
+            fontStyle: "italic",
+          }}
+        >
+          NEON{"\n"}CASCADE<Text style={{ color: c.pink }}>.</Text>
+        </Text>
+        <Text
+          maxFontSizeMultiplier={1.1}
+          style={{ color: c.muted, fontSize: 11 }}
+        >
+          増やして、つないで、崩しきれ。
+        </Text>
+      </View>
+      <View
+        style={{ width: 100, height: 150, transform: [{ rotate: "-8deg" }] }}
+      >
+        {Array.from({ length: 12 }, (_, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: (i % 4) * 24,
+              top: Math.floor(i / 4) * 14,
+              width: 20,
+              height: 10,
+              borderRadius: 2,
+              backgroundColor:
+                [c.cyan, c.purple, c.pink][Math.floor(i / 4)] + "AA",
+              borderWidth: 1,
+              borderColor: [c.cyan, c.purple, c.pink][Math.floor(i / 4)],
+            }}
+          />
+        ))}
+        {[0, 1].map((i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: 10 + i * 13,
+              top: 76 + i * 25,
+              width: 75 - i * 26,
+              height: 13,
+              borderRadius: 4,
+              borderWidth: 1,
+              borderColor: "#6DF5A5",
+              backgroundColor: "#164336",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              allowFontScaling={false}
+              style={{ color: "#A0FFD3", fontSize: 9, fontWeight: "900" }}
+            >
+              ×{i ? 2 : 4}
+            </Text>
+          </View>
+        ))}
+        {Array.from({ length: 9 }, (_, i) => (
+          <View
+            key={i}
+            style={{
+              position: "absolute",
+              left: 15 + (i % 4) * 20,
+              top: 48 + Math.floor(i / 4) * 7,
+              width: 5,
+              height: 5,
+              borderRadius: 5,
+              backgroundColor: "#F2FFFF",
+            }}
+          />
+        ))}
+        <View
+          style={{
+            position: "absolute",
+            left: 44,
+            bottom: 4,
+            width: 7,
+            height: 20,
+            borderRadius: 4,
+            backgroundColor: c.cyan,
+          }}
+        />
+      </View>
+    </View>
+  );
+}

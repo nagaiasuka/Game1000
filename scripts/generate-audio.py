@@ -83,3 +83,6 @@ runpy.run_path(str(ROOT / "scripts/generate-push-audio.py"), run_name="__main__"
 
 # Keep GAME #007 registered on full regeneration.
 runpy.run_path(str(ROOT / "scripts/generate-fish-audio.py"), run_name="__main__")
+
+# Keep the composed CASCADE soundtrack in the shared registry.
+runpy.run_path(str(ROOT / "scripts/generate-cascade-audio.py"), run_name="__main__")

@@ -1,0 +1,31 @@
+{
+  "runtime": "Node.js 24.21.0",
+  "tests": {
+    "pass": 259,
+    "fail": 0,
+    "skipped": 0
+  },
+  "lint": "passed",
+  "typecheck": "passed",
+  "diffCheck": "passed",
+  "bundleScope": "Offline Expo export / Hermes bytecode and assets; not a native binary build or device playback validation",
+  "bundles": {
+    "android": {
+      "bundle": "_expo/static/js/android/entry-68acfe1987720fbf8fe2a0071c1dda32.hbc",
+      "bytes": 4158872,
+      "assetCount": 120,
+      "cascadeWavCount": 16
+    },
+    "ios": {
+      "bundle": "_expo/static/js/ios/entry-29acd300e57f6e81833112a1fc6acacc.hbc",
+      "bytes": 3963843,
+      "assetCount": 116,
+      "cascadeWavCount": 16
+    }
+  },
+  "newDependencies": [],
+  "gitPush": false,
+  "easBuild": false,
+  "storeSubmission": false,
+  "scope": "Implementation validation before user-approved Git publication"
+}

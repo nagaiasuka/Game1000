@@ -1,5 +1,5 @@
 import { DEFAULT_AUDIO, sceneEffects } from "./types.ts";
-import type { AudioSettings, Effect, Scene } from "./types.ts";
+import type { AudioSettings, Effect, Scene, Music } from "./types.ts";
 import type { SoundId } from "./sounds.ts";
 export interface Player {
   volume: number;
@@ -23,12 +23,12 @@ export class AudioManager {
   private ready = false;
   private active = true;
   private scene: Scene = "home";
-  private music: Partial<Record<Scene, Scene>> = {};
+  private music: Partial<Record<Scene, Music>> = {};
   private paused: Partial<Record<Scene, boolean>> = {};
   private voices: Voice[] = [];
   private musicLevels: Partial<Record<Scene, number>> = {};
   private bgm: Player | null = null;
-  private bgmScene: Scene | null = null;
+  private bgmScene: Music | null = null;
   private fade: ReturnType<typeof setInterval> | null = null;
   private last = new Map<string, number>();
   private create: (id: SoundId) => Player;
@@ -61,7 +61,7 @@ export class AudioManager {
     this.loadEffects();
     this.syncBgm();
   }
-  setScene(scene: Scene, music: Scene = scene) {
+  setScene(scene: Scene, music: Music = scene) {
     if (scene === this.scene) {
       this.setMusic(scene, music);
       return;
@@ -74,7 +74,7 @@ export class AudioManager {
     this.syncBgm();
   }
   // BGM selection is separate from the preloaded gameplay effect pool.
-  setMusic(scene: Scene, music: Scene) {
+  setMusic(scene: Scene, music: Music) {
     if ((this.music[scene] ?? scene) === music) return;
     this.music[scene] = music;
     if (scene === this.scene) this.syncBgm();
@@ -102,7 +102,8 @@ export class AudioManager {
   }
   private loadEffects() {
     for (const sound of sceneEffects[this.scene]) {
-      const copies = sound.startsWith("break") ? 2 : 1;
+      const copies =
+        sound.startsWith("break") || sound.startsWith("cascadeHit") ? 2 : 1;
       for (let i = 0; i < copies; i++)
         this.safe(() => {
           const player = this.create(sound);
@@ -114,15 +115,21 @@ export class AudioManager {
   play(sound: Effect, priority = 1) {
     if (!this.ready || !this.active || !this.settings.se) return;
     const now = this.now();
-    const group = sound.startsWith("break") ? "break" : sound;
+    const group = sound.startsWith("cascadeHit")
+      ? "cascadeHit"
+      : sound.startsWith("break")
+        ? "break"
+        : sound;
     const cooldown =
-      group === "break"
-        ? 45
-        : sound === "move"
-          ? 110
-          : sound === "ui"
-            ? 70
-            : 50;
+      group === "cascadeHit"
+        ? 75
+        : group === "break"
+          ? 45
+          : sound === "move"
+            ? 110
+            : sound === "ui"
+              ? 70
+              : 50;
     if (now - (this.last.get(group) ?? -Infinity) < cooldown) return;
     const available = this.voices.filter(
       (v) => v.sound === sound && v.player.isLoaded,
