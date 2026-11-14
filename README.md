@@ -8,6 +8,8 @@ ASOBIT（アソビット）はiOS・Android向けミニゲームアプリです�
 
 HOMEのChallengeカードから `/project` のASOBIT CHALLENGEへ進めます。カタログのavailable件数から `005 / 030`・あと25ゲームを自動計算。30本達成でCHALLENGE CLEAR、期間終了で100 DAYS COMPLETEとRESULTを表示します。31本以降もカタログに登録でき、ASOBIT全体の収録数は実数を表示します。開始前は開始日と「まもなくスタート」を表示します。日付は日本時間で計算し、画面復帰時と表示中は毎分更新します。
 
+開発を引き継ぐときは[開発引き継ぎ](docs/handoff.md)、TestFlight配布やストア更新には[配布とストア公開](docs/release.md)を参照してください。
+
 ## 起動
 
 Node.js 24を利用します（`.nvmrc`）。nvmがある環境では以下を実行してください。
